@@ -24,7 +24,7 @@ export default function DownHeader() {
                     <div className="col-md-12">
 
                         <div className="col-md-4 logo">
-                            <h1><a href="./index.html">Gazeta</a></h1>
+                            <h1><a href="./index.html">The Hawk</a></h1>
                         </div>
 
 

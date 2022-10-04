@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supercharge/collections": "^4.3.0",
+    "axios": "^0.27.2",
+    "moment": "^2.29.4",
     "mongoose": "^6.6.3",
     "next": "12.3.1",
     "next-seo": "^5.5.0",
@@ -16,7 +19,8 @@
     "react-dom": "18.2.0",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
-    "slugify": "^1.6.5"
+    "slugify": "^1.6.5",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "eslint": "8.24.0",

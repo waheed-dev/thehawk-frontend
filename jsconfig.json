@@ -5,8 +5,8 @@
       "@/components/*": ["components/*"],
       "@/layout/*": ["layout/*"],
 
-
       "@/css/*": ["assets/css/*"],
+      "@/config/*": ["config/*"],
 
       "@/images/*": ["assets/images/*"]
     }
