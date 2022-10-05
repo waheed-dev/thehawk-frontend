@@ -3,14 +3,21 @@ import DownHeader from "@/components/common/DownHeader";
 import MainContent from "@/components/home/MainContent";
 import FetauredPost from "@/components/home/MainContent";
 import Layout from "layout";
+import db from "../DB/Conn";
+import Category from "../Model/categoryJs";
+import SubCategory from "../Model/subCategory";
+import Post from "../Model/postModel";
+import { useState } from "react";
+import Link from "next/link";
 
-
-export default function Home() {
+import url from "@/config/url";
+export default function Home({ postsData, category, subCategory }) {
+  const [posts, setposts] = useState(postsData);
   return (
     <>
       <Layout>
-        <DownHeader />
-  <MainContent/>
+    
+        <MainContent posts={posts} category={category} subCategory={subCategory} />
 
         {/* Category Posts */}
 
@@ -180,11 +187,57 @@ export default function Home() {
               </ul>
             </div>
             <div className="col-md-6">
-              <p className="copy1">Copyright &copy; 2014 Gazeta. Web Design by PremiumLayersi <a href="#" className="fa fa-arrow-up"></a></p>
+              <p className="copy1">Copyright &copy; <Link href={url.home}>
+                <a>
+                  thehawk.in 
+              </a>
+              </Link> <a onClick={() => {
+                window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+              }} className="fa fa-arrow-up"></a></p>
             </div>
           </div>
         </div>
     </Layout>
     </>
   )
+}
+
+
+
+export async function getStaticProps() {
+  await db.dbConnect();
+  const cat = await Category.find()
+    .sort({
+      $natural: -1,
+    })
+    .lean();
+
+  let data = [];
+
+  const postLoader = cat.map(async (category) => {
+    const res = await Post.find(
+      { "category.id": category._id },
+      { description: 0 }
+    )
+      .sort({
+        $natural: -1,
+      })
+
+      .limit(10)
+      .lean();
+
+    data = [...data, ...res];
+  });
+  
+  await Promise.all(postLoader);
+  const subCat = await SubCategory.find().lean();
+
+  return {
+    props: {
+      postsData: data.map(db.convertDocToObj),
+      category: cat.map(db.convertDocToObj),
+      subCategory: subCat.map(db.convertDocToObj),
+    },
+    revalidate: 120,
+  };
 }

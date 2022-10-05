@@ -7,7 +7,7 @@ export default function Header() {
     const [categoryData, setcategoryData] = useState([])
     const [subCategoryData, setsubCategoryData] = useState([]);
     const [rssData, setrssData] = useState([])
-
+    const [sticky, setSticky] = useState(false);
     const fetchData = async () => {
 
 
@@ -29,11 +29,28 @@ export default function Header() {
     useEffect(() => {
         fetchData()
     }, [])
-    
+
+
+
+    const handleScroll = () => {
+        if (window.scrollY > 70) {
+            setSticky(true);
+        } else if (window.scrollY < 70) {
+            setSticky(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [sticky]);
     return (
         <>
 
-            <header>
+            <header className={` ${true === sticky ? "sticky-header" : null
+                }`}>
                 <div className="col-md-12">
                     <div className="row">
 

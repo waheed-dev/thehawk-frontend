@@ -6,5 +6,8 @@ const url = {
   subCategory: {
     single: "/subcategory/:name/:id",
   },
+  post: {
+    single: "/posts/:title/:id",
+  },
 };
 export default url;

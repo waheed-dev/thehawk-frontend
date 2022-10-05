@@ -1,218 +1,30 @@
 import React from 'react'
 import AddToTopPost from './AddToTopPost'
+import CommonCategoryNews from './CommonCategoryNews'
+import LatestNews from './LatestNews'
+import PopularNews from './PopularNews'
 /* eslint-disable react/no-unescaped-entities */
 
 
-export default function MainContent() {
+export default function MainContent({ posts, category, subCategory  }) {
   return (
     <>
           <div className="main-content container">
               <div className="col-md-8 block-1">
                   <div className="row">
-                <AddToTopPost/>
+                      <AddToTopPost posts={posts} />
 
-                      <div className="col-md-3 b1-aside">
-                          <h5><span>Latest News</span></h5>
-                          <div className="bla-content">
-                              <div className="thumb">
-                                  <img src="images/xtra/1.jpg" className="img-responsive" alt="" />
-                                  <span className="thumb-cat">Technology</span>
-                              </div>
-
-                              <p>Posted on November 02, 2014</p>
-                              <h4><a href="./single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-                              <div className="sep"></div>
-                              <span className="cat-default">Sport</span>
-                              <p>Posted on November 02, 2014</p>
-                              <h4><a href="./single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-                              <div className="sep"></div>
-                              <span className="cat-default">Business</span>
-                              <p>Posted on November 02, 2014</p>
-                              <h4><a href="./single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-                              <div className="sep"></div>
-                              <span className="cat-default">Entertainment</span>
-                              <p>Posted on November 02, 2014</p>
-                              <h4><a href="./single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-                              <div className="sep"></div>
-                              <span className="cat-default">Entertainment</span>
-                              <p>Posted on November 02, 2014</p>
-                              <h4><a href="./single_post.html">Tempor Cum Soluta Nobis Eleifend Option Congue Nihil</a></h4>
-                              <div className="sep"></div>
-                              <a href="#" className="btn1">View All Posts</a>
-                          </div>
-                          <div className="bla-content banner">
-                              <img src="images/banner/1.jpg" className="img-responsive" alt="" />
-                          </div>
-                      </div>
+                      <LatestNews posts={posts} />
+                 
                   </div>
 
-                  <div className="row">
-                      <div className="col-md-12">
-                          <div className="cat-blocks">
-                              <h4><span>Technology</span></h4>
-                              <div className="row">
-                                  <div className="col-md-6">
-                                      <div className="cb-big">
-                                          <div className="bl-meta">
-                                              <span><i className="fa fa-comments-o"></i> 4 Comments</span><br />
-                                              <span><i className="fa fa-heart-o"></i> 23 Likes</span>
-                                          </div>
-                                          <img src="images/xtra/7.jpg" className="img-responsive" alt="" />
-                                          <div className="bl-info">
-                                              <h3><a href="./single_post.html">Eodem Modo Typi, Qui Nunc Nobis Videntur Parum Clari</a></h3>
-                                              <p>Posted on November 02, 2014</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-md-6 cb-info">
-                                      <span className="cat">Technology</span>
-                                      <h5><a href="./single_post.html">Eodem Modo Typi, Qui Nunc Nobis Videntur Parum Clari</a></h5>
-                                      <span className="date">Posted on November 02, 2014</span>
-                                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet doloremagna aliquam erat volutpat. ex ea commodo</p>
-                                      <ul>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <div className="space40"></div>
-                          </div>
+                  <CommonCategoryNews category={category} subCategory={subCategory} posts={posts} />
 
-                          <div className="cat-blocks">
-                              <h4><span>Business</span></h4>
-                              <div className="row">
-                                  <div className="col-md-6">
-                                      <div className="cb-big">
-                                          <div className="bl-meta">
-                                              <span><i className="fa fa-comments-o"></i> 4 Comments</span><br />
-                                              <span><i className="fa fa-heart-o"></i> 23 Likes</span>
-                                          </div>
-                                          <img src="images/xtra/8.jpg" className="img-responsive" alt="" />
-                                          <div className="bl-info">
-                                              <h3><a href="./single_post.html">Eodem Modo Typi, Qui Nunc Nobis Videntur Parum Clari</a></h3>
-                                              <p>Posted on November 02, 2014</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-md-6 cb-info">
-                                      <span className="cat">Business</span>
-                                      <h5><a href="./single_post.html">Eodem Modo Typi, Qui Nunc Nobis Videntur Parum Clari</a></h5>
-                                      <span className="date">Posted on November 02, 2014</span>
-                                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet doloremagna aliquam erat volutpat. ex ea commodo</p>
-                                      <ul>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <div className="space40"></div>
-                          </div>
-
-                          <div className="cat-blocks">
-                              <h4><span>Entertainment</span></h4>
-                              <div className="row">
-                                  <div className="col-md-6">
-                                      <div className="cb-big">
-                                          <div className="bl-meta">
-                                              <span><i className="fa fa-comments-o"></i> 4 Comments</span><br />
-                                              <span><i className="fa fa-heart-o"></i> 23 Likes</span>
-                                          </div>
-                                          <img src="images/xtra/9.jpg" className="img-responsive" alt="" />
-                                          <div className="bl-info">
-                                              <h3><a href="./single_post.html">Eodem Modo Typi, Qui Nunc Nobis Videntur Parum Clari</a></h3>
-                                              <p>Posted on November 02, 2014</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div className="col-md-6 cb-info">
-                                      <span className="cat">Entertainment</span>
-                                      <h5><a href="./single_post.html">Eodem Modo Typi, Qui Nunc Nobis Videntur Parum Clari</a></h5>
-                                      <span className="date">Posted on November 02, 2014</span>
-                                      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet doloremagna aliquam erat volutpat. ex ea commodo</p>
-                                      <ul>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                          <li><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></li>
-                                      </ul>
-                                  </div>
-                              </div>
-                              <div className="space40"></div>
-                          </div>
-
-                          <div className="cat-blocks">
-                              <h4><span>Your Opinion</span></h4>
-                              <div className="row">
-                                  <div className="col-md-6">
-                                      <div className="op-twitter">
-                                          <div className="opt-inner">
-                                              <p>Check out 'Gazeta - Magazine HTML Template  on <a href="#">@EnvatoMarket #themeforest<br /> http://themeforest.net/item/gazeta-magazine-html-template--</a></p>
-                                              <em>3 Hours . <a href="#">Reply</a></em>
-                                          </div>
-                                          <span className="ico"><i className="fa fa-twitter"></i></span>
-                                      </div>
-                                  </div>
-                                  <div className="col-md-6">
-                                      <div className="op-info">
-                                          <div className="opi-inner">
-                                              <em>John Smith <span>- Internet Marketer</span></em>
-                                              <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros</p>
-                                          </div>
-                                          <span className="ico"><img src="images/xtra/1.png" alt="" /></span>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div className="space40"></div>
-                          </div>
-                      </div>
-                  </div>
               </div>
 
               <aside className="col-md-4">
 
-                  <div className="side-widget p-news">
-                      <h5><span>Popular news</span></h5>
-                      <div className="sw-inner">
-                          <ul>
-                              <li>
-                                  <img src="images/aside/1.jpg" alt="" />
-                                  <div className="pn-info">
-                                      <span>Politic</span>
-                                      <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
-                                  </div>
-                              </li>
-                              <li>
-                                  <img src="images/aside/2.jpg" alt="" />
-                                  <div className="pn-info">
-                                      <span>Politic</span>
-                                      <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
-                                  </div>
-                              </li>
-                              <li>
-                                  <img src="images/aside/3.jpg" alt="" />
-                                  <div className="pn-info">
-                                      <span>Business</span>
-                                      <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
-                                  </div>
-                              </li>
-                              <li>
-                                  <img src="images/aside/4.jpg" alt="" />
-                                  <div className="pn-info">
-                                      <span>Technology</span>
-                                      <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
-                                  </div>
-                              </li>
-                              <li>
-                                  <img src="images/aside/5.jpg" alt="" />
-                                  <div className="pn-info">
-                                      <span>Uncategorized</span>
-                                      <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
-                                  </div>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
+                  <PopularNews posts={posts} />
 
                   <div className="side-widget sw-banner">
                       <a href="#"><img src="images/banner/2.jpg" className="img-responsive" alt="" /></a>
