@@ -17,8 +17,25 @@ export default function MainContent({ posts, category, subCategory  }) {
                       <LatestNews posts={posts} />
                  
                   </div>
-
-                  <CommonCategoryNews category={category} subCategory={subCategory} posts={posts} />
+                  {
+                      category &&
+                      category
+                         
+                          .filter((filtered) => filtered.addToComminSection === true)
+                          .sort(
+                              (a, b) =>
+                                  new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+                          )
+                          .slice(0, (category.filter((filtered) => filtered.addToComminSection === true)).length / 2)
+                          .map((categoryDetail) => (
+                              
+                              <>
+                                  <CommonCategoryNews categoryDetail={categoryDetail} subCategory={subCategory.filter((curElem) => curElem.categoryId === categoryDetail._id)} posts={posts.filter((catFiltered) => catFiltered.category.id === categoryDetail._id)
+                                     } />
+                              </>
+                          ))
+                  }
+                
 
               </div>
 
@@ -145,6 +162,7 @@ export default function MainContent({ posts, category, subCategory  }) {
                       </div>
                   </div>
               </aside>
+              
           </div>
     </>
   )

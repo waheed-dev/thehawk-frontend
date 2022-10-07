@@ -8,6 +8,7 @@ export default function Header() {
     const [subCategoryData, setsubCategoryData] = useState([]);
     const [rssData, setrssData] = useState([])
     const [sticky, setSticky] = useState(false);
+    const [menuOpen, setmenuOpen] = useState(false)
     const fetchData = async () => {
 
 
@@ -58,12 +59,23 @@ export default function Header() {
                             <Navbar categoryData={categoryData} subCategoryData={subCategoryData} rssData={rssData} />
                            
 
-                            <div className="search">
+                            <div style={{
+                                display: `${menuOpen ? 'block' : 'none'}`
+                            }} className="search">
                                 <form>
-                                    <input type="search" placeholder="Type to search and hit enter" />
+                                    <input style={{
+
+                                        outline: "1px solid #ccc"
+
+                                    }} type="search" placeholder="Type to search and hit enter" />
                                 </form>
                             </div>
-                            <span className="search-trigger"><i className="fa fa-search"></i></span>
+                            {/* fa fa-search fa-times */}
+                            <span onClick={() => {
+                                setmenuOpen((previouSate) => !previouSate)
+                            }} className="search-trigger">
+                                <i className={menuOpen ? "fa fa-search fa-times" :"fa fa-search"} />
+                            </span>
                         </div>
                     </div>
                 </div>

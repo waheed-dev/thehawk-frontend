@@ -3,3 +3,21 @@ z-index: 300000;
     position: sticky;
     top: 0;
 }
+.opi-inner:after{
+background: none;
+}
+.opt-inner:after{
+    background: none;
+}
+
+.opi-inner {
+    background-color: #fff;
+    box-shadow: none;
+    border: none;
+
+}
+
+.title-india{
+    color: #fff;
+    padding-bottom: 20px;
+}
