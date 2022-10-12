@@ -13,13 +13,13 @@ export default function TrendingNews({ posts }) {
                       posts.sort((a, b) => new Date(b.createdAt).getTime() -
                           new Date(a.createdAt).getTime())
                           .filter((currentElement) => currentElement.isTrending === true)
-                          .slice(0, 4)
+                          .slice(0, 5)
                           .map((post) => (
                               <>
                                   <div className="col-md-12">
                                       <div className="fn2-inner">
                                           <div className="fn2-thumb">
-                                              <img src={post.img} className="img-responsive" alt={ post.imgAlt} />
+                                              <img src={post.img.replace('/upload/' , '/upload/w_270,h_210/')} className="img-responsive" alt={ post.imgAlt} />
                                           </div>
                                           <div className="fn2-info">
                                               <div className="fn2-meta">{post.category.name }

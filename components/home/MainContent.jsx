@@ -4,6 +4,7 @@ import BlueNewsSection from './BlueNewsSection'
 import CommonCategoryNews from './CommonCategoryNews'
 import LatestNews from './LatestNews'
 import PopularNews from './PopularNews'
+import Sidebar from './Sidebar'
 /* eslint-disable react/no-unescaped-entities */
 
 
@@ -45,61 +46,7 @@ export default function MainContent({ posts, category, subCategory  }) {
 
               </div>
 
-              <aside className="col-md-4">
-
-                  <PopularNews posts={posts} />
-
-                  <div className="side-widget sw-banner">
-                      <a href="#"><img src="images/banner/2.jpg" className="img-responsive" alt="" /></a>
-                  </div>
-
-               
-
-                  <div className="side-widget sw-video">
-                      <h5><span>Featured Video</span></h5>
-                      <div className="sw-inner">
-                          <ul>
-                              <li>
-                                  <div className="swv-thumb">
-                                      <img src="images/aside/7.jpg" className="img-responsive" alt="" />
-                                  </div>
-                                  <span>Travelling</span>
-                                  <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
-                              </li>
-                              <li>
-                                  <i className="fa fa-video-camera"></i>
-                                  <span>Entertainment</span>
-                                  <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
-                              </li>
-                              <li>
-                                  <i className="fa fa-video-camera"></i>
-                                  <span>Sport</span>
-                                  <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
-                              </li>
-                          </ul>
-                      </div>
-                  </div>
-
-               
-
-                  <div className="side-widget sw-contributors">
-                      <h5><span>Contributors</span></h5>
-                      <div className="sw-inner">
-                          <ul>
-                              <li><a href="./contributor.html"><img src="images/aside/1/1.jpg" className="img-responsive" alt="" /></a></li>
-                              <li><a href="./contributor.html"><img src="images/aside/1/2.jpg" className="img-responsive" alt="" /></a></li>
-                              <li><a href="./contributor.html"><img src="images/aside/1/3.jpg" className="img-responsive" alt="" /></a></li>
-                              <li><a href="./contributor.html"><img src="images/aside/1/4.jpg" className="img-responsive" alt="" /></a></li>
-                              <li><a href="./contributor.html"><img src="images/aside/1/5.jpg" className="img-responsive" alt="" /></a></li>
-                              <li><a href="./contributor.html"><img src="images/aside/1/6.jpg" className="img-responsive" alt="" /></a></li>
-                              <li><a href="./contributor.html"><img src="images/aside/1/7.jpg" className="img-responsive" alt="" /></a></li>
-                              <li><a href="./contributor.html"><img src="images/aside/1/8.jpg" className="img-responsive" alt="" /></a></li>
-                          </ul>
-                      </div>
-                  </div>
-
-                
-              </aside>
+              <Sidebar posts={posts} category={ category} subCategory={subCategory} />
               
           </div>
     </>

@@ -55,7 +55,7 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img src={post.img} className="img-responsive" alt={post.imgAlt} />
+                                                <img src={post.img.replace('/upload/', '/upload/w_290,h_170/')} className="img-responsive" alt={post.imgAlt} />
 
                                                 <h4><a href="#">
                                                     {post.postitle}
@@ -88,7 +88,7 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img src={post.img} className="img-responsive" alt={post.imgAlt} />
+                                                <img src={post.img.replace('/upload/' , '/upload/w_290,h_170/')} className="img-responsive" alt={post.imgAlt} />
 
                                                 <h4><a href="#">
                                                     {post.postitle}

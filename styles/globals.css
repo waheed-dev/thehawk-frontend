@@ -31,3 +31,25 @@ background: none;
 .css-1okebmr-indicatorSeparator{
         display: none !important;
 }
+
+
+.slick-prev {
+    left: unset !important;
+}
+
+.slick-prev, .slick-next {
+    font-size: 0;
+    line-height: unset !important;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: unset !important;
+    transform: unset !important;
+    cursor: pointer;
+    color: transparent unset !important;
+    border: 3px solid #232323 !important;
+    outline: unset !important;
+
+}

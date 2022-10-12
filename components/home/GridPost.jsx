@@ -130,7 +130,7 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
 
                                                   filteredPost
                                                       .filter((filtered) => filtered.isFetaured === false)
-                                                      .filter((subCat) => subCat.subCategory.id !== '').length === 0 ? 7 : 4
+                                                      .filter((subCat) => subCat.subCategory.id !== '').length === 0 ? 10 : 6
 
                                               )
                                               .map((post) => (

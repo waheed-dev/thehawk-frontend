@@ -47,7 +47,7 @@ export default function Navbar({ categoryData, subCategoryData, rssData }) {
                             .map((menu) => (
                                 <>
                                     {/* sub-nav */}
-                                    <li className={router.asPath == url.category.single.replace(":name", slugify(menu.category)).replace(':id', menu._id) ? "active" : ""}>
+                                    <li key={menu._id} className={router.asPath == url.category.single.replace(":name", slugify(menu.category)).replace(':id', menu._id) ? "active" : ""}>
                                         <Link href={url.category.single.replace(":name", slugify(menu.category)).replace(':id', menu._id)}>
                                             <a onMouseEnter={() => {
                                                 filterinfDataIntoColumn(menu._id)

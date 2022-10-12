@@ -1,3 +1,5 @@
+import api from "./api";
+
 const endpoints = {
   category: {
     single: "/category/:name/:id",
@@ -9,6 +11,9 @@ const endpoints = {
   },
   rss: {
     all: "/rss/all",
+  },
+  users: {
+    all: `${api}/user`,
   },
 };
 export default endpoints;
