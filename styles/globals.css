@@ -21,3 +21,13 @@ background: none;
     color: #fff;
     padding-bottom: 20px;
 }
+
+.react-select-6-live-region{
+    display: none !important;
+}
+.css-1f43avz-a11yText-A11yText{
+        display: none !important;
+}
+.css-1okebmr-indicatorSeparator{
+        display: none !important;
+}

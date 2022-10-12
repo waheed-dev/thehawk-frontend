@@ -1,5 +1,5 @@
 import React from 'react'
-import CommonNewsFetauredSection from './CommonNewsFetauredSection'
+import CommonNewsFetauredSection from './PlainNewsFetauredSection'
 
 export default function PlainSection({ categoryDetail, posts }) {
     return (

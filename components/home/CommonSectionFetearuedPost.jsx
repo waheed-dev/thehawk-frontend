@@ -9,7 +9,7 @@ export default function CommonSectionFetearuedPost({ fetaurePost }) {
                       {/* <span><i className="fa fa-comments-o"></i> 4 Comments</span><br />
                             <span><i className="fa fa-heart-o"></i> 23 Likes</span> */}
                   </div>
-                  <img src={fetaurePost.img} className="img-responsive" alt={fetaurePost.imgAlt} style={{
+                  <img src={fetaurePost.img.replace('/upload/', '/upload/w_350,h_450/')} className="img-responsive" alt={fetaurePost.imgAlt} style={{
                       minHeight: "450px"
                   }} />
                   <div className="bl-info">

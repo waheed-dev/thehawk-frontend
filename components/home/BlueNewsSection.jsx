@@ -4,12 +4,12 @@ import React from 'react'
 export default function BlueNewsSection({ categoryDetails, post }) {
   return (
     <>
-          <div class="cat-blocks">
+          <div className="cat-blocks">
               <h4><span>{categoryDetails.category }</span></h4>
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="op-twitter">
-                          <div class="opt-inner">
+              <div className="row">
+                  <div className="col-md-6">
+                      <div className="op-twitter">
+                          <div className="opt-inner">
                               <h2 className='title-india'>
                                   {post.postitle}
                                  
@@ -21,16 +21,16 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                         
                       </div>
                   </div>
-                  <div class="col-md-6">
-                      <div class="op-info">
-                          <div class="opi-inner">
+                  <div className="col-md-6">
+                      <div className="op-info">
+                          <div className="opi-inner">
                               <img src={post.img} className="img-responsive" alt={post.imgAlt} />
                           </div>
                         
                       </div>
                   </div>
               </div>
-              <div class="space40"></div>
+              <div className="space40"></div>
           </div>
     </>
   )
