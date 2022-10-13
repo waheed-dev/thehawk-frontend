@@ -15,5 +15,9 @@ const endpoints = {
   users: {
     all: `${api}/user`,
   },
+  post: {
+    getPostByCategory: `${api}/category/:id`,
+    getPostBySubCategory: `${api}/subCategory/:id`,
+  },
 };
 export default endpoints;
