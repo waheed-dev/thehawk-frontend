@@ -11,6 +11,7 @@
   "dependencies": {
     "@supercharge/collections": "^4.3.0",
     "axios": "^0.27.2",
+    "html-to-text": "^8.2.1",
     "moment": "^2.29.4",
     "mongoose": "^6.6.3",
     "next": "12.3.1",

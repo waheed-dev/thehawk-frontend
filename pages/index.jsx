@@ -215,7 +215,7 @@ export default function Home({ postsData, category, subCategory }) {
             ))
         }
 
-        <Footer />
+        {/* <Footer /> */}
 
 
 
