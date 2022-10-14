@@ -3,12 +3,17 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import api from '@/config/api';
 import endpoints from '@/config/endpoints';
+import { useRouter } from 'next/router';
+import url from '@/config/url'
+import slugify from 'slugify';
 export default function Header() {
+    const router = useRouter()
     const [categoryData, setcategoryData] = useState([])
     const [subCategoryData, setsubCategoryData] = useState([]);
     const [rssData, setrssData] = useState([])
     const [sticky, setSticky] = useState(false);
     const [menuOpen, setmenuOpen] = useState(false)
+    const [query, setquery] = useState('')
     const fetchData = async () => {
 
 
@@ -29,7 +34,11 @@ export default function Header() {
 
     useEffect(() => {
         fetchData()
-    }, [])
+        if (router.query.q) {
+            setmenuOpen(true)
+            setquery(router.query.q.replaceAll('-', ' '))
+        }
+    }, [router.query.q])
 
 
 
@@ -47,6 +56,18 @@ export default function Header() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [sticky]);
+
+
+    const search = (searchquery) => {
+        if (!menuOpen) {
+            setmenuOpen(true)
+        } else {
+            if (!searchquery) {
+                return
+            }
+            router.push(url.search.replace(':q', slugify(searchquery))) 
+        }
+    }
     return (
         <>
 
@@ -63,18 +84,34 @@ export default function Header() {
                                 display: `${menuOpen ? 'block' : 'none'}`
                             }} className="search">
                                 <form>
-                                    <input style={{
+                                    <input value={query} style={{
 
                                         outline: "1px solid #ccc"
 
+                                    }} onChange={(e) => {
+                                        setquery(e.target.value)
                                     }} type="search" placeholder="Type to search and hit enter" />
                                 </form>
                             </div>
                             {/* fa fa-search fa-times */}
-                            <span onClick={() => {
-                                setmenuOpen((previouSate) => !previouSate)
-                            }} className="search-trigger">
-                                <i className={menuOpen ? "fa fa-search fa-times" :"fa fa-search"} />
+                            <span
+                                onClick={() => {
+                                    search(query)
+                                }}
+                                
+                                className="search-trigger">
+                                <i className={"fa fa-search"}  />
+                                {
+                                    menuOpen ? <i style={{
+                                        marginLeft: '7px'
+                                    }}
+                                    
+                                        onClick={() => {
+                                            setmenuOpen(false)
+                                        }} className={menuOpen ? "fa fa-search fa-times" : "fa fa-search"} /> : null
+                                }
+                               
+
                             </span>
                         </div>
                     </div>

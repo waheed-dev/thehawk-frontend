@@ -2,30 +2,25 @@ import React from 'react'
 import AuthorInfo from './AuthorInfo'
 import PostedByAuthor from './PostedByAuthor'
 
-export default function MainContent() {
+export default function MainContent({ postData, author }) {
+
   return (
     <>
           <div class="col-md-8 blog-single">
               <div class="bs-meta">
-                  <span class="bs-cat">Contributor</span>
+                  <span class="bs-cat">
+                      {
+                          author?.isAdmin===true? 'Admin':'Author' 
+                      }
+                  </span>
               </div>
-      <AuthorInfo/>
+              {
+                  author ? <AuthorInfo author={author} />:''
+              }
+             
 
-          <PostedByAuthor/>
+              <PostedByAuthor author={author} postData={postData} />
 
-              <div class="page-nav">
-                  <span>Page</span>
-                  <ul>
-                      <li class="active"><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">4</a></li>
-                      <li><a href="#">...</a></li>
-                      <li><a href="#">11</a></li>
-                      <li><a href="#">12</a></li>
-                      <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                  </ul>
-              </div>
           </div>
     </>
   )

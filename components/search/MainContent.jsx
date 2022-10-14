@@ -2,7 +2,7 @@ import React from 'react'
 import SearchPageSidebar from './SearchPageSidebar'
 import SearchResult from './SearchResult'
 
-export default function MainContent() {
+export default function MainContent({ postData }) {
   return (
     <>
           <div class="main-content container">
@@ -12,7 +12,7 @@ export default function MainContent() {
                   </div>
 
                   <div class="space30"></div>
-              <SearchResult/>
+          <SearchResult postData={postData} />
               </div>
 
            <SearchPageSidebar/>

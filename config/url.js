@@ -9,5 +9,6 @@ const url = {
   post: {
     single: "/posts/:title/:id",
   },
+  search:'/search/:q'
 };
 export default url;

@@ -1,14 +1,19 @@
 
 import MainContent from '@/components/author/MainContent'
 import Layout from '@/layout/index'
+import db from 'DB/Conn';
+import Post from 'Model/postModel';
+import User from 'Model/userModel';
 import React from 'react'
 
-export default function index() {
+export default function AuthorPage({
+    postData, author
+}) {
   return (
       <>
           <Layout>
               <div class="main-content container">
-                  <MainContent />
+                  <MainContent postData={postData} author={author[0]} />
 
                   <aside class="col-md-4">
 
@@ -78,4 +83,42 @@ export default function index() {
 
     </>
   )
+}
+
+
+export async function getStaticPaths() {
+
+    const paths = [];
+
+
+    return { paths, fallback: 'blocking' };
+}
+export async function getStaticProps(context) {
+    const { params } = context;
+
+    const { id } = params;
+    await db.dbConnect();
+    const Author = await User.find({
+        _id: id
+    }).lean();
+
+    const data = await Post.find({ 'author.id': id })
+        .sort({
+            $natural: -1,
+        })
+        .limit(15)
+        .lean();
+
+
+
+
+
+    return {
+        props: {
+            postData: data.map(db.convertDocToObj),
+            author: Author.map(db.convertDocToObj),
+
+        },
+        revalidate: 120,
+    };
 }
