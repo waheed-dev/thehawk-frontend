@@ -4,7 +4,7 @@ export default function AuthorInfo({ author }) {
   return (
     <>
           <div class="contributor-info">
-        <img src={author?.avatar ? author?.avatar : 'https://res.cloudinary.com/thehawk/image/upload/w_79,h_79/v1647778416/etg05xddcvjn1hacsuyz.jpg' } alt="" />
+        <img loading='lazy' src={author?.avatar ? author?.avatar : 'https://res.cloudinary.com/thehawk/image/upload/w_79,h_79/v1647778416/etg05xddcvjn1hacsuyz.jpg' } alt="" />
         <h6>
           {
             author.professionalName

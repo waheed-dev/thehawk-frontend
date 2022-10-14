@@ -1,21 +1,55 @@
 /* eslint-disable react/no-unescaped-entities */
+import Link from 'next/link'
 import React from 'react'
-
+import url from '@/config/url'
+import slugify from 'slugify'
 export default function BlueNewsSection({ categoryDetails, post }) {
+
   return (
     <>
           <div className="cat-blocks">
-              <h4><span>{categoryDetails.category }</span></h4>
+              <h4><span>
+                  <Link
+                 
+                      href={url.category
+                      .single.replace(':name', slugify(categoryDetails.category))
+                      .replace(':id', categoryDetails._id)
+                  }
+                  >
+                   
+                      <a style={{
+                          color: "#fff"
+                      }}>
+                          {categoryDetails.category}    
+                  </a>
+                  </Link>
+                </span></h4>
               <div className="row">
                   <div className="col-md-6">
                       <div className="op-twitter">
                           <div className="opt-inner">
                               <h2 className='title-india'>
-                                  {post.postitle}
+                                  <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id' , post._id)}>
+                                      <a style={{
+                                          color: "#fff"
+                                      }}>
+                                          {post.postitle}
+                                      </a>
+                                  </Link>
+                              
+                               
                                  
                               </h2>
                               <p className='mt-3' >
-                                  {post.postText}</p>
+                                
+                                  <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                      <a style={{
+                                          color: "#fff"
+                                      }}>
+                                          {post.postText}
+                                      </a>
+                                  </Link>
+                              </p>
                             
                           </div>
                         
@@ -24,7 +58,11 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                   <div className="col-md-6">
                       <div className="op-info">
                           <div className="opi-inner">
-                              <img src={post.img} className="img-responsive" alt={post.imgAlt} />
+                              <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                  <a >
+                                      <img src={post.img} loading="lazy" className="img-responsive" alt={post.imgAlt} />
+                                  </a></Link>
+                            
                           </div>
                         
                       </div>

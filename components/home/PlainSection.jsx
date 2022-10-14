@@ -1,4 +1,7 @@
+import url from '@/config/url'
+import Link from 'next/link'
 import React from 'react'
+import slugify from 'slugify'
 import CommonNewsFetauredSection from './PlainNewsFetauredSection'
 
 export default function PlainSection({ categoryDetail, posts }) {
@@ -30,11 +33,16 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img src={post.img} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} />
 
-                                                <h4><a href="#">
-                                                    {post.postitle}
-                                                </a></h4>
+                                                <h4>
+                                                    <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                                        <a >
+                                                            {post.postitle}
+                                                        </a>
+                                                    </Link>
+                                                  
+                                                </h4>
                                             </div>
                                             <div className="space30"></div>
 
@@ -55,11 +63,15 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img src={post.img.replace('/upload/', '/upload/w_290,h_170/')} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_290,h_170/')} className="img-responsive" alt={post.imgAlt} />
 
-                                                <h4><a href="#">
-                                                    {post.postitle}
-                                                </a></h4>
+                                                <h4>
+                                                    <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                                        <a >
+                                                            {post.postitle}
+                                                        </a>
+                                                    </Link>
+                                                </h4>
                                             </div>
                                             <div className="space30"></div>
 
@@ -88,11 +100,15 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img src={post.img.replace('/upload/' , '/upload/w_290,h_170/')} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={post.img.replace('/upload/' , '/upload/w_290,h_170/')} className="img-responsive" alt={post.imgAlt} />
 
-                                                <h4><a href="#">
-                                                    {post.postitle}
-                                                </a></h4>
+                                                <h4>
+                                                    <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                                        <a >
+                                                            {post.postitle}
+                                                        </a>
+                                                    </Link>
+                                                </h4>
                                             </div>
                                             <div className="space30"></div>
 

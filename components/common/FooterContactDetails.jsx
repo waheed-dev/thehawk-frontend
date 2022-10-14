@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import React from 'react'
+import url from '@/config/url'
 /* eslint-disable react/no-unescaped-entities */
 export default function FooterContactDetails() {
   return (
@@ -8,11 +10,10 @@ export default function FooterContactDetails() {
               <br />
               <p>
                   <b>Our Office</b><br />
-                  D'Monument Building 2nd Floor<br />
-                  Freedom Street 109, Sleman 55518<br />
-                  Yogyakarta
+          New The Hawk E-63, Industrial Area, Bahadrabad Haridwar (Uttarakhand) 249 402
               </p>
-              <span className="copy">Copyright &copy; 2014 Gazeta. Web Design by <a href="#">PremiumLayersi</a></span>
+        <span className="copy">Copyright &copy; <Link href={url.home}><a >Thehawk</a>
+        </Link>  </span>
           </div>
     </>
   )

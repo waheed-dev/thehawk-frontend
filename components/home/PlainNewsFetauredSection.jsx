@@ -1,4 +1,7 @@
+import url from '@/config/url'
+import Link from 'next/link'
 import React from 'react'
+import slugify from 'slugify'
 
 export default function PlainNewsFetauredSection({ post, categoryDetail }) {
   return (
@@ -7,14 +10,31 @@ export default function PlainNewsFetauredSection({ post, categoryDetail }) {
           <div className="col-md-6">
               <div className="bl-featured-big">
                   <div className="bl-meta">
-                      {/* <span><i className="fa fa-comments-o"></i> 4 Comments</span><br />
-                      <span><i className="fa fa-heart-o"></i> 23 Likes</span> */}
+                     
                   </div>
           <img src={post.img.replace('/upload/', '/upload/w_570,h_410/')} className="img-responsive" alt={post.imgAlt} />
                   <div className="bl-info">
-                      <span>{categoryDetail.category}</span>
-                      <h3><a href="#">{ post.postitle} </a></h3>
-                      <a className="rmore" href="#">Continue Reading <i className="fa fa-arrow-right"></i></a>
+            <span>
+              <Link href={url.category.single.replace(':name', slugify(categoryDetail.category)).replace(':id', categoryDetail._id)}>
+
+                <a style={{
+                  color: '#fff'
+                }}>
+                  {categoryDetail.category}
+                </a>
+              </Link>
+             
+            </span>
+            <h3>
+              <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                <a >{post.postitle} </a>
+              </Link>
+
+            </h3>
+            <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+
+                      <a className="rmore" >Continue Reading <i className="fa fa-arrow-right"></i></a>
+            </Link>
                   </div>
               </div>
           </div>

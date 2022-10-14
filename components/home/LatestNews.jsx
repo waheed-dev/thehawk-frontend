@@ -1,4 +1,8 @@
+import url from '@/config/url'
+import moment from 'moment'
+import Link from 'next/link'
 import React from 'react'
+import slugify from 'slugify'
 
 export default function LatestNews({ posts }) {
   return (
@@ -14,13 +18,19 @@ export default function LatestNews({ posts }) {
               .map((post) => (
                 <>
                   <div className="thumb">
-                    <img src={post.img} className="img-responsive" alt="" />
+                    <img loading='lazy' src={post.img} className="img-responsive" alt="" />
                     <span className="thumb-cat">{ post.category.name}</span>
                   </div>
 
-                  <p>Posted on November 02, 2014</p>
+                  <p>Posted on {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</p>
 
-                  <h4><a href="./single_post.html">{post.postitle}</a></h4>
+                  <h4>
+                    <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+
+                    <a
+                    >{post.postitle}</a>
+                    </Link>
+                  </h4>
                   <div className="sep"></div>
                 </>
             ))
@@ -34,7 +44,7 @@ export default function LatestNews({ posts }) {
           <a href="#" className="btn1">View All Posts</a>
         </div>
         <div className="bla-content banner">
-          <img src="images/banner/1.jpg" className="img-responsive" alt="" />
+          <img  src="images/banner/1.jpg" className="img-responsive" alt="" />
         </div>
       </div>
     </>

@@ -9,11 +9,24 @@ export default function FooterFixed() {
               <div className="row">
                   <div className="col-md-6">
                       <ul className="footer-nav">
-                          <li><a href="#">Home</a></li>
-                          <li><a href="#">About Us</a></li>
-                          <li><a href="#">Contact Us</a></li>
-                          <li><a href="#">Archives</a></li>
-                          <li><a href="#">Contributors</a></li>
+                          <li>
+                              <Link href={url.home}>
+                                  <a >Home</a>
+                              </Link>
+                          </li>
+                          <li>
+                              <Link href={url.policy}>
+                                  <a >Privacy Policy</a>
+                              </Link> 
+                             
+                          </li>
+                          <li>
+                              <Link href={url.conatct}>
+                                  <a >Contact Us</a>
+                              </Link>
+                           
+                          </li>
+
                       </ul>
                   </div>
                   <div className="col-md-6">

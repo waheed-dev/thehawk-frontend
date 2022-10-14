@@ -1,4 +1,7 @@
+import url from '@/config/url'
+import Link from 'next/link'
 import React from 'react'
+import slugify from 'slugify'
 
 export default function SideBarCommonNews({posts}) {
   return (
@@ -13,10 +16,21 @@ export default function SideBarCommonNews({posts}) {
                               .map((post) => (
                                   <>
                                       <li>
-                                          <img src={post.img} alt={post.imgAlt} />
+                                          <img loading='lazy' src={post.img} alt={post.imgAlt} />
                                           <div className="pn-info">
-                                              <span>{post.category.name}</span>
-                                              <h4><a href="./single_post.html">{post.postitle}</a></h4>
+                                              <span>      <Link href={url.category.single.replace(':name', slugify(post.category.name)).replace(':id', post.category.id)}>
+                                                  <a style={{
+                                                      colour: '#fff'
+                                                  }}>
+                                                      {post.category.name}
+                                                  </a>
+                                              </Link></span>
+                                              <h4>
+                                                  <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                                      
+                                                  <a >{post.postitle}</a>
+                                                  </Link>
+                                              </h4>
                                           </div>
                                       </li>
                                   </>

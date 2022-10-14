@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import url from '@/config/url'
 import slugify from 'slugify'
+import moment from 'moment'
 export default function TrendingNews({ posts }) {
     const maxLength = 168
   return (
@@ -19,11 +20,11 @@ export default function TrendingNews({ posts }) {
                                   <div className="col-md-12">
                                       <div className="fn2-inner">
                                           <div className="fn2-thumb">
-                                              <img src={post.img.replace('/upload/' , '/upload/w_270,h_210/')} className="img-responsive" alt={ post.imgAlt} />
+                                              <img loading='lazy' src={post.img.replace('/upload/' , '/upload/w_270,h_210/')} className="img-responsive" alt={ post.imgAlt} />
                                           </div>
                                           <div className="fn2-info">
                                               <div className="fn2-meta">{post.category.name }
-                                                  {/* <span>3 <i className="fa fa-comments"></i></span> */}
+                                                
                                               </div>
                                               <h4>
                                                   <Link href={url.post.single.replace(':title' , slugify(post.postitle)).replace(":id" , post._id)}>
@@ -31,7 +32,7 @@ export default function TrendingNews({ posts }) {
                                                   <a >{post.postitle}</a>
                                                   </Link>
                                               </h4>
-                                              <em>Posted on November 02, 2014</em>
+                                              <em>Posted on {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</em>
                                               <p>
                                                   
                                                   {

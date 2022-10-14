@@ -1,5 +1,9 @@
 import React from 'react'
 import { convert } from 'html-to-text';
+import moment from 'moment';
+import Link from 'next/link';
+import url from '@/config/url';
+import slugify from 'slugify';
 export default function MainContent({ subCategory, thisPagePosts }) {
     const postLength = 1765
     return (
@@ -21,22 +25,27 @@ export default function MainContent({ subCategory, thisPagePosts }) {
                                 <h3>
                                     {post.postitle}
                                 </h3>
-                                <img src={post.img.replace('/upload/', '/upload/w_770,h_500/')} alt={post.imgAlt} class="img-responsive space30" />
+                                <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_770,h_500/')} alt={post.imgAlt} class="img-responsive space30" />
                                 <div class="row">
                                     <div class="col-md-3 bs-aside">
-                                        <img src="images/xtra/2.png" alt="" />
-                                        <h6>John Smith</h6>
+                                        {/* <img src="images/xtra/2.png" alt="" /> */}
+                                        <h6>
+                                            {post.author.name}
+                                        </h6>
                                         <div class="sep1"></div>
                                         <div class="space10"></div>
                                         <div class="rp-date">
-                                            <span>November</span>
-                                            04
-                                            <span><em>/</em> 2014</span>
+                                            <span>
+                                                {moment(post.createdAt).format("MMMM")}
+                                            </span>
+                                            {moment(post.createdAt).format("D")}
+                                            <span><em>/</em> {moment(post.createdAt).format("Y")}</span>
+
                                         </div>
                                         <div class="space30"></div>
                                         <div class="sep1"></div>
                                         <div class="space20"></div>
-                                        <em class="share-count">10K SHARE</em>
+                             
                                         <span class="bsa-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
                                             <a href="#"><i class="fa fa-twitter"></i></a>
@@ -69,7 +78,10 @@ export default function MainContent({ subCategory, thisPagePosts }) {
                                                     ) + ' ...'
                                             }
                                         </p>
-                                        <a href="#" class="post-more">Continue Reading <em>&#8594;</em></a>
+                                        <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+
+                                        <a class="post-more">Continue Reading <em>&#8594;</em></a>
+                                        </Link>
                                     </div>
                                 </div>
                             </>
@@ -89,13 +101,15 @@ export default function MainContent({ subCategory, thisPagePosts }) {
                                         <li>
                                             <div class="col-md-3">
                                                 <div class="rp-date">
-                                                    <span>November</span>
-                                                    04
-                                                    <span><em>/</em> 2014</span>
+                                                    <span>
+                                                        {moment(post.createdAt).format("MMMM")}
+                                                    </span>
+                                                    {moment(post.createdAt).format("D")}
+                                                    <span><em>/</em> {moment(post.createdAt).format("Y")}</span>
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
-                                                <img src={post.img.replace('/upload/', '/upload/w_300,h_250/')} class="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_300,h_250/')} class="img-responsive" alt={post.imgAlt} />
                                                 <div class="rp-inner">
 
                                                     {
@@ -110,10 +124,20 @@ export default function MainContent({ subCategory, thisPagePosts }) {
                                                             ))
                                                     }
 
-                                                    <h4><a href="./single_post.html">
-                                                        {post.postitle}
-                                                    </a></h4>
-                                                    <a href="#" class="rp-more">Read more  <em>&#8594;</em></a>
+
+                                                    <h4>
+                                                        <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+
+                                                            <a >
+                                                                {post.postitle}
+                                                            </a>
+                                                        </Link>
+                                                    </h4>
+                                                    <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+
+                                                        <a
+                                                            class="rp-more">Read more  <em>&#8594;</em></a>
+                                                    </Link>
                                                 </div>
                                             </div>
                                         </li>

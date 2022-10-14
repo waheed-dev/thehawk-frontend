@@ -1,7 +1,9 @@
 import React from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
+import url from '@/config/url';
 import "slick-carousel/slick/slick-theme.css";
+import Link from 'next/link';
 export default function DownHeader() {
     var settings = {
         dots: false,
@@ -24,7 +26,12 @@ export default function DownHeader() {
                     <div className="col-md-12">
 
                         <div className="col-md-4 logo">
-                            <h1><a href="./index.html">The Hawk</a></h1>
+                            <h1>
+                                <Link href={url.home}>
+                                    <a >The Hawk</a>
+                                </Link>
+                               
+                            </h1>
                         </div>
 
 

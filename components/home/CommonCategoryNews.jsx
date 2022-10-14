@@ -1,6 +1,11 @@
+import Link from 'next/link'
 import React from 'react'
 import CommonSectionFetearuedPost from './CommonSectionFetearuedPost'
+
 /* eslint-disable react/no-unescaped-entities */
+import url from '@/config/url'
+import slugify from 'slugify'
+import moment from 'moment'
 export default function CommonCategoryNews({ posts, categoryDetail, subCategory }) {
   const length = 154
   return (
@@ -12,7 +17,21 @@ export default function CommonCategoryNews({ posts, categoryDetail, subCategory 
           <>
             
             <div className="cat-blocks">
-              <h4><span>{categoryDetail.category}</span></h4>
+              <h4><span>
+                <Link href={
+                  url.category
+                    .single.replace(':name', slugify(categoryDetail.category))
+                    .replace(':id', categoryDetail._id)
+
+                }>
+                  <a style={{
+                    color: "#fff"
+                  }}>
+                    {categoryDetail.category}
+                </a>
+                </Link>
+             
+              </span></h4>
               <div className="row">
                 {
                   posts
@@ -45,11 +64,30 @@ export default function CommonCategoryNews({ posts, categoryDetail, subCategory 
                       .slice(0, 1)
                       .map((post) => (
                         <>
-                          <span className="cat">{subCategory.filter((subCat) => subCat._id === post.subCategory.id)[0]?.subCategoryName}</span>
-                          <h5><a href="./single_post.html">
-                            {post.postitle}
-                          </a></h5>
-                          <span className="date">Posted on November 02, 2014</span>
+                          {
+                            subCategory.filter((subCat) => subCat._id === post.subCategory.id).length > 0 ? <>
+                              <span className="cat">
+                                <Link href={url.subCategory.single.replace(':name', slugify(subCategory.filter((subCat) => subCat._id === post.subCategory.id)[0]?.subCategoryName)).replace(':id', subCategory.filter((subCat) => subCat._id === post.subCategory.id)[0]?._id)}>
+                                  <a style={{
+                                    color: "#fff"
+                                  }}>
+                                    {subCategory.filter((subCat) => subCat._id === post.subCategory.id)[0]?.subCategoryName}
+                                  </a>
+                                </Link>
+
+
+                              </span> </> : ''
+                          }
+                       
+                          <h5>
+                            <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                              <a >
+                                {post.postitle}
+                              </a>
+                            </Link>
+                           
+                          </h5>
+                          <span className="date">Posted on {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</span>
                           <p>
                             {
                               post.postText.length > length ?
@@ -90,9 +128,14 @@ export default function CommonCategoryNews({ posts, categoryDetail, subCategory 
                         )
                         .map((post) => (
                           <>
-                            <li><a href="./single_post.html">
-                              {post.postitle}
-                            </a>
+                            <li>
+                              <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                <a >
+                                  {post.postitle}
+                                </a>
+                              </Link>
+
+                              
                             </li>
                           </>
                         ))

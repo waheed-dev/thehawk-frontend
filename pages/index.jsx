@@ -74,7 +74,7 @@ export default function Home({ postsData, category, subCategory }) {
               .map((currentCategory, index) => (
                 <>
                   <div className="col-md-12 block-1">
-                    <GridPost posts={posts.filter((post) => post.category.id === currentCategory._id)} categoryDetail={currentCategory} subCategory={subCategory.filter((currentSubCat) => currentSubCat.categoryId === currentCategory._id )} />
+                    <GridPost posts={posts.filter((post) => post.category.id === currentCategory._id)} categoryDetail={currentCategory} subCategory={subCategory.filter((currentSubCat) => currentSubCat.categoryId === currentCategory._id)} />
                   </div>
                 </>
               ))
@@ -84,7 +84,7 @@ export default function Home({ postsData, category, subCategory }) {
         </div>
         {
           category
-            
+
             .filter((person) => person.gridWithWizard === true)
             .slice(0, Math.ceil((category.filter((filtered) => filtered.gridWithWizard === true)).length / 2))
             .map((categoryDetail) => (
@@ -93,11 +93,11 @@ export default function Home({ postsData, category, subCategory }) {
                   subCategory={subCategory.filter((curElem) => curElem.categoryId ===
                     categoryDetail._id)} posts={posts.filter((catFiltered) =>
                       catFiltered.category.id === categoryDetail._id)
-                }  categoryDetail={categoryDetail} />
+                    } categoryDetail={categoryDetail} />
               </>
-          ))
+            ))
         }
-     
+
         {/* Category Posts */}
         {
           category &&
@@ -194,14 +194,14 @@ export default function Home({ postsData, category, subCategory }) {
             }
 
 
-          
+
           </aside>
         </div>
         {
           category
 
             .filter((person) => person.gridWithWizard === true)
-            .slice(Math.ceil((category.filter((filtered) => filtered.gridWithWizard === true)).length / 2), (category.filter((filtered) => filtered.gridWithWizard === true)).length )
+            .slice(Math.ceil((category.filter((filtered) => filtered.gridWithWizard === true)).length / 2), (category.filter((filtered) => filtered.gridWithWizard === true)).length)
             .map((categoryDetail) => (
               <>
                 <DynamicGridWizardSection
@@ -209,8 +209,8 @@ export default function Home({ postsData, category, subCategory }) {
                     categoryDetail._id)} posts={posts.filter((catFiltered) =>
                       catFiltered.category.id === categoryDetail._id)
                     } categoryDetail={categoryDetail} />
-                
-                
+
+
               </>
             ))
         }
@@ -229,7 +229,7 @@ export default function Home({ postsData, category, subCategory }) {
 
 export async function getStaticProps() {
   await db.dbConnect();
-  
+
 
   const cat = await Category.find()
     .sort({
@@ -262,7 +262,7 @@ export async function getStaticProps() {
       postsData: data.map(db.convertDocToObj),
       category: cat.map(db.convertDocToObj),
       subCategory: subCat.map(db.convertDocToObj),
-    
+
     },
     revalidate: 120,
   };

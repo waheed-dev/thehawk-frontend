@@ -1,5 +1,7 @@
+import Link from 'next/link'
 import React from 'react'
-
+import url from '@/config/url'
+import slugify from 'slugify'
 export default function VideoSection({ categoryDetail, posts, subCategory }) {
     return (
         <>
@@ -27,13 +29,25 @@ export default function VideoSection({ categoryDetail, posts, subCategory }) {
                                                 subCategory.filter((filtered) => filtered._id === post.subCategory.id).map((subCat) => (
                                                     <>
                                                         <span>
-                                                            {subCat.subCategoryName}
+                                                            <Link href={url.subCategory.single.replace(':name', slugify(subCat.subCategoryName)).replace(':id', subCat._id )}>
+                                                                <a style={{
+                                                                color:"#fff"
+                                                                }}>
+                                                                    {subCat.subCategoryName}
+                                                            </a>
+                                                            </Link>
+                                                          
                                                         </span>
                                                     </>
                                                 ))
                                             }
 
-                                            <h4><a href="./single_post.html">{post.postitle}</a></h4>
+                                            <h4>
+                                                <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+
+                                                <a >{post.postitle}</a>
+                                                </Link>
+                                            </h4>
                                         </li>
                                     </>
                                 ))
@@ -47,23 +61,8 @@ export default function VideoSection({ categoryDetail, posts, subCategory }) {
                                             <i className="fa fa-video-camera"></i>
                                             <span>{post.postitle.length > 50 ? <>
                                                 {
-                                                    post.postText
-                                                        .substr(0, 50)
-                                                        .substr(
-                                                            0,
-                                                            Math.min(
-                                                                post.postText.length,
-                                                                post.postText.lastIndexOf(' ')
-                                                            )
-                                                        ) + ' ...'
-                                                }
-                                            </> : <>
-                                                {post.postitle}
-                                            </>}</span>
-                                            <h4><a href="./single_post.html">{post.postitle.length > 50 ? <>
-                                                {
                                                     post.postitle
-                                                        .substr(0, 60)
+                                                        .substr(0, 50)
                                                         .substr(
                                                             0,
                                                             Math.min(
@@ -74,7 +73,27 @@ export default function VideoSection({ categoryDetail, posts, subCategory }) {
                                                 }
                                             </> : <>
                                                 {post.postitle}
-                                            </>}</a></h4>
+                                            </>}</span>
+                                            <h4>
+                                                <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+
+                                                <a >{post.postitle.length > 50 ? <>
+                                                {
+                                                    post.postText
+                                                        .substr(0, 60)
+                                                        .substr(
+                                                            0,
+                                                            Math.min(
+                                                                post.postText.length,
+                                                                post.postText.lastIndexOf(' ')
+                                                            )
+                                                        ) + ' ...'
+                                                }
+                                            </> : <>
+                                                        {post.postText}
+                                                </>}</a>
+                                                </Link>
+                                            </h4>
                                         </li>
                                     </>
                                 ))

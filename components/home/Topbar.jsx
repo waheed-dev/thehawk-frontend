@@ -7,7 +7,7 @@ export default function Topbar() {
         dateName: moment(myDate).format("dddd"),
         monthName: moment(myDate).format("MMMM"),
         today: moment(myDate).format("D"),
-        year: moment(myDate).format("Y")
+        year: moment(myDate).format("Y") 
     })
   return (
     <>

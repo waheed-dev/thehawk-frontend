@@ -19,11 +19,10 @@ export default function AddToTopPost({ posts }) {
 
                                 <div className="bl-featured-big">
                                     <div className="bl-meta">
-                                        {/* <span><i className="fa fa-comments-o"></i> 4 Comments</span><br />
-                                      <span><i className="fa fa-heart-o"></i> 23 Likes</span> */}
+
                                     </div>
 
-                                    <img src={post.img} className="img-responsive" alt={post.imgAlt} />
+                                    <img src={post.img} loading="lazy" className="img-responsive" alt={post.imgAlt} />
                                     <div className="bl-info">
                                         <span>{post.category.name}</span>
                                         <h3>
@@ -47,7 +46,7 @@ export default function AddToTopPost({ posts }) {
 
 
                 <TrendingNews posts={posts} />
-                
+
             </div>
         </>
     )
