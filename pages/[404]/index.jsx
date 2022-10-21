@@ -4,7 +4,7 @@ import React from 'react'
 export default function index() {
   return (
     <>
-          <Layout>
+        
         <div class="main-content container">
           <h1 style={{
             minHeight: '100%',
@@ -15,7 +15,7 @@ export default function index() {
            404 page not found 
           </h1>
                       </div>
-      </Layout>
+    
     </>
   )
 }
