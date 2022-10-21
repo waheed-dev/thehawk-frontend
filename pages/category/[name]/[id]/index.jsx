@@ -1,5 +1,6 @@
-import CategorySideBar from '@/components/category/CategorySideBar'
+
 import MainContent from '@/components/category/MainContent'
+import InnerSidebar from '@/components/common/InnerSidebar'
 import Seo from '@/components/common/Seo'
 import endpoints from '@/config/endpoints'
 import Layout from '@/layout/index'
@@ -25,7 +26,9 @@ export default function CategoryPage({
     // sethasMore(true);
     const data = await axios.get(`${endpoints.post.getPostByCategory.replace(':id', id)}/?page=${pageNumber}`);
     if (data.status === 200) {
+      console.log(data.data);
       if (data.data.length < 20) {
+        console.log('hi');
         sethasMore(() => false);
       }
 
@@ -53,13 +56,14 @@ export default function CategoryPage({
 
           <MainContent category={category} thisPageSubCategory={thisPageSubCategory} thisPagePosts={thisPagePosts} />
 
-<CategorySideBar/>
+        <InnerSidebar id={category[0]._id} hasMore={hasMore } />
         </div>
     
       <InfiniteScroll
         dataLength={thisPagePosts.length} //This is important field to render the next data
         next={loadRelatedPost}
         hasMore={hasMore}
+        scrollThreshold={0.5}
         loader={''}
       ></InfiniteScroll>
     </>

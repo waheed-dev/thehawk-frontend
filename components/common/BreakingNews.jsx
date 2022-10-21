@@ -1,3 +1,4 @@
+import endpoints from '@/config/endpoints';
 import url from '@/config/url';
 import axios from 'axios';
 import moment from 'moment';
@@ -25,7 +26,7 @@ export default function BreakingNews() {
     const [posts, setposts] = useState([])
     const loadBreakingPost = async () => {
         try {
-            const { data } = await axios.get('http://localhost:8000/api/post/breaking')
+            const { data } = await axios.get(endpoints.post.breaking)
             setposts(data.post)
         } catch (error) {
 
@@ -39,7 +40,7 @@ export default function BreakingNews() {
           <div id="news-ticker">
               <Slider   {...settings}>
                   {
-                      posts.map((post) => (
+                      posts?.map((post) => (
                           <>
                               <div className="item">
                                   <span>{post?.subCategory?.name }</span>

@@ -21,6 +21,8 @@ import GridWithWizard from "@/components/home/GridWithWizard";
 import SideBarCommonNews from "@/components/home/SideBarCommonNews";
 import dynamic from "next/dynamic";
 import Seo from "@/components/common/seo";
+import HorizontalAds from "@/components/common/HorizontalAds";
+import SidebarAds from "@/components/common/SidebarAds";
 const DynamicGridWizardSection = dynamic(() => import('../components/home/GridWithWizard'), {
   suspense: false,
   ssr: false
@@ -120,9 +122,7 @@ export default function Home({ postsData, category, subCategory }) {
 
 
 
-        <div className="big-banner">
-          <a href="#"><img src="images/banner/3.jpg" className="img-responsive" alt="" /></a>
-        </div>
+      <HorizontalAds/>
         <div className="main-content container">
 
           <div className="col-md-8 block-1">
@@ -136,11 +136,14 @@ export default function Home({ postsData, category, subCategory }) {
                 )
                 .filter((filtered) => filtered.addToComminSection === true)
                 .slice(Math.ceil((category.filter((filtered) => filtered.addToComminSection === true)).length / 2), (category.filter((filtered) => filtered.addToComminSection === true)).length)
-                .map((categoryDetail) => (
+                .map((categoryDetail , index) => (
 
                   <>
                     <CommonCategoryNews categoryDetail={categoryDetail} subCategory={subCategory.filter((curElem) => curElem.categoryId === categoryDetail._id)} posts={posts.filter((catFiltered) => catFiltered.category.id === categoryDetail._id)
                     } />
+                    {
+                      index % 2 === 0 ? <HorizontalAds /> : null
+                    }
                   </>
                 ))
             }
@@ -151,9 +154,7 @@ export default function Home({ postsData, category, subCategory }) {
 
             {/* <PopularNews posts={posts} /> */}
 
-            <div className="side-widget sw-banner">
-              <a href="#"><img src="images/banner/2.jpg" className="img-responsive" alt="" /></a>
-            </div>
+         <SidebarAds/>
 
             {
               category &&

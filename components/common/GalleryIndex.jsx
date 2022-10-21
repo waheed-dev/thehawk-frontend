@@ -1,3 +1,4 @@
+import endpoints from '@/config/endpoints'
 import url from '@/config/url'
 import axios from 'axios'
 import Link from 'next/link'
@@ -11,7 +12,7 @@ export default function GalleryIndex() {
   const loadGalleryIndexPost = async () => {
     try {
 
-      const { data } = await axios.get('http://localhost:8000/api/post/galleryIndex')
+      const { data } = await axios.get(endpoints.post.galleryIndex)
       
       setposts(data.post)
     } catch (error) {
@@ -21,7 +22,7 @@ export default function GalleryIndex() {
   useEffect(() => {
     loadGalleryIndexPost()
   }, [])
-  console.log(posts);
+
   return (
     <>
           <div className="col-md-4 footer-widget f-gallery">

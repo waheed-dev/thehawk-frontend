@@ -12,7 +12,7 @@ export default function Topbar() {
         year: moment(myDate).format("Y")
     })
     const { latitude, longitude,  } = useGeoLocation();
-    console.log(latitude);
+
 
     const getWeather = async (latitude, longitude) => {
         const api_call = await

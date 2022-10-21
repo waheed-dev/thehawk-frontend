@@ -4,6 +4,7 @@ const endpoints = {
   category: {
     single: "/category/:name/:id",
     all: "/category",
+    sidebarPost: `${api}/category/sidebar/:id`,
   },
   subCategory: {
     single: "/subcategory/:name/:id",
@@ -18,6 +19,9 @@ const endpoints = {
   post: {
     getPostByCategory: `${api}/category/:id`,
     getPostBySubCategory: `${api}/subCategory/:id`,
+    breaking: `${api}/post/breaking`,
+    recomanded: `${api}/post/mostrecomanded`,
+    galleryIndex: `${api}/post/galleryIndex`,
   },
 };
 export default endpoints;

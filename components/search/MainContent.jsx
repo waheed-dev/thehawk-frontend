@@ -1,5 +1,6 @@
 import React from 'react'
-import SearchPageSidebar from './SearchPageSidebar'
+import InnerSidebar from '../common/InnerSidebar'
+
 import SearchResult from './SearchResult'
 
 export default function MainContent({ postData }) {
@@ -14,8 +15,7 @@ export default function MainContent({ postData }) {
                   <div class="space30"></div>
           <SearchResult postData={postData} />
               </div>
-
-           <SearchPageSidebar/>
+{/* <InnerSidebar/> */}
           </div>
     </>
   )

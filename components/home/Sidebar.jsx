@@ -11,6 +11,7 @@ const DynamicAuthorSection = dynamic(() => import('./AuthorSection'), {
 import PopularNews from './PopularNews'
 import VideoSection from './VideoSection'
 import SideBarCommonNews from './SideBarCommonNews'
+import SidebarAds from '../common/SidebarAds'
 
 export default function Sidebar({posts , category , subCategory}) {
   return (
@@ -19,10 +20,8 @@ export default function Sidebar({posts , category , subCategory}) {
 
               <PopularNews posts={posts} />
 
-              <div className="side-widget sw-banner">
-                  <a href="#"><img src="images/banner/2.jpg" className="img-responsive" alt="" /></a>
-              </div>
-
+           
+<SidebarAds/>
 
               {
                   category.filter((filtered) => filtered.isVideoSection === true

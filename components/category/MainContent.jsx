@@ -6,6 +6,7 @@ import url from '@/config/url';
 import slugify from 'slugify';
 export default function MainContent({ thisPagePosts, thisPageSubCategory, category }) {
     const postLength = 1765
+    const charecterLength = 52
     return (
         <>
             <div class="col-md-8 blog-single">
@@ -77,7 +78,7 @@ export default function MainContent({ thisPagePosts, thisPageSubCategory, catego
                                         </p>
                                         <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
-                                        <a  class="post-more">Continue Reading <em>&#8594;</em></a>
+                                            <a class="post-more">Continue Reading <em>&#8594;</em></a>
                                         </Link>
                                     </div>
                                 </div>
@@ -114,15 +115,15 @@ export default function MainContent({ thisPagePosts, thisPageSubCategory, catego
                                                             .map((subCat) => (
                                                                 <>
                                                                     <span class="rp-cat">
-                                                                        <Link href={url.subCategory.single.replace(':name', subCat.subCategoryName).replace(':id', subCat._id )}>
+                                                                        <Link href={url.subCategory.single.replace(':name', subCat.subCategoryName).replace(':id', subCat._id)}>
                                                                             <a style={{
                                                                                 color: '#fff'
                                                                             }}>
                                                                                 {subCat.subCategoryName}
                                                                             </a>
                                                                         </Link>
-                                                                     
-                                                                       
+
+
                                                                     </span>
                                                                 </>
                                                             ))
@@ -131,17 +132,31 @@ export default function MainContent({ thisPagePosts, thisPageSubCategory, catego
                                                     <h4>
                                                         <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
-                                                        <a >
-                                                        {post.postitle}
-                                                        </a>
+                                                            <a >
+                                                                {
+                                                                    post.postitle.length > charecterLength ? <>
+                                                                        {
+                                                                            post.postitle
+                                                                                .substr(0, charecterLength)
+                                                                                .substr(
+                                                                                    0,
+                                                                                    Math.min(
+                                                                                        post.postitle.length,
+                                                                                        post.postitle.lastIndexOf(' ')
+                                                                                    )
+                                                                                ) + ' ...'
+                                                                        }
+                                                                    </> : post.postitle
+                                                                }
+                                                            </a>
                                                         </Link>
                                                     </h4>
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
-                                                    <a
-                                                        class="rp-more">Read more  <em>&#8594;</em></a>
+                                                        <a
+                                                            class="rp-more">Read more  <em>&#8594;</em></a>
                                                     </Link>
-                                                    
+
                                                 </div>
                                             </div>
                                         </li>

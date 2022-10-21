@@ -6,6 +6,7 @@ import Link from 'next/link';
 import url from '@/config/url';
 import slugify from 'slugify';
 import moment from 'moment';
+import HorizontalAds from '../common/HorizontalAds';
 export default function GridPost({ posts, categoryDetail, subCategory }) {
     const length = 150
     const [value, onChange] = useState(null);
@@ -189,6 +190,7 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
 
 
                 </div>
+                <HorizontalAds/>
             </div>
         </>
     )

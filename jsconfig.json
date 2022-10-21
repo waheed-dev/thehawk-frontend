@@ -8,7 +8,8 @@
       "@/css/*": ["assets/css/*"],
       "@/config/*": ["config/*"],
 
-      "@/images/*": ["assets/images/*"]
+      "@/images/*": ["assets/images/*"],
+      "@/fonts/*": ["assets/fonts/*"]
     }
   }
 }

@@ -6,6 +6,7 @@ import url from '@/config/url';
 import Link from 'next/link';
 import slugify from 'slugify';
 import moment from 'moment';
+import HorizontalAds from '../common/HorizontalAds';
 export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
     var settings = {
         // dots: false,
@@ -42,17 +43,17 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                                                         .map((subCat) => (
                                                             <>
                                                                 <div class="cat-tag">
-                                                                    <Link href={url.subCategory.single.replace(':name', slugify(subCat.subCategoryName)).replace(':id', subCat._id )}>
-                                                                    
-                                                                    <a style={{
-                                                                        color:'#fff'
-                                                                    }}>
-                                                                        {
-                                                                            subCat.subCategoryName
-                                                                        }
-                                                                    </a>
+                                                                    <Link href={url.subCategory.single.replace(':name', slugify(subCat.subCategoryName)).replace(':id', subCat._id)}>
+
+                                                                        <a style={{
+                                                                            color: '#fff'
+                                                                        }}>
+                                                                            {
+                                                                                subCat.subCategoryName
+                                                                            }
+                                                                        </a>
                                                                     </Link>
-                                                                   
+
                                                                 </div>
                                                             </>
                                                         ))
@@ -64,27 +65,27 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                                                 <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
 
-                                                <a >
-                                                {
-                                                    post.postitle.length > postitleLength ? <>
+                                                    <a >
                                                         {
-                                                            post.postitle
-                                                                .substr(0, postitleLength)
-                                                                .substr(
-                                                                    0,
-                                                                    Math.min(
-                                                                        post.postitle.length,
-                                                                        post.postitle.lastIndexOf(' ')
-                                                                    )
-                                                                ) + ' ...'
+                                                            post.postitle.length > postitleLength ? <>
+                                                                {
+                                                                    post.postitle
+                                                                        .substr(0, postitleLength)
+                                                                        .substr(
+                                                                            0,
+                                                                            Math.min(
+                                                                                post.postitle.length,
+                                                                                post.postitle.lastIndexOf(' ')
+                                                                            )
+                                                                        ) + ' ...'
+                                                                }
+                                                            </> : <>
+                                                                {
+                                                                    post.postitle
+                                                                }
+                                                            </>
                                                         }
-                                                    </> : <>
-                                                        {
-                                                            post.postitle
-                                                        }
-                                                    </>
-                                                }
-                                                </a>
+                                                    </a>
                                                 </Link>
                                             </h4>
                                             <span>Posted on {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</span>
@@ -111,7 +112,7 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                                             </p>
                                             <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
-                                            <a  class="psi-more">Continue Reading &#8594;</a>
+                                                <a class="psi-more">Continue Reading &#8594;</a>
                                             </Link>
                                         </div>
                                     </>
@@ -124,7 +125,9 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
 
                     </div>
                 </div>
+
             </div>
+            <HorizontalAds/>
         </>
     )
 }

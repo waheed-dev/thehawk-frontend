@@ -1,6 +1,7 @@
+import InnerSidebar from '@/components/common/InnerSidebar';
 import Seo from '@/components/common/Seo';
 import PostContent from '@/components/post/PostContent'
-import SinglePostSidebar from '@/components/post/SinglePostSidebar'
+
 import Layout from '@/layout/index'
 import db from 'DB/Conn';
 import Category from 'Model/categoryJs';
@@ -29,7 +30,7 @@ export default function PostDetailPage({ postData, postCategory, postAuthor, rel
         <div class="main-content container">
           <PostContent relatedNews={relatedNews} postData={postData[0]} postCategory={postCategory[0]} postAuthor={postAuthor[0]} />
 
-           <SinglePostSidebar/>
+        <InnerSidebar id={postData[0]?.category?.id } />
         </div>
         <div class="big-banner">
           <a href="#"><img src="/images/banner/3.jpg" class="img-responsive" alt="" /></a>

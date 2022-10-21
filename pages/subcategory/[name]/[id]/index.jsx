@@ -1,6 +1,7 @@
+import InnerSidebar from '@/components/common/InnerSidebar';
 import Seo from '@/components/common/Seo';
 import MainContent from '@/components/subCategory/MainContent'
-import SubCategorySidebar from '@/components/subCategory/SubCategorySidebar'
+
 import endpoints from '@/config/endpoints';
 import Layout from '@/layout/index'
 import axios from 'axios';
@@ -61,7 +62,7 @@ export default function SubCategoryPage({
 
           <MainContent subCategory={subCategory} thisPagePosts={thisPagePosts}  />
 
-          <SubCategorySidebar />
+        <InnerSidebar id={subCategory[0]?.categoryId} hasMore={ hasMore} />
         </div>
 
       <InfiniteScroll

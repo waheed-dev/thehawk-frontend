@@ -2,6 +2,7 @@ import url from '@/config/url'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import SidebarAds from '../common/SidebarAds'
 
 export default function SideBarCommonNews({posts}) {
   return (
@@ -13,7 +14,7 @@ export default function SideBarCommonNews({posts}) {
                       {
                           posts
                               .slice(0 ,7)
-                              .map((post) => (
+                              .map((post , index) => (
                                   <>
                                       <li>
                                           <img loading='lazy' src={post.img} alt={post.imgAlt} />
@@ -33,6 +34,9 @@ export default function SideBarCommonNews({posts}) {
                                               </h4>
                                           </div>
                                       </li>
+                                      {
+                                          index%5 ===0? <SidebarAds/>:null
+                                      }
                                   </>
                               ))
                       }

@@ -1,4 +1,5 @@
 import React from 'react'
+import HorizontalAds from '../common/HorizontalAds'
 import AddToTopPost from './AddToTopPost'
 import BlueNewsSection from './BlueNewsSection'
 import CommonCategoryNews from './CommonCategoryNews'
@@ -34,11 +35,14 @@ export default function MainContent({ posts, category, subCategory  }) {
                                   new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
                           )
                           .slice(0, (category.filter((filtered) => filtered.addToComminSection === true)).length / 2)
-                          .map((categoryDetail) => (
+                          .map((categoryDetail, index ) => (
                               
                               <>
                                   <CommonCategoryNews categoryDetail={categoryDetail} subCategory={subCategory.filter((curElem) => curElem.categoryId === categoryDetail._id)} posts={posts.filter((catFiltered) => catFiltered.category.id === categoryDetail._id)
                                      } />
+                                  {
+                                      index % 2 === 0 ? <HorizontalAds /> : null
+                                  }
                               </>
                           ))
                   }

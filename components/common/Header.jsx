@@ -59,7 +59,8 @@ const  Header =() =>{
     }, [sticky]);
 
 
-    const search = (searchquery) => {
+    const search = (searchquery, e) => {
+        e.preventDefault()
         if (!menuOpen) {
             setmenuOpen(true)
         } else {
@@ -84,24 +85,28 @@ const  Header =() =>{
                             <div style={{
                                 display: `${menuOpen ? 'block' : 'none'}`
                             }} className="search">
-                                <form>
-                                    <input value={query} style={{
+                                <form onSubmit={(e) => {
+                                    search(query , e)
+                                }}>
+                                    <input  value={query} style={{
 
                                         outline: "1px solid #ccc"
 
-                                    }} onChange={(e) => {
+                                    }}
+                                   
+                                        onChange={(e) => {
                                         setquery(e.target.value)
                                     }} type="search" placeholder="Type to search and hit enter" />
                                 </form>
                             </div>
                             {/* fa fa-search fa-times */}
                             <span
-                                onClick={() => {
-                                    search(query)
-                                }}
+                              
                                 
                                 className="search-trigger">
-                                <i className={"fa fa-search"}  />
+                                <i className={"fa fa-search"} onClick={(e) => {
+                                    search(query, e)
+                                }} />
                                 {
                                     menuOpen ? <i style={{
                                         marginLeft: '7px'
@@ -109,6 +114,7 @@ const  Header =() =>{
                                     
                                         onClick={() => {
                                             setmenuOpen(false)
+                                            setquery('')
                                         }} className={menuOpen ? "fa fa-search fa-times" : "fa fa-search"} /> : null
                                 }
                                

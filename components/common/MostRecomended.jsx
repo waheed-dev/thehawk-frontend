@@ -3,11 +3,12 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import url from '@/config/url'
 import slugify from 'slugify'
+import endpoints from '@/config/endpoints'
 export default function MostRecomended() {
   const [posts, setposts] = useState([])
   const loadRecomendedPost = async () => {
     try {
-      const { data } = await axios.get('http://localhost:8000/api/post/mostrecomanded')
+      const { data } = await axios.get(endpoints.post.recomanded)
       setposts(data.post)
     } catch (error) {
       

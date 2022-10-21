@@ -3,6 +3,7 @@ import moment from 'moment'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import BlaBannerAds from '../common/BlaBannerAds'
 
 export default function LatestNews({ posts }) {
   return (
@@ -43,9 +44,7 @@ export default function LatestNews({ posts }) {
           
           <a href="#" className="btn1">View All Posts</a>
         </div>
-        <div className="bla-content banner">
-          <img  src="images/banner/1.jpg" className="img-responsive" alt="" />
-        </div>
+<BlaBannerAds/>
       </div>
     </>
   )
