@@ -8,13 +8,13 @@ export default function SearchPage({ postData }) {
 
   return (
     <>
-          <Layout>
+  
         <MainContent postData={postData} />
 
               <div class="big-banner">
                   <a href="#"><img src="images/banner/3.jpg" class="img-responsive" alt="" /></a>
               </div> 
-      </Layout>
+
     </>
   )
 }

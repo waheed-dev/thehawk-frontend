@@ -1,3 +1,4 @@
+import Seo from '@/components/common/Seo';
 import PostContent from '@/components/post/PostContent'
 import SinglePostSidebar from '@/components/post/SinglePostSidebar'
 import Layout from '@/layout/index'
@@ -5,14 +6,25 @@ import db from 'DB/Conn';
 import Category from 'Model/categoryJs';
 import Post from 'Model/postModel';
 import User from 'Model/userModel';
+import { useRouter } from 'next/router';
 import React from 'react'
 
-export default function index({ postData, postCategory, postAuthor, relatedNews }) {
+export default function PostDetailPage({ postData, postCategory, postAuthor, relatedNews }) {
 
+  const router = useRouter();
+
+
+  const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}` 
   return (
-    // src = "https://res.cloudinary.com/thehawk/image/upload/w_79,h_79/v1647778416/etg05xddcvjn1hacsuyz.jpg"
+   
     <>
-      <Layout>
+      <Seo
+        title={postData[0].pageTitle}
+        description={postData[0].pageDescription}
+        type='article'
+        url={url}
+      />
+  
         
         <div class="main-content container">
           <PostContent relatedNews={relatedNews} postData={postData[0]} postCategory={postCategory[0]} postAuthor={postAuthor[0]} />
@@ -22,7 +34,7 @@ export default function index({ postData, postCategory, postAuthor, relatedNews 
         <div class="big-banner">
           <a href="#"><img src="/images/banner/3.jpg" class="img-responsive" alt="" /></a>
         </div>
-      </Layout>
+
     </>
   )
 }

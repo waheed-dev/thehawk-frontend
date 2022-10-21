@@ -1,3 +1,4 @@
+import Seo from '@/components/common/Seo';
 import MainContent from '@/components/subCategory/MainContent'
 import SubCategorySidebar from '@/components/subCategory/SubCategorySidebar'
 import endpoints from '@/config/endpoints';
@@ -30,7 +31,7 @@ export default function SubCategoryPage({
   let [hasMore, sethasMore] = useState(true);
 
   const [pageNumber, setpageNumber] = useState(2);
-
+  const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}` 
 
   const loadRelatedPost = async () => {
 
@@ -49,14 +50,20 @@ export default function SubCategoryPage({
   };
   return (
     <>
-      <Layout>
+      <Seo
+        title={subCategory[0].subCategoryPageTitle}
+        description={subCategory[0].subCategoryPageDescription}
+        type='article'
+        url={url}
+      />
+
         <div class="main-content container">
 
           <MainContent subCategory={subCategory} thisPagePosts={thisPagePosts}  />
 
           <SubCategorySidebar />
         </div>
-      </Layout>
+
       <InfiniteScroll
         dataLength={thisPagePosts.length} //This is important field to render the next data
         next={loadRelatedPost}

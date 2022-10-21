@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {memo} from 'react'
 import GelleryIndex from './GalleryIndex'
 import FooterFixed from './FooterFixed'
 import MostRecomended from './MostRecomended'
 import FooterContactDetails from './FooterContactDetails'
 /* eslint-disable react/no-unescaped-entities */
-export default function Footer() {
+const  Footer =() => {
   return (
     <>
 
@@ -19,3 +19,5 @@ export default function Footer() {
     </>
   )
 }
+
+export default memo(Footer)

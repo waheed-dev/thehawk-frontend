@@ -11,7 +11,7 @@ export default function AuthorPage({
 }) {
   return (
       <>
-          <Layout>
+       
               <div class="main-content container">
                   <MainContent postData={postData} author={author[0]} />
 
@@ -79,7 +79,7 @@ export default function AuthorPage({
               <div class="big-banner">
                   <a href="#"><img src="images/banner/3.jpg" class="img-responsive" alt="" /></a>
               </div>   
-          </Layout>
+        
 
     </>
   )

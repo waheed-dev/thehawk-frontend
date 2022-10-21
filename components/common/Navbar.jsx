@@ -5,8 +5,9 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import slugify from 'slugify'
 import { v4 as uuidv4 } from 'uuid';
+import { memo } from 'react'
 
-export default function Navbar({ categoryData, subCategoryData, rssData }) {
+const Navbar = ({ categoryData, subCategoryData, rssData }) => {
     let length
     const router = useRouter()
 
@@ -89,7 +90,7 @@ export default function Navbar({ categoryData, subCategoryData, rssData }) {
                                                     </ul>
                                                 </li>
 
-                                                    <li key={uuidv4()} className="sub-menu">
+                                                <li key={uuidv4()} className="sub-menu">
                                                     <ul>
                                                         {
                                                             subCatArray[1]?.map((subCategory) => (
@@ -111,7 +112,7 @@ export default function Navbar({ categoryData, subCategoryData, rssData }) {
                                                         }
                                                     </ul>
                                                 </li>
-                                                    <li key={uuidv4()} className="sub-menu">
+                                                <li key={uuidv4()} className="sub-menu">
                                                     <ul>
                                                         {
                                                             subCatArray[2]?.map((subCategory) => (
@@ -133,7 +134,7 @@ export default function Navbar({ categoryData, subCategoryData, rssData }) {
                                                         }
                                                     </ul>
                                                 </li>
-                                                    <li key={uuidv4()}  className="sub-menu">
+                                                <li key={uuidv4()} className="sub-menu">
                                                     <ul>
                                                         {
                                                             subCatArray[3]?.map((subCategory) => (
@@ -200,3 +201,6 @@ export default function Navbar({ categoryData, subCategoryData, rssData }) {
         </>
     )
 }
+
+
+export default memo(Navbar)

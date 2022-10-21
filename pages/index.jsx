@@ -10,7 +10,7 @@ import SubCategory from "../Model/subCategory";
 import Post from "../Model/postModel";
 import { useState } from "react";
 import Link from "next/link";
-
+import { NextSeo } from 'next-seo';
 import url from "@/config/url";
 import PlainSection from "@/components/home/PlainSection";
 import CommonCategoryNews from "@/components/home/CommonCategoryNews";
@@ -20,6 +20,7 @@ import GridPost from "@/components/home/GridPost";
 import GridWithWizard from "@/components/home/GridWithWizard";
 import SideBarCommonNews from "@/components/home/SideBarCommonNews";
 import dynamic from "next/dynamic";
+import Seo from "@/components/common/seo";
 const DynamicGridWizardSection = dynamic(() => import('../components/home/GridWithWizard'), {
   suspense: false,
   ssr: false
@@ -29,7 +30,8 @@ export default function Home({ postsData, category, subCategory }) {
 
   return (
     <>
-      <Layout>
+<Seo />
+ 
 
         <MainContent posts={posts} category={category} subCategory={subCategory} />
         <div className="main-content container">
@@ -220,7 +222,7 @@ export default function Home({ postsData, category, subCategory }) {
 
 
 
-      </Layout>
+   
     </>
   )
 }

@@ -113,7 +113,7 @@ export default function MainContent({ subCategory, thisPagePosts }) {
                                                 <div class="rp-inner">
 
                                                     {
-                                                        post.tags.split(',')
+                                                        post.tags?.split(',')
                                                             .slice(0, 2)
                                                             .map((tag) => (
                                                                 <>

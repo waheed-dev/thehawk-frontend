@@ -1,5 +1,6 @@
 import CategorySideBar from '@/components/category/CategorySideBar'
 import MainContent from '@/components/category/MainContent'
+import Seo from '@/components/common/Seo'
 import endpoints from '@/config/endpoints'
 import Layout from '@/layout/index'
 import axios from 'axios'
@@ -33,16 +34,28 @@ export default function CategoryPage({
       setthisPagePosts([...thisPagePosts, ...data.data]);
     }
   };
+
+
+
+
+  const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}` 
+
   return (
     <>
-      <Layout>
+      <Seo
+        title={category[0].categoryPageTitle}
+        description={category[0].categoryPageDescription}
+        type='article'
+        url={url}
+      />
+    
         <div class="main-content container">
 
           <MainContent category={category} thisPageSubCategory={thisPageSubCategory} thisPagePosts={thisPagePosts} />
 
 <CategorySideBar/>
         </div>
-      </Layout>
+    
       <InfiniteScroll
         dataLength={thisPagePosts.length} //This is important field to render the next data
         next={loadRelatedPost}

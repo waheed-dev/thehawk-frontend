@@ -6,7 +6,8 @@ import endpoints from '@/config/endpoints';
 import { useRouter } from 'next/router';
 import url from '@/config/url'
 import slugify from 'slugify';
-export default function Header() {
+import { memo } from 'react';
+const  Header =() =>{
     const router = useRouter()
     const [categoryData, setcategoryData] = useState([])
     const [subCategoryData, setsubCategoryData] = useState([]);
@@ -120,3 +121,6 @@ export default function Header() {
         </>
     )
 }
+
+
+export default memo(Header)

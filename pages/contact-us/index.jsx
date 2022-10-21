@@ -5,7 +5,7 @@ import React from 'react'
 export default function ContactUsPage() {
   return (
     <>
-      <Layout>
+    
         <div class="main-content container">
 
           <div class="col-md-12 blog-single">
@@ -178,7 +178,7 @@ export default function ContactUsPage() {
 
 
         </div>
-      </Layout>
+  
     </>
   )
 }

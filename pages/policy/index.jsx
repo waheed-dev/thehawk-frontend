@@ -4,7 +4,7 @@ import React from 'react'
 export default function PolicyPage() {
   return (
     <>
-          <Layout>
+       
               <div class="main-content container">
                   <div class="col-md-12 blog-single">
                       <div class="bs-meta">
@@ -683,7 +683,7 @@ export default function PolicyPage() {
 
                
               </div>
-      </Layout>
+  
     </>
   )
 }

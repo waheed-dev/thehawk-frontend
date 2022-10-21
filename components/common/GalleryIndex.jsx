@@ -1,20 +1,47 @@
+import url from '@/config/url'
+import axios from 'axios'
+import Link from 'next/link'
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import slugify from 'slugify'
 
 export default function GalleryIndex() {
+  const [posts, setposts] = useState([])
+  const loadGalleryIndexPost = async () => {
+    try {
+
+      const { data } = await axios.get('http://localhost:8000/api/post/galleryIndex')
+      
+      setposts(data.post)
+    } catch (error) {
+
+    }
+  }
+  useEffect(() => {
+    loadGalleryIndexPost()
+  }, [])
+  console.log(posts);
   return (
     <>
           <div className="col-md-4 footer-widget f-gallery">
               <h5>Gallery Index</h5>
-              <ul>
-                  <li><a href="#"><img src="images/aside/2/1.jpg" className="img-responsive" alt="" /></a></li>
-                  <li><a href="#"><img src="images/aside/2/2.jpg" className="img-responsive" alt="" /></a></li>
-                  <li><a href="#"><img src="images/aside/2/3.jpg" className="img-responsive" alt="" /></a></li>
-                  <li><a href="#"><img src="images/aside/2/4.jpg" className="img-responsive" alt="" /></a></li>
-                  <li><a href="#"><img src="images/aside/2/5.jpg" className="img-responsive" alt="" /></a></li>
-                  <li><a href="#"><img src="images/aside/2/6.jpg" className="img-responsive" alt="" /></a></li>
-                  <li><a href="#"><img src="images/aside/2/7.jpg" className="img-responsive" alt="" /></a></li>
-                  <li><a href="#"><img src="images/aside/2/8.jpg" className="img-responsive" alt="" /></a></li>
-                  <li><a href="#"><img src="images/aside/2/9.jpg" className="img-responsive" alt="" /></a></li>
+        <ul>
+          {
+            posts.map((post) => (
+              <>
+                <li>
+                  <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+
+                  <a ><img loading='lazy' src={post.img.replace('/upload/' , '/upload/w_100,h_100/')} className="img-responsive" alt={post.imgAlt} /></a>
+                  </Link>
+                </li>
+              </>
+            ))
+          }
+          
+                
+                  
               </ul>
           </div>
     </>
