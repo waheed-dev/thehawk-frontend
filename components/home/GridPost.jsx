@@ -184,13 +184,14 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
                             </div>
                             <div className="space40"></div>
                         </div>
+                        <HorizontalAds />
                     </>
 
 
 
 
                 </div>
-                <HorizontalAds/>
+            
             </div>
         </>
     )

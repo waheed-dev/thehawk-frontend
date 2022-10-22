@@ -2,16 +2,13 @@
 
 import MainContent from "@/components/home/MainContent";
 
-
 import db from "../DB/Conn";
 import Category from "../Model/categoryJs";
 
 import SubCategory from "../Model/subCategory";
 import Post from "../Model/postModel";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-
-import url from "@/config/url";
 import PlainSection from "@/components/home/PlainSection";
 import CommonCategoryNews from "@/components/home/CommonCategoryNews";
 
@@ -22,13 +19,14 @@ import SideBarCommonNews from "@/components/home/SideBarCommonNews";
 import dynamic from "next/dynamic";
 import Seo from "@/components/common/Seo";
 import HorizontalAds from "@/components/common/HorizontalAds";
-import SidebarAds from "@/components/common/SidebarAds";
+
 const DynamicGridWizardSection = dynamic(() => import('../components/home/GridWithWizard'), {
   suspense: false,
   ssr: false
 })
 export default function Home({ postsData, category, subCategory }) {
   const [posts, setposts] = useState(postsData);
+
 
   return (
     <>

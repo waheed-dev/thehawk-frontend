@@ -48,6 +48,7 @@ export default function PostDetailPage({ postData, postCategory, postAuthor, rel
     };
   }, [router.events]);
   const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}` 
+
   return (
    
     <>

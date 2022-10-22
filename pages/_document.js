@@ -31,7 +31,7 @@ class MyDocument extends Document {
           />
           <script
             async
-            strategy="lazyOnload"
+            // strategy="lazyOnload"
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9084918379047887`}
             crossOrigin="anonymous"
           />
