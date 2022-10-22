@@ -24,7 +24,7 @@ export default function MostRecomended() {
         <h5>Most Commented</h5>
         <ul>
           {
-            posts.map((post) => (
+            posts?.map((post) => (
               <>
                 <li>
                   <img loading='lazy' src={post.img} alt={post.imgAlt} />

@@ -2,7 +2,7 @@ import InnerSidebar from '@/components/common/InnerSidebar';
 import Seo from '@/components/common/Seo';
 import PostContent from '@/components/post/PostContent'
 
-import Layout from '@/layout/index'
+
 import db from 'DB/Conn';
 import Category from 'Model/categoryJs';
 import Post from 'Model/postModel';

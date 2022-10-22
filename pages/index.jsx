@@ -2,25 +2,25 @@
 
 import MainContent from "@/components/home/MainContent";
 
-import Layout from "layout";
+
 import db from "../DB/Conn";
 import Category from "../Model/categoryJs";
 
 import SubCategory from "../Model/subCategory";
 import Post from "../Model/postModel";
 import { useState } from "react";
-import Link from "next/link";
-import { NextSeo } from 'next-seo';
+
+
 import url from "@/config/url";
 import PlainSection from "@/components/home/PlainSection";
 import CommonCategoryNews from "@/components/home/CommonCategoryNews";
-import Footer from "@/components/common/Footer";
+
 import BlueNewsSection from "@/components/home/BlueNewsSection";
 import GridPost from "@/components/home/GridPost";
 import GridWithWizard from "@/components/home/GridWithWizard";
 import SideBarCommonNews from "@/components/home/SideBarCommonNews";
 import dynamic from "next/dynamic";
-import Seo from "@/components/common/seo";
+import Seo from "@/components/common/Seo";
 import HorizontalAds from "@/components/common/HorizontalAds";
 import SidebarAds from "@/components/common/SidebarAds";
 const DynamicGridWizardSection = dynamic(() => import('../components/home/GridWithWizard'), {

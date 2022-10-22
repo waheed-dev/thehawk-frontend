@@ -1,6 +1,6 @@
 
 import MainContent from '@/components/author/MainContent'
-import Layout from '@/layout/index'
+
 import db from 'DB/Conn';
 import Post from 'Model/postModel';
 import User from 'Model/userModel';

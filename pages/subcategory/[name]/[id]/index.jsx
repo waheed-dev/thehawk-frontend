@@ -3,7 +3,7 @@ import Seo from '@/components/common/Seo';
 import MainContent from '@/components/subCategory/MainContent'
 
 import endpoints from '@/config/endpoints';
-import Layout from '@/layout/index'
+
 import axios from 'axios';
 import db from 'DB/Conn';
 import Post from 'Model/postModel';
