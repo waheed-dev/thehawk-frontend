@@ -6,6 +6,7 @@ import NextNProgress from "nextjs-progressbar";
 import Layout from "../layout";
 import { useEffect } from "react";
 import * as ga from "@/components/common/lib/Analytics";
+import Script from "next/script";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
@@ -54,6 +55,12 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
   return (
     <>
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9084918379047887"
+        crossorigin="anonymous"
+        id="googleAddScript"
+      ></Script>
       <NextNProgress color="#e00000" options={{ showSpinner: false }} />
       <Layout>
         <Component {...pageProps} key={router.asPath} />

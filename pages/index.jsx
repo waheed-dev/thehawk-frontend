@@ -65,7 +65,7 @@ export default function Home({ postsData, category, subCategory }) {
 
 
           }
-<HorizontalAds/>
+
         </div>
         <div className="main-content container">
           {
@@ -122,7 +122,7 @@ export default function Home({ postsData, category, subCategory }) {
 
 
 
-      <HorizontalAds/>
+
         <div className="main-content container">
 
           <div className="col-md-8 block-1">
@@ -154,7 +154,7 @@ export default function Home({ postsData, category, subCategory }) {
 
             {/* <PopularNews posts={posts} /> */}
 
-         <SidebarAds/>
+     
 
             {
               category &&

@@ -2,7 +2,7 @@ import React from 'react'
 import dynamic from 'next/dynamic'
 
 
-import { Suspense } from 'react'
+
 
 const DynamicAuthorSection = dynamic(() => import('./AuthorSection'), {
   suspense: false,
@@ -71,7 +71,7 @@ export default function Sidebar({posts , category , subCategory}) {
                       )
                       .slice(posts
                         .filter((filtered) => filtered.isFetaured === false)
-                        .filter((subCat) => subCat.subCategory.id !== '').length === 0 ? 7 : 5, 
+                        .filter((subCat) => subCat.subCategory.id !== '').length === 0 ? 4 : 5, 
 
                         posts.filter((catFiltered) =>
                           catFiltered.category.id === categoryDetail._id).length

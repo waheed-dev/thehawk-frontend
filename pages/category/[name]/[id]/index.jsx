@@ -27,9 +27,9 @@ export default function CategoryPage({
     // sethasMore(true);
     const data = await axios.get(`${endpoints.post.getPostByCategory.replace(':id', id)}/?page=${pageNumber}`);
     if (data.status === 200) {
-      console.log(data.data);
+     
       if (data.data.length < 20) {
-        console.log('hi');
+  
         sethasMore(() => false);
       }
 

@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import url from '@/config/url'
 import slugify from 'slugify'
+import HorizontalAds from '../common/HorizontalAds'
 export default function BlueNewsSection({ categoryDetails, post }) {
 
   return (
@@ -67,6 +68,7 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                         
                       </div>
                   </div>
+                  <HorizontalAds />
               </div>
               <div className="space40"></div>
           </div>

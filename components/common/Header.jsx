@@ -29,7 +29,7 @@ const  Header =() =>{
             setrssData(rssPromise.data)
 
         } catch(e) {
-            console.log(e);
+      
         }
     }
 
