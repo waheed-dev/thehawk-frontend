@@ -8,17 +8,22 @@ import SidebarAds from './SidebarAds'
 export default function InnerSidebar({ id, hasMore }) {
     const [page, setpage] = useState(1)
     const [posts, setposts] = useState([])
-    const loadPost = async () => {
-        try {
+
+    const loadPost=  useCallback(
+        async () => {
+            try {
 
 
-            const { data } = await axios.get(`${endpoints.category.sidebarPost.replace(':id', id)}/?page=${page}&limit=33`)
-            setposts(data.posts)
-        } catch (error) {
+                const { data } = await axios.get(`${endpoints.category.sidebarPost.replace(':id', id)}/?page=${page}&limit=33`)
+                setposts(data.posts)
+            } catch (error) {
 
-        }
-    }
-    const handelChangeAds = useCallback(() => {
+            }
+        },
+      [],
+    )
+    
+    const handelChangeAds =() => {
       const AvailableAdds = document.getElementsByClassName("adsbygoogle");
         let valueAddsNumber = 0;
 
@@ -40,12 +45,12 @@ export default function InnerSidebar({ id, hasMore }) {
                 console.error(e);
             }
         }
-    }, [posts])
+    }
     
 
     useEffect(() => {
         loadPost()
-    }, [])
+    }, [loadPost])
     const loadRelatedPost = async () => {
 
         const data = await axios.get(`${endpoints.category.sidebarPost.replace(':id', id)}/?page=${page}&limit=33`);
@@ -100,7 +105,7 @@ export default function InnerSidebar({ id, hasMore }) {
             </aside>
             <InfiniteScroll
                 scrollThreshold={0.5}
-                dataLength={posts.length} //This is important field to render the next data
+                dataLength={posts?.length ? posts?.length:0} //This is important field to render the next data
                 next={loadRelatedPost}
                 hasMore={hasMore}
                 loader={''}

@@ -33,7 +33,38 @@ export default function SubCategoryPage({
 
   const [pageNumber, setpageNumber] = useState(2);
   const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}` 
+  useEffect(() => {
+    const handelChangeAds = () => {
+      const AvailableAdds = document.getElementsByClassName("adsbygoogle");
+      let valueAddsNumber = 0;
 
+      for (var index = 0; index < AvailableAdds.length; index++) {
+        const element = AvailableAdds[index];
+
+        if (element.hasChildNodes() === false) {
+          valueAddsNumber = valueAddsNumber + 1;
+        }
+      }
+
+      for (var i = 0; i < valueAddsNumber; i++) {
+        try {
+          // @ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9084918379047887",
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    };
+
+    router.events.on("routeChangeComplete", handelChangeAds);
+    router.events.on("hashChangeComplete", handelChangeAds);
+    return () => {
+      router.events.off("routeChangeComplete", handelChangeAds);
+      router.events.off("hashChangeComplete", handelChangeAds);
+    };
+  }, [router.events]);
   const loadRelatedPost = async () => {
 
     const data = await axios.get(`${endpoints.post.getPostBySubCategory.replace(':id', id)}/?page=${pageNumber}`);
@@ -66,6 +97,7 @@ export default function SubCategoryPage({
         </div>
 
       <InfiniteScroll
+        scrollThreshold={0.5}
         dataLength={thisPagePosts.length} //This is important field to render the next data
         next={loadRelatedPost}
         hasMore={hasMore}

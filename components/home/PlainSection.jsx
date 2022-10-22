@@ -2,6 +2,7 @@ import url from '@/config/url'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import HorizontalAds from '../common/HorizontalAds'
 import CommonNewsFetauredSection from './PlainNewsFetauredSection'
 
 export default function PlainSection({ categoryDetail, posts }) {
@@ -118,9 +119,10 @@ export default function PlainSection({ categoryDetail, posts }) {
                         }
                     </div>
 
-
+              
                 </div>
             </div>
+            <HorizontalAds />
             <div className="space30"></div>
 
         </>

@@ -41,17 +41,17 @@ class MyDocument extends Document {
             type="text/css"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic&display=optional"
+            href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic"
             rel="stylesheet"
             type="text/css"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,300italic,100italic,400italic,600,600italic,700,700italic&display=optional"
+            href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,300italic,100italic,400italic,600,600italic,700,700italic"
             rel="stylesheet"
             type="text/css"
           />
           <link
-            href="https://fonts.googleapis.com/css?family=Oswald:400,700,300&display=optional"
+            href="https://fonts.googleapis.com/css?family=Oswald:400,700,300"
             rel="stylesheet"
             type="text/css"
           />

@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/react-slick": "^0.29.2",
     "@supercharge/collections": "^4.3.0",
     "axios": "^0.27.2",
     "google-maps-react": "^2.0.6",

@@ -17,7 +17,7 @@ import CommonCategoryNews from "@/components/home/CommonCategoryNews";
 
 import BlueNewsSection from "@/components/home/BlueNewsSection";
 import GridPost from "@/components/home/GridPost";
-import GridWithWizard from "@/components/home/GridWithWizard";
+
 import SideBarCommonNews from "@/components/home/SideBarCommonNews";
 import dynamic from "next/dynamic";
 import Seo from "@/components/common/Seo";
@@ -65,7 +65,7 @@ export default function Home({ postsData, category, subCategory }) {
 
 
           }
-
+<HorizontalAds/>
         </div>
         <div className="main-content container">
           {
@@ -93,7 +93,7 @@ export default function Home({ postsData, category, subCategory }) {
             .slice(0, Math.ceil((category.filter((filtered) => filtered.gridWithWizard === true)).length / 2))
             .map((categoryDetail) => (
               <>
-                <GridWithWizard
+                <DynamicGridWizardSection
                   subCategory={subCategory.filter((curElem) => curElem.categoryId ===
                     categoryDetail._id)} posts={posts.filter((catFiltered) =>
                       catFiltered.category.id === categoryDetail._id)

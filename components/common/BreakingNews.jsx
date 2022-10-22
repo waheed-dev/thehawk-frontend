@@ -6,7 +6,7 @@ import Link from 'next/link';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Slider from 'react-slick'
+import Slider from '@ant-design/react-slick'
 import slugify from 'slugify';
 export default function BreakingNews() {
     const settings = {

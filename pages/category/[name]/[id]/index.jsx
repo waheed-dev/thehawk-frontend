@@ -11,6 +11,7 @@ import Post from 'Model/postModel'
 import SubCategory from 'Model/subCategory'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import { useEffect } from 'react'
 /* eslint-disable react/no-unescaped-entities */
 import InfiniteScroll from 'react-infinite-scroll-component';
 import slugify from 'slugify';
@@ -38,7 +39,38 @@ export default function CategoryPage({
     }
   };
 
+  useEffect(() => {
+    const handelChangeAds = () => {
+      const AvailableAdds = document.getElementsByClassName("adsbygoogle");
+      let valueAddsNumber = 0;
 
+      for (var index = 0; index < AvailableAdds.length; index++) {
+        const element = AvailableAdds[index];
+
+        if (element.hasChildNodes() === false) {
+          valueAddsNumber = valueAddsNumber + 1;
+        }
+      }
+
+      for (var i = 0; i < valueAddsNumber; i++) {
+        try {
+          // @ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9084918379047887",
+          });
+        } catch (e) {
+          console.error(e);
+        }
+      }
+    };
+
+    router.events.on("routeChangeComplete", handelChangeAds);
+    router.events.on("hashChangeComplete", handelChangeAds);
+    return () => {
+      router.events.off("routeChangeComplete", handelChangeAds);
+      router.events.off("hashChangeComplete", handelChangeAds);
+    };
+  }, [router.events]);
 
 
   const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}` 
