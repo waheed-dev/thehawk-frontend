@@ -29,7 +29,7 @@ export default function GalleryIndex() {
               <h5>Gallery Index</h5>
         <ul>
           {
-            posts.map((post) => (
+            posts?.map((post) => (
               <>
                 <li>
                   <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>

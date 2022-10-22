@@ -36,22 +36,22 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           <link
-            href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
             rel="stylesheet"
             type="text/css"
           />
           <link
-            href="http://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic"
+            href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic&display=optional"
             rel="stylesheet"
             type="text/css"
           />
           <link
-            href="http://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,300italic,100italic,400italic,600,600italic,700,700italic"
+            href="https://fonts.googleapis.com/css?family=Josefin+Sans:400,100,300,300italic,100italic,400italic,600,600italic,700,700italic&display=optional"
             rel="stylesheet"
             type="text/css"
           />
           <link
-            href="http://fonts.googleapis.com/css?family=Oswald:400,700,300"
+            href="https://fonts.googleapis.com/css?family=Oswald:400,700,300&display=optional"
             rel="stylesheet"
             type="text/css"
           />
