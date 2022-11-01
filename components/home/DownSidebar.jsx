@@ -13,7 +13,7 @@ export default function DownSidebar({ posts }) {
                     <ul>
                         {
                             posts
-                                //   .slice(0 ,7)
+                                  .slice(0 ,3)
                                 .map((post, index) => (
                                     <>
                                         <li>
