@@ -10,7 +10,12 @@ export default function AuthorSection({ User }) {
   const loadUsers = async () => {
     try {
       const { data } = await axios.get(endpoints.users.all)
-      setusers(data)
+      const hasAvatar = data?.filter((user) => {
+        console.log(user.avatar);
+        return  user.avatar !== undefined 
+      }) 
+
+      setusers(hasAvatar)
     } catch (error) {
       
     }

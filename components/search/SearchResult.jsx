@@ -26,7 +26,7 @@ export default function SearchResult({ postData }) {
                                         <div class="fn2-info">
                                             <div class="fn2-meta">{post.category.name}</div>
                                             <h4><a href="./single_post.html">{post.postitle}</a></h4>
-                                            <em>Posted on {moment(post.createdAt).format("MMMM")}
+                                            <em> {moment(post.createdAt).format("MMMM")}
                                                 {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</em>
                                             <p>
                                                 {post.postText}
@@ -59,7 +59,7 @@ export default function SearchResult({ postData }) {
 
 
                                             </h4>
-                                            <em>Posted on {moment(post.createdAt).format("MMMM")}
+                                            <em> {moment(post.createdAt).format("MMMM")}
                                                 {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</em>
                                             <p>
                                                 {

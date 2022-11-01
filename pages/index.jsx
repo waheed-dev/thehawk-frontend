@@ -182,7 +182,7 @@ export default function Home({ postsData, category, subCategory }) {
                             )
                             .slice(posts
                               .filter((filtered) => filtered.isFetaured === false)
-                              .filter((subCat) => subCat.subCategory.id !== '').length === 0 ? 7 : 5,
+                              .filter((subCat) => subCat.subCategory.id !== '').length === 0 ? 2 : 5,
 
                               posts.filter((catFiltered) =>
                                 catFiltered.category.id === categoryDetail._id).length
@@ -242,20 +242,53 @@ export async function getStaticProps() {
 
   const postLoader = cat.map(async (category) => {
     const res = await Post.find(
-      { "category.id": category._id },
+      { "category.id": category._id, isFetaured: false, isFetauredTop:false },
       { description: 0 }
     )
       .sort({
         $natural: -1,
       })
 
-      .limit(10)
+      .limit(9)
       .lean();
 
     data = [...data, ...res];
   });
+  const FetaurepostLoader = cat.map(async (category) => {
+    const res = await Post.find(
+      { "category.id": category._id, isFetaured: true, isFetauredTop:false },
+      { description: 0 }
+    )
+      .sort({
+        updatedAt: -1,
+      })
 
+      .limit(1)
+      .lean();
+
+    data = [...data, ...res];
+  });
+  let fetauredTopPostData = []
+  
+  const fetaureTopPost = async () =>{
+    fetauredTopPostData=  await Post.find(
+    {  isFetauredTop: true },
+    { description: 0 }
+  )
+    .sort({
+      updatedAt: -1,
+    })
+
+    .limit(1)
+      .lean();
+    // console.log(fetauredTopPostData)
+    return fetauredTopPostData
+  }
   await Promise.all(postLoader);
+  await Promise.all(FetaurepostLoader);
+  const topPost = await fetaureTopPost()
+  console.log(...topPost);
+  data = [...data, ...topPost ]
   const subCat = await SubCategory.find().lean();
 
   return {

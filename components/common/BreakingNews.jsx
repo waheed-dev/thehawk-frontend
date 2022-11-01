@@ -54,7 +54,7 @@ export default function BreakingNews() {
                                       </Link>
                                  
                                   </h4>
-                                  <p>Posted on : {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</p>
+                                  <p> {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</p>
                               </div>
                           </>
                       ))

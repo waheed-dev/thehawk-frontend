@@ -8,6 +8,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react'
 
 const Navbar = ({ categoryData, subCategoryData, rssData }) => {
+    const [showMenu, setshowMenu] = useState(false)
     let length
     const router = useRouter()
 
@@ -52,8 +53,11 @@ const Navbar = ({ categoryData, subCategoryData, rssData }) => {
                                         <Link href={url.category.single.replace(":name", slugify(menu.category)).replace(':id', menu._id)}>
                                             <a onMouseEnter={() => {
                                                 filterinfDataIntoColumn(menu._id)
-
-                                            }} className={`${subCategoryData?.filter(
+                                                setshowMenu(true)
+                                            }}
+                                            
+                                               
+                                                className={`${subCategoryData?.filter(
                                                 (element) => element.categoryId === menu._id
                                             ).length !== 0 ? 'sub-nav' : ''}`}>{menu.category}</a>
 
@@ -64,9 +68,15 @@ const Navbar = ({ categoryData, subCategoryData, rssData }) => {
 
                                         {subCategoryData?.filter(
                                             (element) => element.categoryId === menu._id
-                                        ).length !== 0 ? <>
+                                        ).length !== 0 && showMenu ? <>
 
-                                            <ul className="mega-menu">
+                                                <ul
+                                                    onMouseLeave={() => {
+                                                        setshowMenu(false)
+                                                    filterinfDataIntoColumn('')
+
+                                                    }}
+                                                    className="mega-menu">
                                                 <li key={uuidv4()} className="sub-menu">
                                                     <ul>
                                                         {

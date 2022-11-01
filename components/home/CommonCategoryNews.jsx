@@ -87,7 +87,7 @@ export default function CommonCategoryNews({ posts, categoryDetail, subCategory 
                             </Link>
                            
                           </h5>
-                          <span className="date">Posted on {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</span>
+                          <span className="date">{moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</span>
                           <p>
                             {
                               post.postText.length > length ?

@@ -40,9 +40,10 @@ export default function MainContent({ posts, category, subCategory  }) {
                               <>
                                   <CommonCategoryNews categoryDetail={categoryDetail} subCategory={subCategory.filter((curElem) => curElem.categoryId === categoryDetail._id)} posts={posts.filter((catFiltered) => catFiltered.category.id === categoryDetail._id)
                                      } />
-                                  {
-                                      index % 2 === 0 ? <HorizontalAds /> : null
-                                  }
+                                  {/* {
+                                      index % 3 === 0 ? <HorizontalAds /> : null
+                                  } */}
+                                  <HorizontalAds/>
                               </>
                           ))
                   }

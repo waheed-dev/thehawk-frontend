@@ -14,7 +14,7 @@ export default function TrendingNews({ posts }) {
                       posts.sort((a, b) => new Date(b.createdAt).getTime() -
                           new Date(a.createdAt).getTime())
                           .filter((currentElement) => currentElement.isTrending === true)
-                          .slice(0, 5)
+                          .slice(0, 6)
                           .map((post) => (
                               <>
                                   <div className="col-md-12">
@@ -32,7 +32,7 @@ export default function TrendingNews({ posts }) {
                                                   <a >{post.postitle}</a>
                                                   </Link>
                                               </h4>
-                                              <em>Posted on {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</em>
+                                              <em> {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</em>
                                               <p>
                                                   
                                                   {

@@ -1,11 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from 'next/link'
-import React from 'react'
+import React, { useLayoutEffect, useRef, useState } from 'react'
 import url from '@/config/url'
 import slugify from 'slugify'
-import HorizontalAds from '../common/HorizontalAds'
-export default function BlueNewsSection({ categoryDetails, post }) {
 
+export default function BlueNewsSection({ categoryDetails, post }) {
+    const ref = useRef(null);
+
+    const [height, setHeight] = useState(0);
+    const [width, setWidth] = useState(0);
+
+    useLayoutEffect(() => {
+        setHeight(ref.current.clientHeight);
+        setWidth(ref.current.clientWidth);
+    }, []);
   return (
     <>
           <div className="cat-blocks">
@@ -27,7 +35,7 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                 </span></h4>
               <div className="row">
                   <div className="col-md-6">
-                      <div className="op-twitter">
+                      <div ref={ref} className="op-twitter">
                           <div className="opt-inner">
                               <h2 className='title-india'>
                                   <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id' , post._id)}>
@@ -61,14 +69,14 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                           <div className="opi-inner">
                               <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
                                   <a >
-                                      <img src={post.img} loading="lazy" className="img-responsive" alt={post.imgAlt} />
+                                      <img src={post.img.replace('/upload/', `/upload/h_${height},w_${width}/`)} loading="lazy" className="img-responsive" alt={post.imgAlt} />
                                   </a></Link>
                             
                           </div>
                         
                       </div>
                   </div>
-                  <HorizontalAds />
+           
               </div>
               <div className="space40"></div>
           </div>

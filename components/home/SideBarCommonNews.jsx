@@ -13,11 +13,11 @@ export default function SideBarCommonNews({posts}) {
                   <ul>
                       {
                           posts
-                              .slice(0 ,7)
+                            //   .slice(0 ,7)
                               .map((post , index) => (
                                   <>
                                       <li>
-                                          <img loading='lazy' src={post.img} alt={post.imgAlt} />
+                                          <img loading='lazy' src={post.img.replace('/upload/' , '/upload/w_400,h_400/')} alt={post.imgAlt} />
                                           <div className="pn-info">
                                               <span>      <Link href={url.category.single.replace(':name', slugify(post.category.name)).replace(':id', post.category.id)}>
                                                   <a style={{
@@ -34,15 +34,16 @@ export default function SideBarCommonNews({posts}) {
                                               </h4>
                                           </div>
                                       </li>
-                                      {
-                                          index%5 ===0? <SidebarAds/>:null
-                                      }
+                                      {/* {
+                                        index%5 ===0? <SidebarAds/>:null
+                                      } */}
                                   </>
                               ))
                       }
 
-
+                      <SidebarAds />
                   </ul>
+
               </div>
           </div>
 

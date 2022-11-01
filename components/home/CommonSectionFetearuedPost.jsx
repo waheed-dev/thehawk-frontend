@@ -22,7 +22,7 @@ export default function CommonSectionFetearuedPost({ fetaurePost }) {
                           </Link>
 
                       </h3>
-                      <p>Posted on {moment(fetaurePost.createdAt).format("MMMM")} {moment(fetaurePost.createdAt).format("D")}, {moment(fetaurePost.createdAt).format("Y")}</p>
+                      <p> {moment(fetaurePost.createdAt).format("MMMM")} {moment(fetaurePost.createdAt).format("D")}, {moment(fetaurePost.createdAt).format("Y")}</p>
                   </div>
               </div>
           </div>

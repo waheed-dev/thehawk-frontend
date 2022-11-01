@@ -71,7 +71,7 @@ export default function Sidebar({posts , category , subCategory}) {
                       )
                       .slice(posts
                         .filter((filtered) => filtered.isFetaured === false)
-                        .filter((subCat) => subCat.subCategory.id !== '').length === 0 ? 4 : 5, 
+                        .filter((subCat) => subCat.subCategory.id !== '').length === 0 ? 6 : 5, 
 
                         posts.filter((catFiltered) =>
                           catFiltered.category.id === categoryDetail._id).length

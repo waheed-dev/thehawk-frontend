@@ -7,7 +7,7 @@ export default function PopularNews({posts}) {
   return (
     <>
       <div className="side-widget p-news">
-        <h5><span>Popular news</span></h5>
+        <h5><span>Don't Miss</span></h5>
         <div className="sw-inner">
           <ul>
             {

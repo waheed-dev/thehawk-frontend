@@ -15,7 +15,7 @@ export default function LatestNews({ posts }) {
           {
             posts.sort((a, b) => new Date(b.createdAt).getTime() -
               new Date(a.createdAt).getTime())
-              .slice(0, 4)
+              .slice(0, 6)
               .map((post) => (
                 <>
                   <div className="thumb">
@@ -23,7 +23,7 @@ export default function LatestNews({ posts }) {
                     <span className="thumb-cat">{ post.category.name}</span>
                   </div>
 
-                  <p>Posted on {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</p>
+                  <p> {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</p>
 
                   <h4>
                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>

@@ -88,7 +88,7 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                                                     </a>
                                                 </Link>
                                             </h4>
-                                            <span>Posted on {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</span>
+                                            <span>{moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</span>
                                             <p>
                                                 {
                                                     post.postText.length > postTextLength ? <>
