@@ -38,17 +38,29 @@ export default function BreakingNews() {
   return (
       <>
           <div id="news-ticker">
-              <Slider   {...settings}>
+              <Slider slidesPerRow={1}   {...settings}>
                   {
                       posts?.map((post) => (
                           <>
                               <div className="item">
-                                  <span>{post?.subCategory?.name }</span>
+                                  <span>{post?.category?.name }</span>
                                   <h4>
                                       <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id' , post._id)}>
                                           <a >
                                               {
-                                                  post.postitle
+                                                  post.postitle.length > 60 ? <>
+                                                      {
+                                                          post.postitle
+                                                              .substr(0, 60)
+                                                              .substr(
+                                                                  0,
+                                                                  Math.min(
+                                                                      post.postitle.length,
+                                                                      post.postitle.lastIndexOf(' ')
+                                                                  )
+                                                              ) + ' ...'
+                                                      }
+                                                  </> : post.postitle
                                               }
                                           </a>
                                       </Link>

@@ -13,8 +13,11 @@ export default function LatestNews({ posts }) {
         <div className="bla-content">
 
           {
-            posts.sort((a, b) => new Date(b.createdAt).getTime() -
+            posts
+              .filter((currentElement) => currentElement.isPopular === false)
+              .sort((a, b) => new Date(b.createdAt).getTime() -
               new Date(a.createdAt).getTime())
+
               .slice(0, 6)
               .map((post) => (
                 <>

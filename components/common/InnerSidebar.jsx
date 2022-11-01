@@ -92,9 +92,9 @@ export default function InnerSidebar({ id, hasMore }) {
                                                 </h4>
                                             </div>
                                         </li>
-                                        {
+                                        {/* {
                                             index % 5 === 0 ? <SidebarAds /> : null
-                                        }
+                                        } */}
                                     </>
                                 ))
                             }

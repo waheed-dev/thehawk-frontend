@@ -17,9 +17,7 @@ export default function DownHeader() {
                         <div className="col-md-4 logo">
                             <h1>
                                 <Link href={url.home}>
-                                    <a style={{
-                                        fontFamily:'Alphant'
-                                    }} >The Hawk</a>
+                                    <a  className='headerlogo'  >The Hawk</a>
                                 </Link>
                                
                             </h1>

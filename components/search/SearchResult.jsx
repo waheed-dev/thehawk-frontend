@@ -25,7 +25,12 @@ export default function SearchResult({ postData }) {
                                         </div>
                                         <div class="fn2-info">
                                             <div class="fn2-meta">{post.category.name}</div>
-                                            <h4><a href="./single_post.html">{post.postitle}</a></h4>
+                                            <h4>
+                                                <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                                    <a >{post.postitle}</a>
+                                                </Link>
+                                              
+                                            </h4>
                                             <em> {moment(post.createdAt).format("MMMM")}
                                                 {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</em>
                                             <p>

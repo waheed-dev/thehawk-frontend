@@ -63,3 +63,22 @@ background: none;
 .b1-aside{
     /* height: 500px; */
 }
+
+.big-banner {
+
+    border-bottom: none; 
+     border-top: none;
+}
+@font-face {
+    font-family: 'Alphant 12';
+    src: url('../public/Alphant12.woff2') format('woff2'),
+        url('../public/Alphant12.woff') format('woff');
+    font-weight: bold;
+    /* font-style: italic; */
+    font-display: swap;
+}
+.headerlogo{
+    text-transform: capitalize;
+    font-family: 'Alphant 12';
+    font-weight: bold;
+}

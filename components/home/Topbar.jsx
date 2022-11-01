@@ -11,7 +11,7 @@ export default function Topbar() {
         today: moment(myDate).format("D"),
         year: moment(myDate).format("Y")
     })
-    const { latitude, longitude,  } = useGeoLocation();
+    const { latitude, longitude, } = useGeoLocation();
 
 
     const getWeather = async (latitude, longitude) => {
@@ -49,12 +49,15 @@ lat=${latitude}&lon=${longitude}&appid=${process.env.NEXT_PUBLIC_WEATHER_API_KEY
                         <ul className="tb-right">
                             <li key={uuidv4()} className="tbr-social">
                                 <span>
-                                    <a href="#" className="fa fa-facebook"></a>
-                                    <a href="#" className="fa fa-twitter"></a>
-                                    <a href="#" className="fa fa-google-plus"></a>
-                                    <a href="#" className="fa fa-pinterest"></a>
-                                    <a href="#" className="fa fa-youtube"></a>
-                                    <a href="#" className="fa fa-rss"></a>
+                                    <a href="https://www.facebook.com/thehawk
+" className="fa fa-facebook"></a>
+                                    <a href="https://twitter.com/thehawk
+" className="fa fa-twitter"></a>
+
+
+                                    <a href="https://www.youtube.com/channel/UC89UAODQct_ilb1fq6JKNBQ" className="fa fa-youtube"></a>
+                                    <a href="https://www.linkedin.com/company/thehawk
+" className="fa fa-linkedin"></a>
                                 </span>
                             </li>
 
