@@ -34,14 +34,14 @@ export default function SideBarCommonNews({posts}) {
                                               </h4>
                                           </div>
                                       </li>
-                                      {
+                                      {/* {
                                         index%5 ===0? <SidebarAds/>:null
-                                      }
+                                      } */}
                                   </>
                               ))
                       }
 
-                
+                      <SidebarAds />
                   </ul>
 
               </div>

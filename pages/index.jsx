@@ -138,7 +138,7 @@ export default function Home({ postsData, category, subCategory }) {
                 .map((categoryDetail , index) => (
 
                   <>
-                    <DownSidebar categoryDetail={categoryDetail} subCategory={subCategory.filter((curElem) => curElem.categoryId === categoryDetail._id)} posts={posts.filter((catFiltered) => catFiltered.category.id === categoryDetail._id)
+                    <CommonCategoryNews categoryDetail={categoryDetail} subCategory={subCategory.filter((curElem) => curElem.categoryId === categoryDetail._id)} posts={posts.filter((catFiltered) => catFiltered.category.id === categoryDetail._id)
                     } />
                   
                   </>
@@ -167,7 +167,7 @@ export default function Home({ postsData, category, subCategory }) {
 
                   <>
 
-                    <SideBarCommonNews categoryDetail={categoryDetail}
+                    <DownSidebar categoryDetail={categoryDetail}
                       subCategory=
                       {subCategory.filter((curElem) => curElem.categoryId ===
                         categoryDetail._id)} posts={
