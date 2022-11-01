@@ -19,6 +19,7 @@ import SideBarCommonNews from "@/components/home/SideBarCommonNews";
 import dynamic from "next/dynamic";
 import Seo from "@/components/common/Seo";
 import HorizontalAds from "@/components/common/HorizontalAds";
+import DownSidebar from "@/components/home/DownSidebar";
 
 const DynamicGridWizardSection = dynamic(() => import('../components/home/GridWithWizard'), {
   suspense: false,
@@ -137,11 +138,9 @@ export default function Home({ postsData, category, subCategory }) {
                 .map((categoryDetail , index) => (
 
                   <>
-                    <CommonCategoryNews categoryDetail={categoryDetail} subCategory={subCategory.filter((curElem) => curElem.categoryId === categoryDetail._id)} posts={posts.filter((catFiltered) => catFiltered.category.id === categoryDetail._id)
+                    <DownSidebar categoryDetail={categoryDetail} subCategory={subCategory.filter((curElem) => curElem.categoryId === categoryDetail._id)} posts={posts.filter((catFiltered) => catFiltered.category.id === categoryDetail._id)
                     } />
-                    {
-                      index % 2 === 0 ? <HorizontalAds /> : null
-                    }
+                  
                   </>
                 ))
             }
