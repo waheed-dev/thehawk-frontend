@@ -1,10 +1,12 @@
 import endpoints from '@/config/endpoints'
 import axios from 'axios'
+import Link from 'next/link'
 import React, { useCallback, useEffect } from 'react'
 import { useState } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import SidebarAds from './SidebarAds'
-
+import url from '@/config/url'
+import slugify from 'slugify'
 export default function InnerSidebar({ id, hasMore }) {
     const [page, setpage] = useState(1)
     const [posts, setposts] = useState([])
@@ -82,7 +84,12 @@ export default function InnerSidebar({ id, hasMore }) {
                                             <img src={post.img.replace('/upload/' , '/upload/w_110,h_81/')} alt={post.imgAlt} />
                                             <div class="pn-info">
                                                 <span>{post.subCategory.name }</span>
-                                                <h4><a>Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
+                                                <h4>
+                                                    <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
+                                                    
+                                                    <a>Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a>
+                                                    </Link>
+                                                </h4>
                                             </div>
                                         </li>
                                         {

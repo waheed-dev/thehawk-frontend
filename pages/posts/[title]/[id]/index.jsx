@@ -82,36 +82,51 @@ export async function getStaticPaths() {
   return { paths, fallback: 'blocking' };
 }
 export async function getStaticProps(context) {
-  const { params } = context;
+  try {
+    const { params } = context;
 
-  const { id } = params;
-  await db.dbConnect();
+    const { id } = params;
+    console.log(id);
+    await db.dbConnect();
 
-  const data = await Post.find({ _id: id }).lean();
+    const data = await Post.find({ _id: id }).lean();
+    console.log(data);
+    const PostCategory = await Category.find({
+      _id: data[0].category.id
+    }).lean();
+    const PostAuthor = await User.find({
+      _id: data[0].author.id
+    }).lean();
 
-const PostCategory = await Category.find({
-  _id: data[0].category.id
-}).lean();
-  const PostAuthor = await User.find({
-    _id: data[0].author.id
-  }).lean();
-
-  const relatedNews = await Post.find({
-    'category.id': data[0].category.id,
-    _id: { $ne: data[0]._id }
-  })
-    .sort({
-      $natural: -1,
+    const relatedNews = await Post.find({
+      'category.id': data[0].category.id,
+      _id: { $ne: data[0]._id }
     })
-    .limit(10)
-    .lean();
-  return {
-    props: {
-      postData: data.map(db.convertDocToObj),
-      postCategory: PostCategory.map(db.convertDocToObj),
-      postAuthor: PostAuthor.map(db.convertDocToObj),
-      relatedNews: relatedNews.map(db.convertDocToObj)
-    },
-    revalidate: 120,
-  };
+      .sort({
+        $natural: -1,
+      })
+      .limit(10)
+      .lean();
+    return {
+      props: {
+        postData: data.map(db.convertDocToObj),
+        postCategory: PostCategory.map(db.convertDocToObj),
+        postAuthor: PostAuthor.map(db.convertDocToObj),
+        relatedNews: relatedNews.map(db.convertDocToObj)
+      },
+      revalidate: 120,
+    };
+  } catch (error) {
+    console.log(error.message);
+    return {
+      props: {
+        postData: [],
+        postCategory:[],
+        postAuthor: [],
+        relatedNews: []
+      },
+      revalidate: 120,
+    };
+  }
+
 }
