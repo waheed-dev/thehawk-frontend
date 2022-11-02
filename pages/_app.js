@@ -7,6 +7,8 @@ import Layout from "../layout";
 import { useEffect } from "react";
 import * as ga from "@/components/common/lib/Analytics";
 import Script from "next/script";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   useEffect(() => {
@@ -55,7 +57,7 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
   return (
     <>
-      <Script 
+      <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9084918379047887"
         crossorigin="anonymous"
@@ -64,6 +66,7 @@ function MyApp({ Component, pageProps }) {
       <NextNProgress color="#e00000" options={{ showSpinner: false }} />
       <Layout>
         <Component {...pageProps} key={router.asPath} />
+        <ToastContainer position={ 'top-center'} />
       </Layout>
     </>
   );

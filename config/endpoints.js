@@ -23,5 +23,6 @@ const endpoints = {
     recomanded: `${api}/post/mostrecomanded`,
     galleryIndex: `${api}/post/galleryIndex`,
   },
+  susbcribe: `${api}/subscribe`,
 };
 export default endpoints;
