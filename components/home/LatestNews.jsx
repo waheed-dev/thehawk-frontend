@@ -3,6 +3,7 @@ import moment from 'moment'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 import BlaBannerAds from '../common/BlaBannerAds'
 
 export default function LatestNews({ posts }) {
@@ -22,7 +23,7 @@ export default function LatestNews({ posts }) {
               .map((post) => (
                 <>
                   <div className="thumb">
-                    <img loading='lazy' src={post.img} className="img-responsive" alt="" />
+                    <img loading='lazy' src={webp(post.img)} className="img-responsive" alt="" />
                     <span className="thumb-cat">{ post.category.name}</span>
                   </div>
 

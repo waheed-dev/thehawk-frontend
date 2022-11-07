@@ -5,9 +5,11 @@ import url from '@/config/url';
 import "slick-carousel/slick/slick-theme.css";
 import Link from 'next/link';
 import BreakingNews from './BreakingNews';
+import { useRouter } from 'next/router';
 export default function DownHeader() {
 
-
+    const router = useRouter()
+    // console.log(router.asPath);
     return (
         <>
             <div className="header">
@@ -15,12 +17,20 @@ export default function DownHeader() {
                     <div className="col-md-12">
 
                         <div className="col-md-4 logo">
-                            <h1>
-                                <Link href={url.home}>
-                                    <a  className='headerlogo'  >The Hawk</a>
-                                </Link>
-                               
-                            </h1>
+                            {
+                                router.asPath === url.home ? <h1>
+                                    <Link href={url.home}>
+                                        <a className='headerlogo'>The Hawk</a>
+                                    </Link>
+
+                                </h1> : <h2>
+                                    <Link href={url.home}>
+                                        <a className='headerlogo'>The Hawk</a>
+                                    </Link>
+
+                                </h2>
+                            }
+                         
                         </div>
 
 

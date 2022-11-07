@@ -9,6 +9,7 @@ export default function Subscribe() {
 		e.preventDefault()
 		try {
 			if (!email) {
+				toast.warn('Enter an Email first')
 				return
 			}
 			await axios.post(endpoints.susbcribe, email)

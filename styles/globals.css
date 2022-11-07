@@ -82,3 +82,12 @@ background: none;
     font-family: 'Alphant 12';
     font-weight: bold;
 }
+
+.opt-inner h4{
+    margin-top: 20px;
+    margin-bottom: 10px;
+     font-size: 30px;
+         background: unset;
+    margin: 0 0 unset;
+    position: unset;
+}

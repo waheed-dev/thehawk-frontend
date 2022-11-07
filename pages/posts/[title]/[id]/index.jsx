@@ -1,3 +1,4 @@
+import HorizontalAds from '@/components/common/HorizontalAds';
 import InnerSidebar from '@/components/common/InnerSidebar';
 import Seo from '@/components/common/Seo';
 import PostContent from '@/components/post/PostContent'
@@ -65,9 +66,7 @@ export default function PostDetailPage({ postData, postCategory, postAuthor, rel
 
         <InnerSidebar id={postData[0]?.category?.id } />
         </div>
-        <div class="big-banner">
-          <a href="#"><img src="/images/banner/3.jpg" class="img-responsive" alt="" /></a>
-        </div>
+     <HorizontalAds/>
 
     </>
   )

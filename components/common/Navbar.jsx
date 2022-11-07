@@ -46,6 +46,7 @@ const Navbar = ({ categoryData, subCategoryData, rssData }) => {
 
                     {
                         categoryData?.filter((filteredData) => filteredData.addToMenu === true)
+                            .sort((a, b) => a.position-b.position)
                             .map((menu) => (
                                 <>
                                     {/* sub-nav */}

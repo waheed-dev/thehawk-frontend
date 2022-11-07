@@ -2,6 +2,7 @@ import url from '@/config/url'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 import TrendingNews from './TrendingNews'
 
 export default function AddToTopPost({ posts }) {
@@ -22,7 +23,7 @@ export default function AddToTopPost({ posts }) {
 
                                     </div>
 
-                                    <img src={post.img} loading="lazy" className="img-responsive" alt={post.imgAlt} />
+                                    <img src={webp(post.img)} loading="lazy" className="img-responsive" alt={post.imgAlt} />
                                     <div className="bl-info">
                                         <span>{post.category.name}</span>
                                         <h3>

@@ -3,6 +3,7 @@ import moment from 'moment'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 
 export default function RelatedPost({
     relatedNews
@@ -25,7 +26,7 @@ export default function RelatedPost({
                                         </div>
                                     </div>
                                     <div class="col-md-9">
-                                        <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_280,h_190/')} class="img-responsive" alt={post.imgAlt} />
+                                        <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_280,h_190/'))} class="img-responsive" alt={post.imgAlt} />
                                         <div class="rp-inner">
                                             <h4>
                                                 <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>

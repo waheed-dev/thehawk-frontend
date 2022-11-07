@@ -3,6 +3,7 @@ import moment from 'moment'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 
 export default function CommonSectionFetearuedPost({ fetaurePost }) {
   return (
@@ -12,7 +13,7 @@ export default function CommonSectionFetearuedPost({ fetaurePost }) {
                   <div className="bl-meta">
                      
                   </div>
-                  <img loading='lazy' src={fetaurePost.img.replace('/upload/', '/upload/w_350,h_450/')} className="img-responsive" alt={fetaurePost.imgAlt} style={{
+                  <img loading='lazy' src={webp(fetaurePost.img.replace('/upload/', '/upload/w_550,h_450/'))} className="img-responsive" alt={fetaurePost.imgAlt} style={{
                       minHeight: "450px"
                   }} />
                   <div className="bl-info">

@@ -4,20 +4,21 @@ import moment from 'moment';
 import Link from 'next/link';
 import url from '@/config/url';
 import slugify from 'slugify';
+import webp from 'utils/webp';
 export default function MainContent({ thisPagePosts, thisPageSubCategory, category }) {
     const postLength = 1765
     const charecterLength = 52
     return (
         <>
-            <div class="col-md-8 blog-single">
-                <div class="bs-meta">
+            <div className="col-md-8 blog-single">
+                <div className="bs-meta">
 
-                    <span class="bs-cat">
+                    <span className="bs-cat">
                         {
                             category[0].category
                         }
                     </span>
-                    {/* <span class="bs-comments"><a href="#"><i class="fa fa-comments-o"></i> 4 Comments</a> <em></em> <a href="#"><i class="fa fa-heart-o"></i> 23 Likes</a></span> */}
+                    {/* <span className="bs-comments"><a href="#"><i className="fa fa-comments-o"></i> 4 Comments</a> <em></em> <a href="#"><i className="fa fa-heart-o"></i> 23 Likes</a></span> */}
                 </div>
                 {
                     thisPagePosts.slice(0, 1)
@@ -26,31 +27,31 @@ export default function MainContent({ thisPagePosts, thisPageSubCategory, catego
                                 <h3>
                                     {post.postitle}
                                 </h3>
-                                <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_770,h_500/')} alt={post.imgAlt} class="img-responsive space30" />
-                                <div class="row">
-                                    <div class="col-md-3 bs-aside">
+                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_770,h_500/'))} alt={post.imgAlt} className="img-responsive space30" />
+                                <div className="row">
+                                    <div className="col-md-3 bs-aside">
                                         {/* <img src="images/xtra/2.png" alt="" /> */}
                                         <h6>{post.author.name}</h6>
-                                        <div class="sep1"></div>
-                                        <div class="space10"></div>
-                                        <div class="rp-date">
+                                        <div className="sep1"></div>
+                                        <div className="space10"></div>
+                                        <div className="rp-date">
                                             <span>
                                                 {moment(post.createdAt).format("MMMM")}
                                             </span>
                                             {moment(post.createdAt).format("D")}
                                             <span><em>/</em> {moment(post.createdAt).format("Y")}</span>
                                         </div>
-                                        <div class="space30"></div>
-                                        <div class="sep1"></div>
-                                        <div class="space20"></div>
-                                        {/* <em class="share-count">10K SHARE</em> */}
-                                        <span class="bsa-social">
-                                            <a href="#"><i class="fa fa-facebook"></i></a>
-                                            <a href="#"><i class="fa fa-twitter"></i></a>
-                                            <a href="#"><i class="fa fa-plus"></i></a>
+                                        <div className="space30"></div>
+                                        <div className="sep1"></div>
+                                        <div className="space20"></div>
+                                        {/* <em className="share-count">10K SHARE</em> */}
+                                        <span className="bsa-social">
+                                            <a href="#"><i className="fa fa-facebook"></i></a>
+                                            <a href="#"><i className="fa fa-twitter"></i></a>
+                                            <a href="#"><i className="fa fa-plus"></i></a>
                                         </span>
                                     </div>
-                                    <div class="col-md-9">
+                                    <div className="col-md-9">
                                         <p>
                                             {
                                                 convert(
@@ -78,7 +79,7 @@ export default function MainContent({ thisPagePosts, thisPageSubCategory, catego
                                         </p>
                                         <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
-                                            <a class="post-more">Continue Reading <em>&#8594;</em></a>
+                                            <a className="post-more">Continue Reading <em>&#8594;</em></a>
                                         </Link>
                                     </div>
                                 </div>
@@ -87,18 +88,18 @@ export default function MainContent({ thisPagePosts, thisPageSubCategory, catego
                 }
 
 
-                <div class="related-posts related-posts-cat">
+                <div className="related-posts related-posts-cat">
                     <h5>More about <span>   {
                         category[0].category
-                    } <i class="fa fa-angle-down"></i></span></h5>
+                    } <i className="fa fa-angle-down"></i></span></h5>
                     <ul>
                         {
                             thisPagePosts.slice(1, thisPagePosts.length)
                                 .map((post) => (
                                     <>
                                         <li>
-                                            <div class="col-md-3">
-                                                <div class="rp-date">
+                                            <div className="col-md-3">
+                                                <div className="rp-date">
                                                     <span>
                                                         {moment(post.createdAt).format("MMMM")}
                                                     </span>
@@ -106,15 +107,15 @@ export default function MainContent({ thisPagePosts, thisPageSubCategory, catego
                                                     <span><em>/</em> {moment(post.createdAt).format("Y")}</span>
                                                 </div>
                                             </div>
-                                            <div class="col-md-9">
-                                                <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_280,h_190/')} class="img-responsive" alt={post.imgAlt} />
-                                                <div class="rp-inner">
+                                            <div className="col-md-9">
+                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_280,h_190/'))} className="img-responsive" alt={post.imgAlt} />
+                                                <div className="rp-inner">
 
                                                     {
                                                         thisPageSubCategory.filter((filtered) => filtered._id === post.subCategory.id)
                                                             .map((subCat) => (
                                                                 <>
-                                                                    <span class="rp-cat">
+                                                                    <span className="rp-cat">
                                                                         <Link href={url.subCategory.single.replace(':name', subCat.subCategoryName).replace(':id', subCat._id)}>
                                                                             <a style={{
                                                                                 color: '#fff'
@@ -154,7 +155,7 @@ export default function MainContent({ thisPagePosts, thisPageSubCategory, catego
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
                                                         <a
-                                                            class="rp-more">Read more  <em>&#8594;</em></a>
+                                                            className="rp-more">Read more  <em>&#8594;</em></a>
                                                     </Link>
 
                                                 </div>

@@ -2,6 +2,7 @@ import url from '@/config/url'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 import HorizontalAds from '../common/HorizontalAds'
 import CommonNewsFetauredSection from './PlainNewsFetauredSection'
 
@@ -34,7 +35,7 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={webp(post.img)} className="img-responsive" alt={post.imgAlt} />
 
                                                 <h4>
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
@@ -64,7 +65,7 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_290,h_170/')} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_290,h_170/'))} className="img-responsive" alt={post.imgAlt} />
 
                                                 <h4>
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
@@ -101,7 +102,7 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img loading='lazy' src={post.img.replace('/upload/' , '/upload/w_290,h_170/')} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={webp(post.img.replace('/upload/' , '/upload/w_290,h_170/'))} className="img-responsive" alt={post.imgAlt} />
 
                                                 <h4>
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>

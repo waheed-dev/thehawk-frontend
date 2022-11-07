@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import url from '@/config/url'
 import slugify from 'slugify'
 import endpoints from '@/config/endpoints'
+import webp from 'utils/webp'
 export default function MostRecomended() {
   const [posts, setposts] = useState([])
   const loadRecomendedPost = async () => {
@@ -27,7 +28,7 @@ export default function MostRecomended() {
             posts?.map((post) => (
               <>
                 <li>
-                  <img loading='lazy' src={post.img} alt={post.imgAlt} />
+                  <img loading='lazy' src={webp(post.img)} alt={post.imgAlt} />
                   <div className="pn-info">
                     <span>{post?.subCategory?.name }</span>
                     <h4>

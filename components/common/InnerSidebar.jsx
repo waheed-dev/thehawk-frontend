@@ -7,6 +7,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import SidebarAds from './SidebarAds'
 import url from '@/config/url'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 export default function InnerSidebar({ id, hasMore }) {
     const [page, setpage] = useState(1)
     const [posts, setposts] = useState([])
@@ -81,13 +82,15 @@ export default function InnerSidebar({ id, hasMore }) {
                                 posts?.map((post , index) => (
                                     <>
                                         <li>
-                                            <img src={post.img.replace('/upload/' , '/upload/w_110,h_81/')} alt={post.imgAlt} />
+                                            <img src={webp(post.img.replace('/upload/' , '/upload/w_110,h_81/'))} alt={post.imgAlt} />
                                             <div class="pn-info">
                                                 <span>{post.subCategory.name }</span>
                                                 <h4>
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
                                                     
-                                                    <a>Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a>
+                                                        <a>
+                                                            {post.postitle}
+                                                    </a>
                                                     </Link>
                                                 </h4>
                                             </div>

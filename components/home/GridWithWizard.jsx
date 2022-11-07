@@ -7,6 +7,7 @@ import Link from 'next/link';
 import slugify from 'slugify';
 import moment from 'moment';
 import HorizontalAds from '../common/HorizontalAds';
+import webp from 'utils/webp';
 export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
     var settings = {
         // dots: false,
@@ -59,7 +60,7 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                                                         ))
                                                 }
 
-                                                <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_350,h_250/')} class="img-responsive" alt="" />
+                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_350,h_250/'))} class="img-responsive" alt="" />
                                             </div>
                                             <h4>
                                                 <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
@@ -127,7 +128,7 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                 </div>
 
             </div>
-            <HorizontalAds/>
+            <HorizontalAds />
         </>
     )
 }

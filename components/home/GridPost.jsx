@@ -6,19 +6,27 @@ import Link from 'next/link';
 import url from '@/config/url';
 import slugify from 'slugify';
 import moment from 'moment';
+import webp from 'utils/webp';
 
 export default function GridPost({ posts, categoryDetail, subCategory }) {
     const length = 150
     const [value, onChange] = useState(null);
     const [filteredPost, setfilteredPost] = useState(posts)
+    const [changed, setchanged] = useState(false)
     const onChangeFunc = (e) => {
         onChange(e)
+        if (!e) {
+            setchanged(false)
+            setfilteredPost(posts)
+        } else {
+            const data = posts.filter((post) => {
 
-        const data = posts.filter((post) => {
+                return post.subCategory.id === e._id
+            })
+            setfilteredPost(data)
+            setchanged(true)
+        }
 
-            return post.subCategory.id === e._id
-        })
-        setfilteredPost(data)
     }
     const [labeledSubCat, setlabeledSubCat] = useState([])
     const converSubcategoryNameIntoLabel = () => {
@@ -114,6 +122,13 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
                                             .map((post) => (
                                                 <>
                                                     <span className="cat">{subCategory.filter((subCat) => subCat._id === post.subCategory.id)[0]?.subCategoryName}</span>
+
+                                                    {
+                                                        changed && <img style={{
+                                                            marginBottom: 10,
+                                                            marginTop: 10
+                                                        }} loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_550,h_450/'))} className="img-responsive" alt={post.imgAlt} />
+                                                    }
                                                     <h5>
                                                         <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
@@ -164,6 +179,12 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
                                                 .map((post) => (
                                                     <>
                                                         <li>
+                                                            {/* {
+                                                                changed && <img style={{
+                                                                    marginBottom: 10
+                                                                }} loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_300,h_300/'))} className="img-responsive" alt={post.imgAlt} />
+                                                            } */}
+
                                                             <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
                                                                 <a >
@@ -184,14 +205,14 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
                             </div>
                             <div className="space40"></div>
                         </div>
-               
+
                     </>
 
 
 
 
                 </div>
-            
+
             </div>
         </>
     )

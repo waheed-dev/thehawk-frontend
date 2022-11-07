@@ -2,6 +2,7 @@ import url from '@/config/url'
 import Link from 'next/link'
 import React from 'react'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 import SidebarAds from '../common/SidebarAds'
 
 export default function DownSidebar({ posts }) {
@@ -17,7 +18,7 @@ export default function DownSidebar({ posts }) {
                                 .map((post, index) => (
                                     <>
                                         <li>
-                                            <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_400,h_400/')} alt={post.imgAlt} />
+                                            <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_400,h_400/'))} alt={post.imgAlt} />
                                             <div className="pn-info">
                                                 <span>      <Link href={url.category.single.replace(':name', slugify(post.category.name)).replace(':id', post.category.id)}>
                                                     <a style={{

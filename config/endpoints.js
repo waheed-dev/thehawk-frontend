@@ -23,6 +23,9 @@ const endpoints = {
     recomanded: `${api}/post/mostrecomanded`,
     galleryIndex: `${api}/post/galleryIndex`,
   },
+  pool: {
+    get: `${api}/pool`,
+  },
   susbcribe: `${api}/subscribe`,
 };
 export default endpoints;

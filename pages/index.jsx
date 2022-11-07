@@ -302,7 +302,7 @@ export async function getStaticProps() {
       postsData: data.map(db.convertDocToObj),
       category: cat.map(db.convertDocToObj),
       subCategory: subCat.map(db.convertDocToObj),
-      siteinfo: [siteinfo].map(db.convertDocToObj)
+      siteinfo:  [siteinfo]?.map(db.convertDocToObj)
     },
     revalidate: 120,
   };

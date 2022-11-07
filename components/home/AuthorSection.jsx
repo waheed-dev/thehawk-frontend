@@ -11,7 +11,7 @@ export default function AuthorSection({ User }) {
     try {
       const { data } = await axios.get(endpoints.users.all)
       const hasAvatar = data?.filter((user) => {
-        console.log(user.avatar);
+
         return  user.avatar !== undefined 
       }) 
 

@@ -4,6 +4,7 @@ import React from 'react'
 import RelatedPost from './RelatedPost'
 import url from '@/config/url'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 export default function PostContent({ postData, postCategory, postAuthor, relatedNews }) {
 
   return (
@@ -13,14 +14,14 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
                   <span class="bs-cat">{postCategory.category }</span>
               
               </div>
-              <h3>
+              <h1>
                   {postData.postitle}  
-              </h3>
+              </h1>
               <div class="row">
                   <div class="col-md-3 bs-aside">
                       {
                           postAuthor ? <>
-                              <img loading='lazy' src={postAuthor.avatar ? postAuthor.avatar : 'https://res.cloudinary.com/thehawk/image/upload/w_79,h_79/v1647778416/etg05xddcvjn1hacsuyz.jpg' } alt="" />
+                              <img loading='lazy' src={postAuthor.avatar ? webp(postAuthor.avatar) : 'https://res.cloudinary.com/thehawk/image/upload/w_79,h_79/v1647778416/etg05xddcvjn1hacsuyz.webp' } alt="" />
                               <h6>{postAuthor.professionalName }</h6>
 
                           
@@ -50,7 +51,7 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
                           {postData.subHeading}
                       </p>
                       <div class="img-w-caption">
-                          <img loading='lazy' src={postData.img.replace('/upload/' , '/upload/w_570,h_380/')} alt={postData.imgAlt}  class="img-responsive"  />
+                          <img loading='lazy' src={webp(postData.img.replace('/upload/' , '/upload/w_570,h_380/'))} alt={postData.imgAlt}  class="img-responsive"  />
                          
                       </div>
                       <div dangerouslySetInnerHTML={{

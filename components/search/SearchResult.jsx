@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import slugify from 'slugify'
+import webp from 'utils/webp'
 
 export default function SearchResult({ postData }) {
     const router = useRouter()
@@ -21,7 +22,7 @@ export default function SearchResult({ postData }) {
                                 <div class="col-md-12">
                                     <div class="fn2-inner">
                                         <div class="fn2-thumb">
-                                            <img loading='lazy' src={post.img} class="img-responsive" alt={post.imgAlt} />
+                                            <img loading='lazy' src={webp(post.img)} class="img-responsive" alt={post.imgAlt} />
                                         </div>
                                         <div class="fn2-info">
                                             <div class="fn2-meta">{post.category.name}</div>

@@ -5,7 +5,7 @@ export default function BlaBannerAds() {
       <>
           <div className="bla-content banner">
              
-              <ins class="adsbygoogle"
+              <ins className="adsbygoogle"
                   style={{
                       display: "inline-block",
                       width: "150px",

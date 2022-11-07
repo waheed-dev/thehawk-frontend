@@ -66,7 +66,9 @@ function MyApp({ Component, pageProps }) {
       <NextNProgress color="#e00000" options={{ showSpinner: false }} />
       <Layout>
         <Component {...pageProps} key={router.asPath} />
-        <ToastContainer position={ 'top-center'} />
+        <ToastContainer style={{
+          zIndex:999999999999
+        }} position={ 'top-center'} />
       </Layout>
     </>
   );

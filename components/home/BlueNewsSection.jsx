@@ -3,6 +3,7 @@ import Link from 'next/link'
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import url from '@/config/url'
 import slugify from 'slugify'
+import webp from 'utils/webp';
 
 export default function BlueNewsSection({ categoryDetails, post }) {
     const ref = useRef(null);
@@ -37,7 +38,7 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                   <div className="col-md-6">
                       <div ref={ref} className="op-twitter">
                           <div className="opt-inner">
-                              <h2 className='title-india'>
+                              <h4 className='title-india'>
                                   <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id' , post._id)}>
                                       <a style={{
                                           color: "#fff"
@@ -48,7 +49,7 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                               
                                
                                  
-                              </h2>
+                              </h4>
                               <p className='mt-3' >
                                 
                                   <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
@@ -69,7 +70,7 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                           <div className="opi-inner">
                               <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
                                   <a >
-                                      <img src={post.img.replace('/upload/', `/upload/h_${height},w_${width}/`)} loading="lazy" className="img-responsive" alt={post.imgAlt} />
+                                      <img src={webp(post.img.replace('/upload/', `/upload/h_${height+200},w_${width+200}/`))} loading="lazy" className="img-responsive" alt={post.imgAlt} />
                                   </a></Link>
                             
                           </div>

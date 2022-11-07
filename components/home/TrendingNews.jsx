@@ -3,6 +3,7 @@ import React from 'react'
 import url from '@/config/url'
 import slugify from 'slugify'
 import moment from 'moment'
+import webp from 'utils/webp'
 export default function TrendingNews({ posts }) {
     const maxLength = 168
     return (
@@ -20,7 +21,7 @@ export default function TrendingNews({ posts }) {
                                     <div className="col-md-12">
                                         <div className="fn2-inner">
                                             <div className="fn2-thumb">
-                                                <img loading='lazy' src={post.img.replace('/upload/', '/upload/w_270,h_210/')} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_270,h_210/'))} className="img-responsive" alt={post.imgAlt} />
                                             </div>
                                             <div className="fn2-info">
                                                 <div className="fn2-meta">

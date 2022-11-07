@@ -6,9 +6,9 @@ export default function MainContent({ postData, author }) {
 
   return (
     <>
-          <div class="col-md-8 blog-single">
-              <div class="bs-meta">
-                  <span class="bs-cat">
+          <div className="col-md-8 blog-single">
+              <div className="bs-meta">
+                  <span className="bs-cat">
                       {
                           author?.isAdmin===true? 'Admin':'Author' 
                       }
