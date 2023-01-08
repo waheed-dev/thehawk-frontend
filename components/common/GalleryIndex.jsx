@@ -6,7 +6,7 @@ import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import slugify from 'slugify'
-import webp from 'utils/webp'
+
 
 export default function GalleryIndex() {
   const [posts, setposts] = useState([])
@@ -35,7 +35,7 @@ export default function GalleryIndex() {
                 <li>
                   <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
-                  <a ><img loading='lazy' src={post.img.replace(webp('/upload/' , '/upload/w_100,h_100/'))} className="img-responsive" alt={post.imgAlt} /></a>
+                  <a ><img loading='lazy' src={post.img.replace('/upload/' , '/upload/w_100,h_100/')} className="img-responsive" alt={post.imgAlt} /></a>
                   </Link>
                 </li>
               </>

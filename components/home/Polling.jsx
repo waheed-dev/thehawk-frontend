@@ -7,7 +7,7 @@ export default function Polling() {
     const loadData = async () => {
         try {
             const { data } = await axios.get(endpoints.pool.get)  
-            console.log(data);
+           
             setpoolData(data)
         } catch (error) {
             console.log(error);

@@ -10,7 +10,7 @@ export default function Layout({ Seo, children }) {
   const router = useRouter()
   const handelChangeAds = () => {
     const AvailableAdds = document.getElementsByClassName("adsbygoogle");
-    console.log(AvailableAdds); 
+
     for (var index = 0; index < AvailableAdds.length; index++) {
       try {
         // @ts-ignore

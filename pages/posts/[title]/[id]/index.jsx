@@ -54,10 +54,12 @@ export default function PostDetailPage({ postData, postCategory, postAuthor, rel
    
     <>
       <Seo
-        title={postData[0].pageTitle}
-        description={postData[0].pageDescription}
+        title={postData[0]?.pageTitle}
+        description={postData[0]?.pageDescription}
         type='article'
+        image={postData[0]?.img}
         url={url}
+        imageAlt={postData[0]?.imgAlt}
       />
   
         
@@ -85,11 +87,11 @@ export async function getStaticProps(context) {
     const { params } = context;
 
     const { id } = params;
-    console.log(id);
+
     await db.dbConnect();
 
     const data = await Post.find({ _id: id }).lean();
-    console.log(data);
+
     const PostCategory = await Category.find({
       _id: data[0].category.id
     }).lean();
