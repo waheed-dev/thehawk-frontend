@@ -89,7 +89,7 @@ export default function SubCategoryPage({
         url={url}
       />
 
-        <div class="main-content container">
+        <div className="main-content container">
 
           <MainContent subCategory={subCategory} thisPagePosts={thisPagePosts}  />
 

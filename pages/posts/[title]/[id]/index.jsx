@@ -48,10 +48,10 @@ export default function PostDetailPage({ postData, postCategory, postAuthor, rel
       router.events.off("hashChangeComplete", handelChangeAds);
     };
   }, [router.events]);
-  const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}` 
+  const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}`
 
   return (
-   
+
     <>
       <Seo
         title={postData[0]?.pageTitle}
@@ -61,14 +61,14 @@ export default function PostDetailPage({ postData, postCategory, postAuthor, rel
         url={url}
         imageAlt={postData[0]?.imgAlt}
       />
-  
-        
-        <div class="main-content container">
-          <PostContent relatedNews={relatedNews} postData={postData[0]} postCategory={postCategory[0]} postAuthor={postAuthor[0]} />
 
-        <InnerSidebar id={postData[0]?.category?.id } />
-        </div>
-     <HorizontalAds/>
+
+      <div className="main-content container">
+        <PostContent relatedNews={relatedNews} postData={postData[0]} postCategory={postCategory[0]} postAuthor={postAuthor[0]} />
+
+        <InnerSidebar id={postData[0]?.category?.id} />
+      </div>
+      <HorizontalAds />
 
     </>
   )
@@ -122,7 +122,7 @@ export async function getStaticProps(context) {
     return {
       props: {
         postData: [],
-        postCategory:[],
+        postCategory: [],
         postAuthor: [],
         relatedNews: []
       },

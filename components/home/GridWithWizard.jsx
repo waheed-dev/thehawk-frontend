@@ -27,23 +27,23 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
     const postTextLength = 202
     return (
         <>
-            <div class="p-news-big container">
+            <div className="p-news-big container">
                 <h5><span>{categoryDetail.category}</span></h5>
 
-                <div class="col-md-12">
+                <div className="col-md-12">
                     <div id="pnews-slider">
                         <Slider   {...settings}>
 
                             {
                                 posts.map((post) => (
                                     <>
-                                        <div class="ps-info">
-                                            <div class="psi-thumb">
+                                        <div className="ps-info">
+                                            <div className="psi-thumb">
                                                 {
                                                     subCategory.filter((filtered) => filtered._id === post.subCategory.id)
                                                         .map((subCat) => (
                                                             <>
-                                                                <div class="cat-tag">
+                                                                <div className="cat-tag">
                                                                     <Link href={url.subCategory.single.replace(':name', slugify(subCat.subCategoryName)).replace(':id', subCat._id)}>
 
                                                                         <a style={{
@@ -60,7 +60,7 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                                                         ))
                                                 }
 
-                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_350,h_250/'))} class="img-responsive" alt="" />
+                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_350,h_250/'))} className="img-responsive" alt="" />
                                             </div>
                                             <h4>
                                                 <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
@@ -113,7 +113,7 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                                             </p>
                                             <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
-                                                <a class="psi-more">Continue Reading &#8594;</a>
+                                                <a className="psi-more">Continue Reading &#8594;</a>
                                             </Link>
                                         </div>
                                     </>

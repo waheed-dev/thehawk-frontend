@@ -8,12 +8,12 @@ export default function SearchPage({ postData }) {
 
   return (
     <>
-  
-        <MainContent postData={postData} />
 
-              <div class="big-banner">
-                  <a href="#"><img src="images/banner/3.jpg" class="img-responsive" alt="" /></a>
-              </div> 
+      <MainContent postData={postData} />
+
+      <div className="big-banner">
+        <a href="#"><img src="images/banner/3.jpg" className="img-responsive" alt="" /></a>
+      </div>
 
     </>
   )
@@ -33,7 +33,7 @@ export async function getStaticProps(context) {
 
   const { q } = params;
   await db.dbConnect();
-  const SearchQuery = q.replaceAll('-' , ' ')
+  const SearchQuery = q.replaceAll('-', ' ')
   const data = await Post.find({
     $or: [{
       postitle: {
@@ -41,19 +41,19 @@ export async function getStaticProps(context) {
       }
     }, {
       postText: {
-          $regex: SearchQuery
-        }
-      },
-      {
-        subHeading: {
-          $regex: SearchQuery
-        }
-      },
-      {
-        description: {
-          $regex: SearchQuery
-        }
-      },
+        $regex: SearchQuery
+      }
+    },
+    {
+      subHeading: {
+        $regex: SearchQuery
+      }
+    },
+    {
+      description: {
+        $regex: SearchQuery
+      }
+    },
     ]
   })
     .sort({

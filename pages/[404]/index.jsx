@@ -5,7 +5,7 @@ export default function index() {
   return (
     <>
         
-        <div class="main-content container">
+        <div className="main-content container">
           <h1 style={{
             minHeight: '100%',
           textAlign: 'center',

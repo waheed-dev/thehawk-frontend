@@ -21,16 +21,16 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
 
     return (
         <>
-            <div class="col-md-8 blog-single">
-                <div class="bs-meta">
-                    <span class="bs-cat">{postCategory.category}</span>
+            <div className="col-md-8 blog-single">
+                <div className="bs-meta">
+                    <span className="bs-cat">{postCategory.category}</span>
 
                 </div>
                 <h1>
                     {postData.postitle}
                 </h1>
-                <div class="row">
-                    <div class="col-md-3 bs-aside">
+                <div className="row">
+                    <div className="col-md-3 bs-aside">
                         {
                             postAuthor ? <>
                                 <img loading='lazy' src={postAuthor.avatar ? webp(postAuthor.avatar) : 'https://res.cloudinary.com/thehawk/image/upload/w_79,h_79/v1647778416/etg05xddcvjn1hacsuyz.webp'} alt="" />
@@ -40,19 +40,19 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
                             </> : null
                         }
 
-                        <div class="sep1"></div>
-                        <div class="space10"></div>
-                        <div class="rp-date">
+                        <div className="sep1"></div>
+                        <div className="space10"></div>
+                        <div className="rp-date">
                             <span>{moment(postData.createdAt).format("MMMM")}</span>
                             {moment(postData.createdAt).format("D")}
                             <span><em>/</em> {moment(postData.createdAt).format("Y")}</span>
                         </div>
-                        <div class="space30"></div>
-                        <div class="sep1"></div>
-                        <div class="space20"></div>
+                        <div className="space30"></div>
+                        <div className="sep1"></div>
+                        <div className="space20"></div>
 
-                        <span class="bsa-social">
-                            {/* <a href="#"><i class="fa fa-facebook"></i></a> */}
+                        <span className="bsa-social">
+                            {/* <a href="#"><i className="fa fa-facebook"></i></a> */}
                             <FacebookShareButton url={social(url.post.single.replace(':title', slugify(postData.postitle)).replace(':id', postData._id))} style={{
                                 verticalAlign: 'middle',
                                 padding: '10px  16px',
@@ -65,7 +65,7 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
                                 backgroundColor: '#00acee',
                                 color: "white"
                             }}>
-                                <i class="fa fa-twitter"></i>
+                                <i className="fa fa-twitter"></i>
                             </TwitterShareButton>
                             <WhatsappShareButton url={social(url.post.single.replace(':title', slugify(postData.postitle)).replace(':id', postData._id))} style={{
                                 verticalAlign: 'middle',
@@ -76,18 +76,18 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
                                 <FaWhatsapp style={{
                                     height: 20,
                                     width: 20
-                                }}/>
+                                }} />
                             </WhatsappShareButton>
-                           
+
                         </span>
                     </div>
 
-                    <div class="col-md-9">
+                    <div className="col-md-9">
                         <p>
                             {postData.subHeading}
                         </p>
-                        <div class="img-w-caption">
-                            <img loading='lazy' src={webp(postData.img.replace('/upload/', '/upload/w_570,h_380/'))} alt={postData.imgAlt} class="img-responsive" />
+                        <div className="img-w-caption">
+                            <img loading='lazy' src={webp(postData.img.replace('/upload/', '/upload/w_570,h_380/'))} alt={postData.imgAlt} className="img-responsive" />
 
                         </div>
                         <div dangerouslySetInnerHTML={{
@@ -95,7 +95,7 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
                         }} className="postContent">
 
                         </div>
-                        <div class="bs-tags">
+                        <div className="bs-tags">
                             <span>Categories :
                                 <Link href={url.category.single.replace(':name', slugify(postCategory.category)).replace(':id', postCategory._id)}>
 
@@ -108,7 +108,10 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
                                 {
                                     postData.tags.split(',')?.map((tag) => (
                                         <>
-                                            <a >{tag},</a>
+                                            <Link href={url.tag.replace(':keyword', slugify(tag))}>
+                                                <a >{tag}</a>
+                                            </Link>
+
                                         </>
 
                                     ))

@@ -11,23 +11,23 @@ export default function RelatedPost({
     const charecterLength = 52
     return (
         <>
-            <div class="related-posts">
+            <div className="related-posts">
                 <h5>Related Post</h5>
                 <ul>
                     {
                         relatedNews?.map((post) => (
                             <>
                                 <li>
-                                    <div class="col-md-3">
-                                        <div class="rp-date">
+                                    <div className="col-md-3">
+                                        <div className="rp-date">
                                             <span>{moment(post.createdAt).format("MMMM")}</span>
                                             {moment(post.createdAt).format("D")}
                                             <span><em>/</em> {moment(post.createdAt).format("Y")}</span>
                                         </div>
                                     </div>
-                                    <div class="col-md-9">
-                                        <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_280,h_190/'))} class="img-responsive" alt={post.imgAlt} />
-                                        <div class="rp-inner">
+                                    <div className="col-md-9">
+                                        <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_280,h_190/'))} className="img-responsive" alt={post.imgAlt} />
+                                        <div className="rp-inner">
                                             <h4>
                                                 <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
@@ -51,7 +51,7 @@ export default function RelatedPost({
                                                 </Link>
                                             </h4>
                                             <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
-                                                <a class="rp-more">Read more  <em>&#8594;</em></a>
+                                                <a className="rp-more">Read more  <em>&#8594;</em></a>
                                             </Link>
 
                                         </div>

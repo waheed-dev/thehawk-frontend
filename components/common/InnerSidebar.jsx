@@ -12,7 +12,7 @@ export default function InnerSidebar({ id, hasMore }) {
     const [page, setpage] = useState(1)
     const [posts, setposts] = useState([])
 
-    const loadPost=  useCallback(
+    const loadPost = useCallback(
         async () => {
             try {
 
@@ -23,11 +23,11 @@ export default function InnerSidebar({ id, hasMore }) {
 
             }
         },
-      [],
+        [],
     )
-    
-    const handelChangeAds =() => {
-      const AvailableAdds = document.getElementsByClassName("adsbygoogle");
+
+    const handelChangeAds = () => {
+        const AvailableAdds = document.getElementsByClassName("adsbygoogle");
         let valueAddsNumber = 0;
 
         for (var index = 0; index < AvailableAdds.length; index++) {
@@ -49,7 +49,7 @@ export default function InnerSidebar({ id, hasMore }) {
             }
         }
     }
-    
+
 
     useEffect(() => {
         loadPost()
@@ -70,27 +70,27 @@ export default function InnerSidebar({ id, hasMore }) {
     };
     return (
         <>
-            <aside class="col-md-4">
+            <aside className="col-md-4">
 
-                <div class="side-widget p-news">
+                <div className="side-widget p-news">
                     <h5><span style={{
                         background: 'unset'
                     }}></span></h5>
-                    <div class="sw-inner">
+                    <div className="sw-inner">
                         <ul>
                             {
-                                posts?.map((post , index) => (
+                                posts?.map((post, index) => (
                                     <>
                                         <li>
-                                            <img src={webp(post.img.replace('/upload/' , '/upload/w_110,h_81/'))} alt={post.imgAlt} />
-                                            <div class="pn-info">
-                                                <span>{post.subCategory.name }</span>
+                                            <img src={webp(post.img.replace('/upload/', '/upload/w_110,h_81/'))} alt={post.imgAlt} />
+                                            <div className="pn-info">
+                                                <span>{post.subCategory.name}</span>
                                                 <h4>
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
-                                                    
+
                                                         <a>
                                                             {post.postitle}
-                                                    </a>
+                                                        </a>
                                                     </Link>
                                                 </h4>
                                             </div>
@@ -101,7 +101,7 @@ export default function InnerSidebar({ id, hasMore }) {
                                     </>
                                 ))
                             }
-                           
+
 
                         </ul>
                     </div>
@@ -115,7 +115,7 @@ export default function InnerSidebar({ id, hasMore }) {
             </aside>
             <InfiniteScroll
                 scrollThreshold={0.5}
-                dataLength={posts?.length ? posts?.length:0} //This is important field to render the next data
+                dataLength={posts?.length ? posts?.length : 0} //This is important field to render the next data
                 next={loadRelatedPost}
                 hasMore={hasMore}
                 loader={''}

@@ -27,9 +27,9 @@ export default function CategoryPage({
     // sethasMore(true);
     const data = await axios.get(`${endpoints.post.getPostByCategory.replace(':id', id)}/?page=${pageNumber}`);
     if (data.status === 200) {
-     
+
       if (data.data.length < 20) {
-  
+
         sethasMore(() => false);
       }
 
@@ -42,7 +42,7 @@ export default function CategoryPage({
 
 
 
-  const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}` 
+  const url = `${process.env.NEXT_PUBLIC_DOMAIN}/${router.asPath}`
 
   return (
     <>
@@ -52,14 +52,14 @@ export default function CategoryPage({
         type='article'
         url={url}
       />
-    
-        <div class="main-content container">
 
-          <MainContent category={category} thisPageSubCategory={thisPageSubCategory} thisPagePosts={thisPagePosts} />
+      <div className="main-content container">
 
-        <InnerSidebar id={category[0]._id} hasMore={hasMore } />
-        </div>
-    
+        <MainContent category={category} thisPageSubCategory={thisPageSubCategory} thisPagePosts={thisPagePosts} />
+
+        <InnerSidebar id={category[0]._id} hasMore={hasMore} />
+      </div>
+
       <InfiniteScroll
         dataLength={thisPagePosts.length} //This is important field to render the next data
         next={loadRelatedPost}
@@ -103,7 +103,7 @@ export async function getStaticProps(context) {
       thisPageSubCategory: thisPageSubCategory.map(db.convertDocToObj),
 
       thisPagePost: data.map(db.convertDocToObj),
-    }, 
+    },
     revalidate: 200,
   };
 }

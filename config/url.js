@@ -15,5 +15,6 @@ const url = {
     single: "/posts/:title/:id",
   },
   search: "/search/:q",
+  tag: "/tag/:keyword",
 };
 export default url;

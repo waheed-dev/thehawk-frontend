@@ -6,17 +6,17 @@ import SearchResult from './SearchResult'
 export default function MainContent({ postData }) {
   return (
     <>
-          <div class="main-content container">
-              <div class="col-md-8 blog-single">
-                  <div class="bs-meta">
-                      <span class="bs-cat">Search Result</span>
-                  </div>
-
-                  <div class="space30"></div>
-          <SearchResult postData={postData} />
-              </div>
-{/* <InnerSidebar/> */}
+      <div className="main-content container">
+        <div className="col-md-8 blog-single">
+          <div className="bs-meta">
+            <span className="bs-cat">Search Result</span>
           </div>
+
+          <div className="space30"></div>
+          <SearchResult postData={postData} />
+        </div>
+        {/* <InnerSidebar/> */}
+      </div>
     </>
   )
 }
