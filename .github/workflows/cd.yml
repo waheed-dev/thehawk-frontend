@@ -19,6 +19,15 @@ jobs:
     steps:
     - name: Deploy using ssh
       uses: appleboy/ssh-action@master
+      env:
+        MONGODB_URI: ${{secrets.MONGODB_URI}}
+        NEXT_PUBLIC_API_ENDPOINT: ${{secrets.NEXT_PUBLIC_API_ENDPOINT}}
+        HOST: ${{secrets.HOST}}
+        NEXT_PUBLIC_DOMAIN: ${{secrets.NEXT_PUBLIC_DOMAIN}}
+        NEXT_PUBLIC_FACEBOOK_APP_ID: ${{secrets.NEXT_PUBLIC_FACEBOOK_APP_ID}}
+        NEXT_PUBLIC_WEATHER_API_KEY: ${{secrets.NEXT_PUBLIC_WEATHER_API_KEY}}
+        NEXT_PUBLIC_HOST: ${{secrets.NEXT_PUBLIC_HOST}}
+
       with:
         host: ${{ secrets.HOST }}
         key: ${{ secrets.KEY }}
@@ -30,6 +39,7 @@ jobs:
           sudo git pull origin master
           sudo git status
           sudo rm -rf .next
+
           sudo pnpm install --only=prod
           sudo pnpm run build
           pm2 restart thehawk-frontend
