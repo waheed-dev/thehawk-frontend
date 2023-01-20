@@ -29,6 +29,7 @@ jobs:
           cd thehawk-frontend
           sudo git pull origin master
           sudo git status
+          sudo rm -rf .next
           sudo pnpm install --only=prod
           sudo pnpm run build
           pm2 restart thehawk-frontend
