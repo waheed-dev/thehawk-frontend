@@ -2,6 +2,7 @@ import HorizontalAds from '@/components/common/HorizontalAds';
 import InnerSidebar from '@/components/common/InnerSidebar';
 import Seo from '@/components/common/Seo';
 import PostContent from '@/components/post/PostContent'
+import { NewsArticleJsonLd } from 'next-seo';
 
 
 import db from 'DB/Conn';
@@ -53,6 +54,7 @@ export default function PostDetailPage({ postData, postCategory, postAuthor, rel
   return (
 
     <>
+
       <Seo
         title={postData[0]?.pageTitle}
         description={postData[0]?.pageDescription}
@@ -61,7 +63,24 @@ export default function PostDetailPage({ postData, postCategory, postAuthor, rel
         url={url}
         imageAlt={postData[0]?.imgAlt}
       />
+      <NewsArticleJsonLd
+        url="https://example.com/article"
+        title={postData[0]?.pageTitle}
+        images={[
+          postData[0]?.img,
 
+        ]}
+        section={postData[0]?.category?.name}
+        keywords={postData[0]?.tags}
+        datePublished={new Date(postData[0]?.createdAt).toISOString()}
+        dateModified={new Date(postData[0]?.updatedAt).toISOString()}
+        authorName={postData[0]?.author?.name}
+        publisherName={'The hawk'}
+        publisherLogo="https://www.example.com/photos/logo.jpg"
+        description={postData[0]?.pageDescription}
+        body={postData[0]?.descrption}
+        isAccessibleForFree={true}
+      />
 
       <div className="main-content container">
         <PostContent relatedNews={relatedNews} postData={postData[0]} postCategory={postCategory[0]} postAuthor={postAuthor[0]} />
