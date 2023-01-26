@@ -127,7 +127,7 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
                                                         changed && <img style={{
                                                             marginBottom: 10,
                                                             marginTop: 10
-                                                        }} loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_550,h_450/'))} className="img-responsive" alt={post.imgAlt} />
+                                                        }} loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} />
                                                     }
                                                     <h5>
                                                         <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>

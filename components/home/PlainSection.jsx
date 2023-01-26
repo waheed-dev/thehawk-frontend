@@ -65,7 +65,7 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_290,h_170/'))} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} />
 
                                                 <h4>
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
@@ -102,7 +102,7 @@ export default function PlainSection({ categoryDetail, posts }) {
                                     <>
                                         <div className="col-md-3">
                                             <div className="allcat-feed">
-                                                <img loading='lazy' src={webp(post.img.replace('/upload/' , '/upload/w_290,h_170/'))} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} />
 
                                                 <h4>
                                                     <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>

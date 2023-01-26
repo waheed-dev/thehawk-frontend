@@ -20,7 +20,7 @@ export default function PopularNews({posts}) {
                 .map((post) => (
                   <>
                     <li>
-                      <img loading='lazy' src={webp(post.img.replace('/upload/' , '/upload/w_110,h_110/'))} alt={post.imgAlt} />
+                      <img loading='lazy' src={post.img} alt={post.imgAlt} />
                       <div className="pn-info">
                         <span>
                           <Link href={url.subCategory.single.replace(':name', slugify(post.subCategory.name)).replace(':id', post.subCategory.id)}>

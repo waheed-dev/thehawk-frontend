@@ -27,7 +27,7 @@ export default function MainContent({ subCategory, thisPagePosts }) {
                                 <h3>
                                     {post.postitle}
                                 </h3>
-                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_770,h_500/'))} alt={post.imgAlt} className="img-responsive space30" />
+                                <img loading='lazy' src={postData} alt={post.imgAlt} className="img-responsive space30" />
                                 <div className="row">
                                     <div className="col-md-3 bs-aside">
                                         {/* <img src="images/xtra/2.png" alt="" /> */}
@@ -111,7 +111,7 @@ export default function MainContent({ subCategory, thisPagePosts }) {
                                                 </div>
                                             </div>
                                             <div className="col-md-9">
-                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_300,h_250/'))} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} />
                                                 <div className="rp-inner">
 
                                                     {

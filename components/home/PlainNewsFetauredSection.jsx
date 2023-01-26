@@ -13,7 +13,7 @@ export default function PlainNewsFetauredSection({ post, categoryDetail }) {
                   <div className="bl-meta">
                      
                   </div>
-          <img src={webp(post.img.replace('/upload/', '/upload/w_570,h_410/'))} className="img-responsive" alt={post.imgAlt} />
+          <img src={post.img} className="img-responsive" alt={post.imgAlt} />
                   <div className="bl-info">
             <span>
               <Link href={url.category.single.replace(':name', slugify(categoryDetail.category)).replace(':id', categoryDetail._id)}>

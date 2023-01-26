@@ -35,7 +35,7 @@ export default function GalleryIndex() {
                 <li>
                   <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
-                  <a ><img loading='lazy' src={post.img.replace('/upload/' , '/upload/w_100,h_100/')} className="img-responsive" alt={post.imgAlt} /></a>
+                    <a ><img loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} /></a>
                   </Link>
                 </li>
               </>

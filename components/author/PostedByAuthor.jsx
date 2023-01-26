@@ -26,7 +26,7 @@ export default function PostedByAuthor({ postData, author }) {
                                                 </div>
                                             </div>
                                             <div className="col-md-9">
-                                                <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_270,h_180/'))} className="img-responsive" alt={post.imgAlt} />
+                                                <img loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} />
                                                 <div className="rp-inner">
                                                     <span className="rp-cat">
                                                         <Link href={url.post.single.replace(':name', slugify(post.category.name)).replace(':id', post.category.id)}>

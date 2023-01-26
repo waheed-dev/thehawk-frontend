@@ -70,7 +70,7 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                           <div className="opi-inner">
                               <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
                                   <a >
-                                      <img src={webp(post.img.replace('/upload/', `/upload/h_${height+200},w_${width+200}/`))} loading="lazy" className="img-responsive" alt={post.imgAlt} />
+                                      <img src={post.img} loading="lazy" className="img-responsive" alt={post.imgAlt} />
                                   </a></Link>
                             
                           </div>

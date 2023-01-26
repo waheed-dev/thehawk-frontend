@@ -13,7 +13,7 @@ export default function CommonSectionFetearuedPost({ fetaurePost }) {
                   <div className="bl-meta">
                      
                   </div>
-                  <img loading='lazy' src={webp(fetaurePost.img.replace('/upload/', '/upload/w_550,h_450/'))} className="img-responsive" alt={fetaurePost.imgAlt} style={{
+                  <img loading='lazy' src={fetaurePost.img} className="img-responsive" alt={fetaurePost.imgAlt} style={{
                       minHeight: "450px"
                   }} />
                   <div className="bl-info">

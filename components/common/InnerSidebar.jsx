@@ -82,7 +82,7 @@ export default function InnerSidebar({ id, hasMore }) {
                                 posts?.map((post, index) => (
                                     <>
                                         <li>
-                                            <img src={webp(post.img.replace('/upload/', '/upload/w_110,h_81/'))} alt={post.imgAlt} />
+                                            <img src={post.img} alt={post.imgAlt} />
                                             <div className="pn-info">
                                                 <span>{post.subCategory.name}</span>
                                                 <h4>

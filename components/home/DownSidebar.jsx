@@ -18,7 +18,7 @@ export default function DownSidebar({ posts }) {
                                 .map((post, index) => (
                                     <>
                                         <li>
-                                            <img loading='lazy' src={webp(post.img.replace('/upload/', '/upload/w_400,h_400/'))} alt={post.imgAlt} />
+                                            <img loading='lazy' src={post.img} alt={post.imgAlt} />
                                             <div className="pn-info">
                                                 <span>      <Link href={url.category.single.replace(':name', slugify(post.category.name)).replace(':id', post.category.id)}>
                                                     <a style={{

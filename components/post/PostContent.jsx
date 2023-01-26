@@ -87,7 +87,7 @@ export default function PostContent({ postData, postCategory, postAuthor, relate
                             {postData.subHeading}
                         </p>
                         <div className="img-w-caption">
-                            <img loading='lazy' src={webp(postData.img.replace('/upload/', '/upload/w_570,h_380/'))} alt={postData.imgAlt} className="img-responsive" />
+                            <img loading='lazy' src={postData.img} alt={postData.imgAlt} className="img-responsive" />
 
                         </div>
                         <div dangerouslySetInnerHTML={{
