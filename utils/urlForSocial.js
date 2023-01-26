@@ -4,4 +4,4 @@ const social = (urlParams) => {
 return `${host}${urlParams}`;
 }
 
-export default social;
+export default social; 
