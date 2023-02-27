@@ -91,3 +91,7 @@ background: none;
     margin: 0 0 unset;
     position: unset;
 }
+
+.css-1u9des2-indicatorSeparator{
+display: none !important;
+}

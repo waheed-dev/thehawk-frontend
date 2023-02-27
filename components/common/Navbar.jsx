@@ -6,8 +6,14 @@ import Link from 'next/link'
 import slugify from 'slugify'
 import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react'
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
 
 const Navbar = ({ categoryData, subCategoryData, rssData }) => {
+    const [isOpen, setisOpen] = useState(false)
+    const toggleDrawer = () => {
+        setisOpen((previousState) => !previousState)
+    }
     const [showMenu, setshowMenu] = useState(false)
     let length
     const router = useRouter()
@@ -31,7 +37,15 @@ const Navbar = ({ categoryData, subCategoryData, rssData }) => {
 
     return (
         <>
-            <div className="menu-trigger"><i className="fa fa-align-justify"></i> Menu</div>
+            <div className="menu-trigger">
+                <div onClick={toggleDrawer}  style={{
+                    width:'50%'
+                }}>
+                    <i className="fa fa-align-justify"></i> <span>Menu
+                    </span> 
+                </div>
+               
+            </div>
             <nav>
                 <ul>
                     {/* active */}
@@ -209,6 +223,14 @@ const Navbar = ({ categoryData, subCategoryData, rssData }) => {
 
                 </ul>
             </nav>
+            <Drawer
+                open={isOpen}
+                enableOverlay={false}
+                onClose={toggleDrawer}
+                direction="left"
+                className="overflow-y-auto sidebarDrawer">
+                <h1>hi</h1>
+       </Drawer>     
         </>
     )
 }

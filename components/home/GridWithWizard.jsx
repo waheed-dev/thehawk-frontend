@@ -1,27 +1,41 @@
 import React from 'react'
-import Slider from "@ant-design/react-slick";
+import Slider from "react-slick";
+
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
+
+
 import url from '@/config/url';
 import Link from 'next/link';
 import slugify from 'slugify';
 import moment from 'moment';
 import HorizontalAds from '../common/HorizontalAds';
-import webp from 'utils/webp';
+
 export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
+
+
     var settings = {
-        // dots: false,
-        // arrows: false,
+
         arrows: true,
-        // speed: 800,
+
         autoplay: true,
         draggable: true,
-        // vertical: true,
-        autoplaySpeed: 2000,
-        // centerMode: false,
+        infinite: true,
+        autoplaySpeed: 1000,
+ 
         slidesToShow: 3,
-        // slidesToScroll: 1,
-
+ 
+        responsive: [
+            {
+                breakpoint: 1028,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+        ]
     };
     const postitleLength = 58
     const postTextLength = 202
