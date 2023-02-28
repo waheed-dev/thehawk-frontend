@@ -60,7 +60,7 @@ export default function GridWithWizard({ categoryDetail, subCategory, posts }) {
                                                         ))
                                                 }
 
-                                                <img loading='lazy' src={post.img} className="img-responsive" alt="" />
+                                                <img loading='lazy' src={post.img} className="img-responsive" alt="post img" />
                                             </div>
                                             <h4>
                                                 <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>

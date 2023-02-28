@@ -23,7 +23,7 @@ export default function LatestNews({ posts }) {
               .map((post) => (
                 <>
                   <div className="thumb">
-                    <img loading='lazy' src={webp(post.img)} className="img-responsive" alt="" />
+                    <img loading='lazy' src={webp(post.img)} className="img-responsive" alt="post img" />
                     <span className="thumb-cat">{ post.category.name}</span>
                   </div>
 

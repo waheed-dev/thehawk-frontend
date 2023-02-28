@@ -5,6 +5,7 @@ specifiers:
   '@supercharge/collections': ^4.3.0
   '@types/html-to-text': ^8.1.1
   axios: ^0.27.2
+  dotenv: ^16.0.3
   eslint: 8.24.0
   eslint-config-next: 12.3.1
   google-maps-react: ^2.0.6
@@ -35,6 +36,7 @@ dependencies:
   '@ant-design/react-slick': 0.29.2_react@18.2.0
   '@supercharge/collections': 4.3.1
   axios: 0.27.2
+  dotenv: 16.0.3
   google-maps-react: 2.0.6_biqbaboplfbrettd7655fr4n2y
   html-to-text: 8.2.1
   moment: 2.29.4
@@ -1840,6 +1842,11 @@ packages:
       dom-serializer: 1.4.1
       domelementtype: 2.3.0
       domhandler: 4.3.1
+    dev: false
+
+  /dotenv/16.0.3:
+    resolution: {integrity: sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==}
+    engines: {node: '>=12'}
     dev: false
 
   /emoji-regex/9.2.2:

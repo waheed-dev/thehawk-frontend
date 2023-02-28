@@ -48,17 +48,10 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
             <div className="row">
                 <div className="col-md-12">
 
-
                     <>
-
                         <div className="cat-blocks">
-                            <h4>
-                                <span>
-
-
-
-
-
+                            <h2>
+                                <span style={{ background: '#e00000', fontSize: '16px', padding: '0px 24px' }}>
                                     <Link href={
                                         url.category
                                             .single.replace(':name', slugify(categoryDetail.category))
@@ -72,11 +65,7 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
                                         </a></Link>
 
                                 </span>
-                                <div style={{
-                                    marginTop: '20px',
-                                    width: '20%'
-
-                                }}>
+                                <div className='state-select'>
                                     <AsyncPaginate
 
                                         isLoading={false}
@@ -87,9 +76,9 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
                                     />
                                 </div>
 
-                            </h4>
+                            </h2>
 
-                            <div className="row">
+                            <div className="row cat-blocks-tow-part-container">
                                 {
                                     filteredPost
                                         .filter((filtered) => filtered.isFetaured === true)
@@ -129,14 +118,14 @@ export default function GridPost({ posts, categoryDetail, subCategory }) {
                                                             marginTop: 10
                                                         }} loading='lazy' src={post.img} className="img-responsive" alt={post.imgAlt} />
                                                     }
-                                                    <h5>
+                                                    <h3>
                                                         <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
 
                                                             <a >
                                                                 {post.postitle}
                                                             </a>
                                                         </Link>
-                                                    </h5>
+                                                    </h3>
                                                     <span className="date"> {moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</span>
                                                     <p>
                                                         {

@@ -14,6 +14,7 @@
     "@ant-design/react-slick": "^0.29.2",
     "@supercharge/collections": "^4.3.0",
     "axios": "^0.27.2",
+    "dotenv": "^16.0.3",
     "google-maps-react": "^2.0.6",
     "html-to-text": "^8.2.1",
     "moment": "^2.29.4",

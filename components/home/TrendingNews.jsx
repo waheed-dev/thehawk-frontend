@@ -9,7 +9,7 @@ export default function TrendingNews({ posts }) {
     return (
         <>
             <div className="featured-news2">
-                <h5><span>Trending News</span></h5>
+                <h1><span>Trending News</span></h1>
                 <div className="row">
                     {
                         posts.sort((a, b) => new Date(b.createdAt).getTime() -

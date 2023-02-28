@@ -38,7 +38,7 @@ export default function AuthorSection({ User }) {
                     <li key={user._id}>
                       <Link href={url.author.single.replace(":name", user.name ).replace(":id" , user._id)}>
                         <a >
-                          <img src={user.avatar} loading="lazy" className="img-responsive" alt="" />
+                          <img src={user.avatar} loading="lazy" className="img-responsive" alt="user img" />
                         </a>
                       </Link>
                      

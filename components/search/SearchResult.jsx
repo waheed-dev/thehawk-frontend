@@ -26,12 +26,12 @@ export default function SearchResult({ postData }) {
                                         </div>
                                         <div className="fn2-info">
                                             <div className="fn2-meta">{post.category.name}</div>
-                                            <h4>
+                                            <h1>
                                                 <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
                                                     <a >{post.postitle}</a>
                                                 </Link>
 
-                                            </h4>
+                                            </h1>
                                             <em> {moment(post.createdAt).format("MMMM")}
                                                 {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</em>
                                             <p>
@@ -54,7 +54,7 @@ export default function SearchResult({ postData }) {
                                             <div className="fn2-meta">
                                                 {post.category.name}
                                             </div>
-                                            <h4>
+                                            <h1>
                                                 <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
                                                     <a >
                                                         {
@@ -64,7 +64,7 @@ export default function SearchResult({ postData }) {
                                                 </Link>
 
 
-                                            </h4>
+                                            </h1>
                                             <em> {moment(post.createdAt).format("MMMM")}
                                                 {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</em>
                                             <p>

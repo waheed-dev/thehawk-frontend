@@ -12,7 +12,7 @@ export default function SearchPage({ postData }) {
       <MainContent postData={postData} />
 
       <div className="big-banner">
-        <a href="#"><img src="images/banner/3.jpg" className="img-responsive" alt="" /></a>
+        <a href="#"><img src="images/banner/3.jpg" className="img-responsive" alt="banner-image" /></a>
       </div>
 
     </>

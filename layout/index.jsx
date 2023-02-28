@@ -29,18 +29,18 @@ export default function Layout({ Seo, children }) {
   }, []);
   return (
     <>
-      <Topbar/>
-          <div className="container wrapper">
-              
-              <Header />
-              
+      <Topbar />
+      <div className="container wrapper">
+
+        <Header />
+
         <DownHeader />
-    
-              {children}
-<Footer/>
-          </div>
-              
-  
+
+        {children}
+        <Footer />
+      </div>
+
+
     </>
   )
 }

@@ -31,8 +31,8 @@ const Navbar = ({ categoryData, subCategoryData, rssData }) => {
 
     return (
         <>
-            <div className="menu-trigger"><i className="fa fa-align-justify"></i> Menu</div>
-            <nav>
+            <div className="menu-trigger"><i onClick={() => setshowMenu(!showMenu)} className="fa fa-align-justify"></i> Menu</div>
+            <nav className={`${showMenu? 'display-block' : 'display-none'}`}>
                 <ul>
                     {/* active */}
                     <li className={router.pathname == url.home ? "active" : ""} key={uuidv4()}>

@@ -34,7 +34,7 @@ export default function BlueNewsSection({ categoryDetails, post }) {
                   </a>
                   </Link>
                 </span></h4>
-              <div className="row">
+              <div className="row cat-blocks-tow-part-container">
                   <div className="col-md-6">
                       <div ref={ref} className="op-twitter">
                           <div className="opt-inner">

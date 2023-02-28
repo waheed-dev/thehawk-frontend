@@ -22,35 +22,35 @@ export default function AuthorPage({
                         <div className="sw-inner">
                             <ul>
                                 <li>
-                                    <img src="images/aside/1.jpg" alt="" />
+                                    <img src="images/aside/1.jpg" alt="img-1" />
                                     <div className="pn-info">
                                         <span>Politic</span>
                                         <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
                                     </div>
                                 </li>
                                 <li>
-                                    <img src="images/aside/2.jpg" alt="" />
+                                    <img src="images/aside/2.jpg" alt="img-2" />
                                     <div className="pn-info">
                                         <span>Politic</span>
                                         <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
                                     </div>
                                 </li>
                                 <li>
-                                    <img src="images/aside/3.jpg" alt="" />
+                                    <img src="images/aside/3.jpg" alt="img-3" />
                                     <div className="pn-info">
                                         <span>Business</span>
                                         <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
                                     </div>
                                 </li>
                                 <li>
-                                    <img src="images/aside/4.jpg" alt="" />
+                                    <img src="images/aside/4.jpg" alt="img-4" />
                                     <div className="pn-info">
                                         <span>Technology</span>
                                         <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
                                     </div>
                                 </li>
                                 <li>
-                                    <img src="images/aside/5.jpg" alt="" />
+                                    <img src="images/aside/5.jpg" alt="img-5" />
                                     <div className="pn-info">
                                         <span>Uncategorized</span>
                                         <h4><a href="./single_post.html">Lorem Ipsum Dolor Sit Amet, Consetetuer Adipiscing Elit</a></h4>
@@ -61,7 +61,7 @@ export default function AuthorPage({
                     </div>
 
                     <div className="side-widget sw-banner">
-                        <a href="#"><img src="images/banner/2.jpg" className="img-responsive" alt="" /></a>
+                        <a href="#"><img src="images/banner/2.jpg" className="img-responsive" alt="img-responsive" /></a>
                     </div>
 
 
@@ -77,7 +77,7 @@ export default function AuthorPage({
             </div>
 
             <div className="big-banner">
-                <a href="#"><img src="images/banner/3.jpg" className="img-responsive" alt="" /></a>
+                <a href="#"><img src="images/banner/3.jpg" className="img-responsive" alt="big-banner" /></a>
             </div>
 
 

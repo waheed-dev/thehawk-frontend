@@ -17,7 +17,7 @@ export default function CommonCategoryNews({ posts, categoryDetail, subCategory 
           <>
             
             <div className="cat-blocks">
-              <h4><span>
+              <h3><span>
                 <Link href={
                   url.category
                     .single.replace(':name', slugify(categoryDetail.category))
@@ -31,8 +31,8 @@ export default function CommonCategoryNews({ posts, categoryDetail, subCategory 
                 </a>
                 </Link>
              
-              </span></h4>
-              <div className="row">
+              </span></h3>
+              <div className="row cat-blocks-tow-part-container">
                 {
                   posts
                     .filter((filtered) => filtered.isFetaured === true)
@@ -79,14 +79,14 @@ export default function CommonCategoryNews({ posts, categoryDetail, subCategory 
                               </span> </> : ''
                           }
                        
-                          <h5>
+                          <h2>
                             <Link href={url.post.single.replace(':title', slugify(post.postitle)).replace(':id', post._id)}>
                               <a >
                                 {post.postitle}
                               </a>
                             </Link>
                            
-                          </h5>
+                          </h2>
                           <span className="date">{moment(post.createdAt).format("MMMM")} {moment(post.createdAt).format("D")}, {moment(post.createdAt).format("Y")}</span>
                           <p>
                             {
