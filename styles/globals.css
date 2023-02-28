@@ -65,10 +65,6 @@ background: none;
     display: none !important;
 }
 
-.b1-aside{
-    /* height: 500px; */
-}
-
 .big-banner {
 
     border-bottom: none; 
@@ -88,3 +84,6 @@ background: none;
     font-weight: bold;
 }
 
+.css-1u9des2-indicatorSeparator{
+display: none !important;
+}

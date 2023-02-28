@@ -6,6 +6,8 @@ import Link from 'next/link'
 import slugify from 'slugify'
 import { v4 as uuidv4 } from 'uuid';
 import { memo } from 'react'
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
 
 const Navbar = ({ categoryData, subCategoryData, rssData }) => {
     const [showMenu, setshowMenu] = useState(false)
@@ -32,186 +34,184 @@ const Navbar = ({ categoryData, subCategoryData, rssData }) => {
     return (
         <>
             <div className="menu-trigger"><i onClick={() => setshowMenu(!showMenu)} className="fa fa-align-justify"></i> Menu</div>
-            <nav className={`${showMenu? 'display-block' : 'display-none'}`}>
-                <ul>
-                    {/* active */}
-                    <li className={router.pathname == url.home ? "active" : ""} key={uuidv4()}>
-                        <Link href={url.home}>
+            <nav className={`${showMenu ? 'display-block' : 'display-none'}`}>
+                <div className="menu-trigger">
+                </div>
+                <nav>
+                    <ul>
+                        {/* active */}
+                        <li className={router.pathname == url.home ? "active" : ""} key={uuidv4()}>
+                            <Link href={url.home}>
 
-                            <a >Home</a>
-                        </Link>
+                                <a >Home</a>
+                            </Link>
 
-                    </li>
+                        </li>
 
 
-                    {
-                        categoryData?.filter((filteredData) => filteredData.addToMenu === true)
-                            .sort((a, b) => a.position-b.position)
-                            .map((menu) => (
-                                <>
-                                    {/* sub-nav */}
-                                    <li key={menu._id} className={router.asPath == url.category.single.replace(":name", slugify(menu.category)).replace(':id', menu._id) ? "active" : ""}>
-                                        <Link href={url.category.single.replace(":name", slugify(menu.category)).replace(':id', menu._id)}>
-                                            <a onMouseEnter={() => {
-                                                filterinfDataIntoColumn(menu._id)
-                                                setshowMenu(true)
-                                            }}
-                                            
-                                               
-                                                className={`${subCategoryData?.filter(
+                        {
+                            categoryData?.filter((filteredData) => filteredData.addToMenu === true)
+                                .sort((a, b) => a.position - b.position)
+                                .map((menu) => (
+                                    <>
+                                        {/* sub-nav */}
+                                        <li key={menu._id} className={router.asPath == url.category.single.replace(":name", slugify(menu.category)).replace(':id', menu._id) ? "active" : ""}>
+                                            <Link href={url.category.single.replace(":name", slugify(menu.category)).replace(':id', menu._id)}>
+                                                <a onMouseEnter={() => {
+                                                    filterinfDataIntoColumn(menu._id)
+                                                    setshowMenu(true)
+                                                }}
+
+
+                                                    className={`${subCategoryData?.filter(
+                                                        (element) => element.categoryId === menu._id
+                                                    ).length !== 0 ? 'sub-nav' : ''}`}>{menu.category}</a>
+
+                                            </Link>
+
+
+
+
+                                            {subCategoryData?.filter(
                                                 (element) => element.categoryId === menu._id
-                                            ).length !== 0 ? 'sub-nav' : ''}`}>{menu.category}</a>
-
-                                        </Link>
-
-
-
-
-                                        {subCategoryData?.filter(
-                                            (element) => element.categoryId === menu._id
-                                        ).length !== 0 && showMenu ? <>
+                                            ).length !== 0 && showMenu ? <>
 
                                                 <ul
                                                     onMouseLeave={() => {
                                                         setshowMenu(false)
-                                                    filterinfDataIntoColumn('')
+                                                        filterinfDataIntoColumn('')
 
                                                     }}
                                                     className="mega-menu">
-                                                <li key={uuidv4()} className="sub-menu">
-                                                    <ul>
-                                                        {
-                                                            subCatArray[0]?.map((subCategory) => (
-                                                                <>
-                                                                    <li key={uuidv4()}>
-                                                                        <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
+                                                    <li key={uuidv4()} className="sub-menu">
+                                                        <ul>
+                                                            {
+                                                                subCatArray[0]?.map((subCategory) => (
+                                                                    <>
+                                                                        <li key={uuidv4()}>
+                                                                            <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
 
-                                                                            <a >
-                                                                                {subCategory.subCategoryName}
-                                                                            </a>
-                                                                        </Link>
-                                                                    </li>
+                                                                                <a >
+                                                                                    {subCategory.subCategoryName}
+                                                                                </a>
+                                                                            </Link>
+                                                                        </li>
 
-                                                                </>
-
-
-                                                            ))
-
-                                                        }
-                                                    </ul>
-                                                </li>
-
-                                                <li key={uuidv4()} className="sub-menu">
-                                                    <ul>
-                                                        {
-                                                            subCatArray[1]?.map((subCategory) => (
-                                                                <>
-                                                                    <li key={uuidv4()}>
-                                                                        <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
-
-                                                                            <a >
-                                                                                {subCategory.subCategoryName}
-                                                                            </a>
-                                                                        </Link>
-                                                                    </li>
-
-                                                                </>
+                                                                    </>
 
 
-                                                            ))
+                                                                ))
 
-                                                        }
-                                                    </ul>
-                                                </li>
-                                                <li key={uuidv4()} className="sub-menu">
-                                                    <ul>
-                                                        {
-                                                            subCatArray[2]?.map((subCategory) => (
-                                                                <>
-                                                                    <li key={uuidv4()}>
-                                                                        <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
+                                                            }
+                                                        </ul>
+                                                    </li>
 
-                                                                            <a >
-                                                                                {subCategory.subCategoryName}
-                                                                            </a>
-                                                                        </Link>
-                                                                    </li>
+                                                    <li key={uuidv4()} className="sub-menu">
+                                                        <ul>
+                                                            {
+                                                                subCatArray[1]?.map((subCategory) => (
+                                                                    <>
+                                                                        <li key={uuidv4()}>
+                                                                            <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
 
-                                                                </>
+                                                                                <a >
+                                                                                    {subCategory.subCategoryName}
+                                                                                </a>
+                                                                            </Link>
+                                                                        </li>
 
-
-                                                            ))
-
-                                                        }
-                                                    </ul>
-                                                </li>
-                                                <li key={uuidv4()} className="sub-menu">
-                                                    <ul>
-                                                        {
-                                                            subCatArray[3]?.map((subCategory) => (
-                                                                <>
-                                                                    <li key={uuidv4()}>
-                                                                        <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
-
-                                                                            <a >
-                                                                                {subCategory.subCategoryName}
-                                                                            </a>
-                                                                        </Link>
-                                                                    </li>
-
-                                                                </>
+                                                                    </>
 
 
-                                                            ))
+                                                                ))
 
-                                                        }
-                                                    </ul>
-                                                </li>
-                                                <li key={uuidv4()} className="sub-menu">
-                                                    <ul>
-                                                        {
-                                                            subCatArray[4]?.map((subCategory) => (
-                                                                <>
-                                                                    <li key={uuidv4()}>
-                                                                        <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                    <li key={uuidv4()} className="sub-menu">
+                                                        <ul>
+                                                            {
+                                                                subCatArray[2]?.map((subCategory) => (
+                                                                    <>
+                                                                        <li key={uuidv4()}>
+                                                                            <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
 
-                                                                            <a >
-                                                                                {subCategory.subCategoryName}
-                                                                            </a>
-                                                                        </Link>
-                                                                    </li>
+                                                                                <a >
+                                                                                    {subCategory.subCategoryName}
+                                                                                </a>
+                                                                            </Link>
+                                                                        </li>
 
-                                                                </>
-
-
-                                                            ))
-
-                                                        }
-                                                    </ul>
-                                                </li>
-
-                                            </ul>
-
-                                        </> : null
-                                        }
+                                                                    </>
 
 
+                                                                ))
 
-                                    </li>
-                                </>
-                            ))
-                    }
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                    <li key={uuidv4()} className="sub-menu">
+                                                        <ul>
+                                                            {
+                                                                subCatArray[3]?.map((subCategory) => (
+                                                                    <>
+                                                                        <li key={uuidv4()}>
+                                                                            <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
+
+                                                                                <a >
+                                                                                    {subCategory.subCategoryName}
+                                                                                </a>
+                                                                            </Link>
+                                                                        </li>
+
+                                                                    </>
+
+
+                                                                ))
+
+                                                            }
+                                                        </ul>
+                                                    </li>
+                                                    <li key={uuidv4()} className="sub-menu">
+                                                        <ul>
+                                                            {
+                                                                subCatArray[4]?.map((subCategory) => (
+                                                                    <>
+                                                                        <li key={uuidv4()}>
+                                                                            <Link href={url.subCategory.single.replace(":name", slugify(subCategory.subCategoryName)).replace(':id', subCategory._id)}>
+
+                                                                                <a >
+                                                                                    {subCategory.subCategoryName}
+                                                                                </a>
+                                                                            </Link>
+                                                                        </li>
+
+                                                                    </>
+
+
+                                                                ))
+
+                                                            }
+                                                        </ul>
+                                                    </li>
+
+                                                </ul>
+
+                                            </> : null
+                                            }
 
 
 
+                                        </li>
+                                    </>
+                                ))
+                        }
 
-
-
-                </ul>
+                    </ul>
+                </nav>
             </nav>
         </>
     )
 }
-
 
 export default memo(Navbar)
