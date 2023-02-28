@@ -833,6 +833,14 @@ header nav ul li:hover .mega-menu {
 	margin-left: 10px;
 }
 
+.cat-blocks h3 span {
+	background: #e00000;
+	margin-bottom: 10px;
+	display: inline-block;
+	font-size: 16px;
+	padding: 10px 26px;
+}
+
 .featured-news h5,
 .cat-blocks h4,
 .featured-news2 h5 {
@@ -4305,6 +4313,7 @@ footer {
 		width: 100%;
 		padding: 0px 0px;
 	}
+
 
 	.sw-poll h4 {
 		font-size: 18px;
