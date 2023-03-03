@@ -4,11 +4,11 @@ import React from 'react'
 import db from 'DB/Conn';
 import Post from 'Model/postModel';
 export default function index({ posts }) {
-  return (
-      <>
-          
-    </>
-  )
+    return (
+        <>
+
+        </>
+    )
 }
 
 export async function getStaticPaths() {
@@ -39,7 +39,7 @@ export async function getStaticProps(context) {
             revalidate: 120,
         };
     } catch (error) {
-        console.log(error.message);
+
         return {
             props: {
                 posts: [],

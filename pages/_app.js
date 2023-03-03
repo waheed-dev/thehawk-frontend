@@ -59,9 +59,7 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
   return (
     <>
-      <Head>
-        <link rel="icon" href="./favicon.ico" />
-      </Head>
+
       <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9084918379047887"

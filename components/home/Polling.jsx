@@ -10,7 +10,7 @@ export default function Polling() {
 
             setpoolData(data)
         } catch (error) {
-            console.log(error);
+
         }
     }
     useEffect(() => {

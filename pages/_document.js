@@ -11,6 +11,11 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link
+            rel="icon"
+            href={`${process.env.NEXT_PUBLIC_HOST}/favicon.ico`}
+          />
+
           <script
             async
             strategy="lazyOnload"
