@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 export default function DownHeader() {
 
     const router = useRouter()
-    // console.log(router.asPath);
+    // 
     return (
         <>
             <div className="header">
@@ -30,14 +30,14 @@ export default function DownHeader() {
 
                                 </h2>
                             }
-                         
+
                         </div>
 
 
                         <div className="col-md-8">
                             <div className="news-ticker">
 
-                           <BreakingNews/>
+                                <BreakingNews />
 
 
 

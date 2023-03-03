@@ -137,7 +137,7 @@ export async function getStaticProps(context) {
       revalidate: 120,
     };
   } catch (error) {
-    console.log(error.message);
+
     return {
       props: {
         postData: [],

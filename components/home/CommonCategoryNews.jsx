@@ -17,7 +17,7 @@ export default function CommonCategoryNews({ posts, categoryDetail, subCategory 
           <>
             
             <div className="cat-blocks">
-              <h3><span>
+              <h3> <span>
                 <Link href={
                   url.category
                     .single.replace(':name', slugify(categoryDetail.category))

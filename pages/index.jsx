@@ -281,7 +281,7 @@ export async function getStaticProps() {
 
       .limit(1)
       .lean();
-    // console.log(fetauredTopPostData)
+    // 
     return fetauredTopPostData
   }
   await Promise.all(postLoader);
@@ -302,7 +302,7 @@ export async function getStaticProps() {
       postsData: data.map(db.convertDocToObj),
       category: cat.map(db.convertDocToObj),
       subCategory: subCat.map(db.convertDocToObj),
-      siteinfo:  [siteinfo]?.map(db.convertDocToObj)
+      siteinfo: [siteinfo]?.map(db.convertDocToObj)
     },
     revalidate: 120,
   };
